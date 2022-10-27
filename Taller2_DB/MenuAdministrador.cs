@@ -77,5 +77,19 @@ namespace Taller2_DB
             AgregarDinero dinero = new AgregarDinero();
             dinero.Show();
         }
+
+        private void btn_EditarSalario_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CambiarSalario salario = new CambiarSalario();
+            salario.Show();
+        }
+
+        private void btn_ProvProd_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            VentaProductoProveedor productoProveedor = new VentaProductoProveedor();
+            productoProveedor.Show();
+        }
     }
 }
