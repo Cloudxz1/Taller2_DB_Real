@@ -70,5 +70,12 @@ namespace Taller2_DB
             EliminarCliente cliente = new EliminarCliente();
             cliente.Show();
         }
+
+        private void btn_AgregarSaldoCli_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AgregarDinero dinero = new AgregarDinero();
+            dinero.Show();
+        }
     }
 }

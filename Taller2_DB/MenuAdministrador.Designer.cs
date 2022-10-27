@@ -42,6 +42,8 @@ namespace Taller2_DB
             this.InsertVend = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.btn_DeleteCli = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btn_AgregarSaldoCli = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_InsertCat
@@ -169,11 +171,32 @@ namespace Taller2_DB
             this.btn_DeleteCli.UseVisualStyleBackColor = true;
             this.btn_DeleteCli.Click += new System.EventHandler(this.btn_DeleteCli_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(84, 291);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(154, 17);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Insertar saldo al cliente";
+            // 
+            // btn_AgregarSaldoCli
+            // 
+            this.btn_AgregarSaldoCli.Location = new System.Drawing.Point(118, 311);
+            this.btn_AgregarSaldoCli.Name = "btn_AgregarSaldoCli";
+            this.btn_AgregarSaldoCli.Size = new System.Drawing.Size(79, 35);
+            this.btn_AgregarSaldoCli.TabIndex = 13;
+            this.btn_AgregarSaldoCli.Text = "Ir";
+            this.btn_AgregarSaldoCli.UseVisualStyleBackColor = true;
+            this.btn_AgregarSaldoCli.Click += new System.EventHandler(this.btn_AgregarSaldoCli_Click);
+            // 
             // MenuAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 387);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.btn_AgregarSaldoCli);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btn_DeleteCli);
             this.Controls.Add(this.label5);
@@ -209,5 +232,7 @@ namespace Taller2_DB
         private System.Windows.Forms.Button InsertVend;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_DeleteCli;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btn_AgregarSaldoCli;
     }
 }
