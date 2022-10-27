@@ -63,5 +63,12 @@ namespace Taller2_DB
             AgregarVendedor vendedor = new AgregarVendedor();
             vendedor.Show();
         }
+
+        private void btn_DeleteCli_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            EliminarCliente cliente = new EliminarCliente();
+            cliente.Show();
+        }
     }
 }

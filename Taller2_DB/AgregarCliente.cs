@@ -64,5 +64,12 @@ namespace Taller2_DB
             }
             conex.close();
         }
+
+        private void btn_Volver_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MenuAdministrador menu = new MenuAdministrador();
+            menu.Show();
+        }
     }
 }

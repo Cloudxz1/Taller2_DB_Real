@@ -53,6 +53,7 @@ namespace Taller2_DB
             this.btn_Volver.TabIndex = 0;
             this.btn_Volver.Text = "Volver";
             this.btn_Volver.UseVisualStyleBackColor = true;
+            this.btn_Volver.Click += new System.EventHandler(this.btn_Volver_Click);
             // 
             // label1
             // 

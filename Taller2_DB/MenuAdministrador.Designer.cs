@@ -40,6 +40,8 @@ namespace Taller2_DB
             this.btn_Volver = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.InsertVend = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btn_DeleteCli = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_InsertCat
@@ -148,11 +150,32 @@ namespace Taller2_DB
             this.InsertVend.UseVisualStyleBackColor = true;
             this.InsertVend.Click += new System.EventHandler(this.InsertVend_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(521, 192);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(105, 17);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Eliminar Cliente";
+            // 
+            // btn_DeleteCli
+            // 
+            this.btn_DeleteCli.Location = new System.Drawing.Point(524, 212);
+            this.btn_DeleteCli.Name = "btn_DeleteCli";
+            this.btn_DeleteCli.Size = new System.Drawing.Size(79, 35);
+            this.btn_DeleteCli.TabIndex = 11;
+            this.btn_DeleteCli.Text = "Ir";
+            this.btn_DeleteCli.UseVisualStyleBackColor = true;
+            this.btn_DeleteCli.Click += new System.EventHandler(this.btn_DeleteCli_Click);
+            // 
             // MenuAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 387);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.btn_DeleteCli);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.InsertVend);
             this.Controls.Add(this.btn_Volver);
@@ -184,5 +207,7 @@ namespace Taller2_DB
         private System.Windows.Forms.Button btn_Volver;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button InsertVend;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btn_DeleteCli;
     }
 }
