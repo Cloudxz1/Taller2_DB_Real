@@ -20,6 +20,9 @@ namespace Taller2_DB
 
         private void AgregarCliente_Load(object sender, EventArgs e)
         {
+            //Largo maximo de Rut ej: 129876540
+            RutCliente.MaxLength = 9;
+
             MySqlDataAdapter adapter;
             ConexMySQL conex = new ConexMySQL();
             conex.open();
@@ -51,17 +54,48 @@ namespace Taller2_DB
             int saldo = Int32.Parse(SaldoCli.Text);
             ConexMySQL conex = new ConexMySQL();
             conex.open();
-            string query = "INSERT INTO Cliente VALUES('" + RutCliente.Text + "','" + NombreCli.Text + "','"+saldo+"','" + DireccionCli.Text + "','" + tefelonoCli.Text + "',0)";
-            int saber = conex.executeNonQuery(query);
-            if (saber == 1)
+            //Validar que los campos no se encuentren vacios 
+            if (RutCliente.Text != "" || NombreCli.Text != "" || DireccionCli.Text != "" || tefelonoCli.Text != "")
             {
-                MessageBox.Show("Se ingreso el cliente correctamente", "Success");
-                MostrarCliente();
+                //Validar que los campos del rut ingresado sean correctos
+                if (validarRut() == true)
+                {
+                    //Validar que el saldo del cliente no sea un valor negativo
+                    if (saldo>=0)
+                    {
+                        string query = "INSERT INTO Cliente VALUES('" + RutCliente.Text + "','" + NombreCli.Text + "','" + saldo.ToString() + "','" + DireccionCli.Text + "','" + tefelonoCli.Text + "',0)";
+                        int saber = conex.executeNonQuery(query);
+                        if (saber == 1)
+                        {
+                            MessageBox.Show("Se ingreso el cliente correctamente", "Success");
+                            RutCliente.Clear();
+                            NombreCli.Clear();
+                            SaldoCli.Clear();
+                            DireccionCli.Clear();
+                            tefelonoCli.Clear();
+                            MostrarCliente();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se ingreso el cliente correctamente", "Error");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("El saldo no puede ser un valor negativo");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El largo del rut debe ser de 8 a 9 caracteres");
+                }
             }
             else
             {
-                MessageBox.Show("No se ingreso el cliente correctamente", "Error");
+                MessageBox.Show("Los campos no pueden estar vacios");
             }
+
+            
             conex.close();
         }
 
@@ -70,6 +104,15 @@ namespace Taller2_DB
             this.Hide();
             MenuAdministrador menu = new MenuAdministrador();
             menu.Show();
+        }
+        //Funcion que determina si el largo del rut coincide
+        public Boolean validarRut()
+        {
+            if (RutCliente.Text.Length>=8)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
