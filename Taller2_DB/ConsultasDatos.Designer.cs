@@ -36,6 +36,9 @@ namespace Taller2_DB
             this.btnDatosVendedor1 = new System.Windows.Forms.Button();
             this.btnVendAntigTipo = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnCategProd = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnVolverConsultas
@@ -51,7 +54,7 @@ namespace Taller2_DB
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 53);
+            this.label1.Location = new System.Drawing.Point(43, 85);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 1;
@@ -59,7 +62,7 @@ namespace Taller2_DB
             // 
             // btnListadoDatos
             // 
-            this.btnListadoDatos.Location = new System.Drawing.Point(46, 80);
+            this.btnListadoDatos.Location = new System.Drawing.Point(195, 80);
             this.btnListadoDatos.Name = "btnListadoDatos";
             this.btnListadoDatos.Size = new System.Drawing.Size(75, 23);
             this.btnListadoDatos.TabIndex = 2;
@@ -70,7 +73,7 @@ namespace Taller2_DB
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(188, 53);
+            this.label2.Location = new System.Drawing.Point(43, 118);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 13);
             this.label2.TabIndex = 3;
@@ -78,9 +81,9 @@ namespace Taller2_DB
             // 
             // btnDatosVendedor1
             // 
-            this.btnDatosVendedor1.Location = new System.Drawing.Point(191, 80);
+            this.btnDatosVendedor1.Location = new System.Drawing.Point(195, 113);
             this.btnDatosVendedor1.Name = "btnDatosVendedor1";
-            this.btnDatosVendedor1.Size = new System.Drawing.Size(84, 23);
+            this.btnDatosVendedor1.Size = new System.Drawing.Size(75, 23);
             this.btnDatosVendedor1.TabIndex = 4;
             this.btnDatosVendedor1.Text = "Ir";
             this.btnDatosVendedor1.UseVisualStyleBackColor = true;
@@ -88,7 +91,7 @@ namespace Taller2_DB
             // 
             // btnVendAntigTipo
             // 
-            this.btnVendAntigTipo.Location = new System.Drawing.Point(352, 80);
+            this.btnVendAntigTipo.Location = new System.Drawing.Point(195, 147);
             this.btnVendAntigTipo.Name = "btnVendAntigTipo";
             this.btnVendAntigTipo.Size = new System.Drawing.Size(75, 23);
             this.btnVendAntigTipo.TabIndex = 6;
@@ -99,17 +102,48 @@ namespace Taller2_DB
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(317, 53);
+            this.label3.Location = new System.Drawing.Point(43, 152);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(146, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "3) Vendedor Tipo Antiguedad";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(43, 212);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(139, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "5) Categoria de un producto";
+            // 
+            // btnCategProd
+            // 
+            this.btnCategProd.Location = new System.Drawing.Point(195, 206);
+            this.btnCategProd.Name = "btnCategProd";
+            this.btnCategProd.Size = new System.Drawing.Size(75, 25);
+            this.btnCategProd.TabIndex = 9;
+            this.btnCategProd.Text = "Ir";
+            this.btnCategProd.UseVisualStyleBackColor = true;
+            this.btnCategProd.Click += new System.EventHandler(this.btnCategProd_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(138, 34);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Consultar";
+            // 
             // ConsultasDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(627, 450);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.btnCategProd);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnVendAntigTipo);
             this.Controls.Add(this.btnDatosVendedor1);
@@ -133,5 +167,8 @@ namespace Taller2_DB
         private System.Windows.Forms.Button btnDatosVendedor1;
         private System.Windows.Forms.Button btnVendAntigTipo;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnCategProd;
+        private System.Windows.Forms.Label label5;
     }
 }
