@@ -68,5 +68,12 @@ namespace Taller2_DB
             conscatpro.Show();
             this.Hide();
         }
+
+        private void btnCantProdCateg_Click(object sender, EventArgs e)
+        {
+            ConsultarDatosCantProductoCateg conscantpc = new ConsultarDatosCantProductoCateg();
+            conscantpc.Show();
+            this.Hide();
+        }
     }
 }

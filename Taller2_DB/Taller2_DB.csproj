@@ -133,6 +133,12 @@
       <DependentUpon>CambiarSalario.cs</DependentUpon>
     </Compile>
     <Compile Include="ConexMySQL.cs" />
+    <Compile Include="ConsultarDatosCantProductoCateg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarDatosCantProductoCateg.Designer.cs">
+      <DependentUpon>ConsultarDatosCantProductoCateg.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsultarDatosCategoriaProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CambiarSalario.resx">
       <DependentUpon>CambiarSalario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarDatosCantProductoCateg.resx">
+      <DependentUpon>ConsultarDatosCantProductoCateg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultarDatosCategoriaProducto.resx">
       <DependentUpon>ConsultarDatosCategoriaProducto.cs</DependentUpon>

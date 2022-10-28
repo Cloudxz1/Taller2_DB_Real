@@ -39,6 +39,8 @@ namespace Taller2_DB
             this.label4 = new System.Windows.Forms.Label();
             this.btnCategProd = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnCantProdCateg = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVolverConsultas
@@ -62,7 +64,7 @@ namespace Taller2_DB
             // 
             // btnListadoDatos
             // 
-            this.btnListadoDatos.Location = new System.Drawing.Point(195, 80);
+            this.btnListadoDatos.Location = new System.Drawing.Point(252, 80);
             this.btnListadoDatos.Name = "btnListadoDatos";
             this.btnListadoDatos.Size = new System.Drawing.Size(75, 23);
             this.btnListadoDatos.TabIndex = 2;
@@ -81,7 +83,7 @@ namespace Taller2_DB
             // 
             // btnDatosVendedor1
             // 
-            this.btnDatosVendedor1.Location = new System.Drawing.Point(195, 113);
+            this.btnDatosVendedor1.Location = new System.Drawing.Point(252, 113);
             this.btnDatosVendedor1.Name = "btnDatosVendedor1";
             this.btnDatosVendedor1.Size = new System.Drawing.Size(75, 23);
             this.btnDatosVendedor1.TabIndex = 4;
@@ -91,7 +93,7 @@ namespace Taller2_DB
             // 
             // btnVendAntigTipo
             // 
-            this.btnVendAntigTipo.Location = new System.Drawing.Point(195, 147);
+            this.btnVendAntigTipo.Location = new System.Drawing.Point(252, 147);
             this.btnVendAntigTipo.Name = "btnVendAntigTipo";
             this.btnVendAntigTipo.Size = new System.Drawing.Size(75, 23);
             this.btnVendAntigTipo.TabIndex = 6;
@@ -119,7 +121,7 @@ namespace Taller2_DB
             // 
             // btnCategProd
             // 
-            this.btnCategProd.Location = new System.Drawing.Point(195, 206);
+            this.btnCategProd.Location = new System.Drawing.Point(252, 206);
             this.btnCategProd.Name = "btnCategProd";
             this.btnCategProd.Size = new System.Drawing.Size(75, 25);
             this.btnCategProd.TabIndex = 9;
@@ -136,11 +138,32 @@ namespace Taller2_DB
             this.label5.TabIndex = 10;
             this.label5.Text = "Consultar";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(43, 247);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(191, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "6) Cantidad de productos por categoria";
+            // 
+            // btnCantProdCateg
+            // 
+            this.btnCantProdCateg.Location = new System.Drawing.Point(252, 242);
+            this.btnCantProdCateg.Name = "btnCantProdCateg";
+            this.btnCantProdCateg.Size = new System.Drawing.Size(75, 23);
+            this.btnCantProdCateg.TabIndex = 12;
+            this.btnCantProdCateg.Text = "Ir";
+            this.btnCantProdCateg.UseVisualStyleBackColor = true;
+            this.btnCantProdCateg.Click += new System.EventHandler(this.btnCantProdCateg_Click);
+            // 
             // ConsultasDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(627, 450);
+            this.Controls.Add(this.btnCantProdCateg);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnCategProd);
             this.Controls.Add(this.label4);
@@ -170,5 +193,7 @@ namespace Taller2_DB
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCategProd;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnCantProdCateg;
     }
 }
