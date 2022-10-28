@@ -48,13 +48,16 @@ namespace Taller2_DB
             this.btn_EditarSalario = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.btn_ProvProd = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnAtenderOrdenCompra = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_InsertCat
             // 
-            this.btn_InsertCat.Location = new System.Drawing.Point(118, 113);
+            this.btn_InsertCat.Location = new System.Drawing.Point(88, 92);
+            this.btn_InsertCat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_InsertCat.Name = "btn_InsertCat";
-            this.btn_InsertCat.Size = new System.Drawing.Size(79, 35);
+            this.btn_InsertCat.Size = new System.Drawing.Size(59, 28);
             this.btn_InsertCat.TabIndex = 0;
             this.btn_InsertCat.Text = "Ir";
             this.btn_InsertCat.UseVisualStyleBackColor = true;
@@ -63,26 +66,29 @@ namespace Taller2_DB
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(99, 93);
+            this.label1.Location = new System.Drawing.Point(74, 76);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 17);
+            this.label1.Size = new System.Drawing.Size(90, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Insertar Categoria";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(99, 192);
+            this.label2.Location = new System.Drawing.Point(74, 156);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 17);
+            this.label2.Size = new System.Drawing.Size(88, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Insertar Producto";
             // 
             // btn_InsertProd
             // 
-            this.btn_InsertProd.Location = new System.Drawing.Point(118, 212);
+            this.btn_InsertProd.Location = new System.Drawing.Point(88, 172);
+            this.btn_InsertProd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_InsertProd.Name = "btn_InsertProd";
-            this.btn_InsertProd.Size = new System.Drawing.Size(79, 35);
+            this.btn_InsertProd.Size = new System.Drawing.Size(59, 28);
             this.btn_InsertProd.TabIndex = 2;
             this.btn_InsertProd.Text = "Ir";
             this.btn_InsertProd.UseVisualStyleBackColor = true;
@@ -91,18 +97,20 @@ namespace Taller2_DB
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(322, 93);
+            this.label3.Location = new System.Drawing.Point(242, 76);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 17);
+            this.label3.Size = new System.Drawing.Size(77, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Insertar Cliente";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // btn_InsertCli
             // 
-            this.btn_InsertCli.Location = new System.Drawing.Point(334, 113);
+            this.btn_InsertCli.Location = new System.Drawing.Point(250, 92);
+            this.btn_InsertCli.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_InsertCli.Name = "btn_InsertCli";
-            this.btn_InsertCli.Size = new System.Drawing.Size(79, 35);
+            this.btn_InsertCli.Size = new System.Drawing.Size(59, 28);
             this.btn_InsertCli.TabIndex = 4;
             this.btn_InsertCli.Text = "Ir";
             this.btn_InsertCli.UseVisualStyleBackColor = true;
@@ -111,17 +119,19 @@ namespace Taller2_DB
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(315, 192);
+            this.label4.Location = new System.Drawing.Point(236, 156);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(126, 17);
+            this.label4.Size = new System.Drawing.Size(94, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Insertar Proveedor";
             // 
             // InsertProv
             // 
-            this.InsertProv.Location = new System.Drawing.Point(334, 212);
+            this.InsertProv.Location = new System.Drawing.Point(250, 172);
+            this.InsertProv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.InsertProv.Name = "InsertProv";
-            this.InsertProv.Size = new System.Drawing.Size(79, 35);
+            this.InsertProv.Size = new System.Drawing.Size(59, 28);
             this.InsertProv.TabIndex = 6;
             this.InsertProv.Text = "Ir";
             this.InsertProv.UseVisualStyleBackColor = true;
@@ -129,9 +139,10 @@ namespace Taller2_DB
             // 
             // btn_Volver
             // 
-            this.btn_Volver.Location = new System.Drawing.Point(12, 12);
+            this.btn_Volver.Location = new System.Drawing.Point(9, 10);
+            this.btn_Volver.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Volver.Name = "btn_Volver";
-            this.btn_Volver.Size = new System.Drawing.Size(83, 39);
+            this.btn_Volver.Size = new System.Drawing.Size(62, 32);
             this.btn_Volver.TabIndex = 8;
             this.btn_Volver.Text = "Volver";
             this.btn_Volver.UseVisualStyleBackColor = true;
@@ -140,17 +151,19 @@ namespace Taller2_DB
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(505, 93);
+            this.label5.Location = new System.Drawing.Point(379, 76);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(122, 17);
+            this.label5.Size = new System.Drawing.Size(91, 13);
             this.label5.TabIndex = 10;
             this.label5.Text = "Insertar Vendedor";
             // 
             // InsertVend
             // 
-            this.InsertVend.Location = new System.Drawing.Point(524, 113);
+            this.InsertVend.Location = new System.Drawing.Point(393, 92);
+            this.InsertVend.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.InsertVend.Name = "InsertVend";
-            this.InsertVend.Size = new System.Drawing.Size(79, 35);
+            this.InsertVend.Size = new System.Drawing.Size(59, 28);
             this.InsertVend.TabIndex = 9;
             this.InsertVend.Text = "Ir";
             this.InsertVend.UseVisualStyleBackColor = true;
@@ -159,17 +172,19 @@ namespace Taller2_DB
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(521, 192);
+            this.label6.Location = new System.Drawing.Point(391, 156);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(105, 17);
+            this.label6.Size = new System.Drawing.Size(78, 13);
             this.label6.TabIndex = 12;
             this.label6.Text = "Eliminar Cliente";
             // 
             // btn_DeleteCli
             // 
-            this.btn_DeleteCli.Location = new System.Drawing.Point(524, 212);
+            this.btn_DeleteCli.Location = new System.Drawing.Point(393, 172);
+            this.btn_DeleteCli.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_DeleteCli.Name = "btn_DeleteCli";
-            this.btn_DeleteCli.Size = new System.Drawing.Size(79, 35);
+            this.btn_DeleteCli.Size = new System.Drawing.Size(59, 28);
             this.btn_DeleteCli.TabIndex = 11;
             this.btn_DeleteCli.Text = "Ir";
             this.btn_DeleteCli.UseVisualStyleBackColor = true;
@@ -178,17 +193,19 @@ namespace Taller2_DB
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(84, 291);
+            this.label7.Location = new System.Drawing.Point(63, 236);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(154, 17);
+            this.label7.Size = new System.Drawing.Size(115, 13);
             this.label7.TabIndex = 14;
             this.label7.Text = "Insertar saldo al cliente";
             // 
             // btn_AgregarSaldoCli
             // 
-            this.btn_AgregarSaldoCli.Location = new System.Drawing.Point(118, 311);
+            this.btn_AgregarSaldoCli.Location = new System.Drawing.Point(88, 253);
+            this.btn_AgregarSaldoCli.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_AgregarSaldoCli.Name = "btn_AgregarSaldoCli";
-            this.btn_AgregarSaldoCli.Size = new System.Drawing.Size(79, 35);
+            this.btn_AgregarSaldoCli.Size = new System.Drawing.Size(59, 28);
             this.btn_AgregarSaldoCli.TabIndex = 13;
             this.btn_AgregarSaldoCli.Text = "Ir";
             this.btn_AgregarSaldoCli.UseVisualStyleBackColor = true;
@@ -197,17 +214,19 @@ namespace Taller2_DB
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(271, 291);
+            this.label8.Location = new System.Drawing.Point(203, 236);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(210, 17);
+            this.label8.Size = new System.Drawing.Size(156, 13);
             this.label8.TabIndex = 15;
             this.label8.Text = "Cambiar salario de un vendedor";
             // 
             // btn_EditarSalario
             // 
-            this.btn_EditarSalario.Location = new System.Drawing.Point(334, 311);
+            this.btn_EditarSalario.Location = new System.Drawing.Point(250, 253);
+            this.btn_EditarSalario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_EditarSalario.Name = "btn_EditarSalario";
-            this.btn_EditarSalario.Size = new System.Drawing.Size(79, 35);
+            this.btn_EditarSalario.Size = new System.Drawing.Size(59, 28);
             this.btn_EditarSalario.TabIndex = 16;
             this.btn_EditarSalario.Text = "Ir";
             this.btn_EditarSalario.UseVisualStyleBackColor = true;
@@ -216,27 +235,50 @@ namespace Taller2_DB
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(505, 291);
+            this.label9.Location = new System.Drawing.Point(379, 236);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(136, 17);
+            this.label9.Size = new System.Drawing.Size(102, 13);
             this.label9.TabIndex = 18;
             this.label9.Text = "Producto-Proveedor";
             // 
             // btn_ProvProd
             // 
-            this.btn_ProvProd.Location = new System.Drawing.Point(524, 311);
+            this.btn_ProvProd.Location = new System.Drawing.Point(393, 253);
+            this.btn_ProvProd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_ProvProd.Name = "btn_ProvProd";
-            this.btn_ProvProd.Size = new System.Drawing.Size(79, 35);
+            this.btn_ProvProd.Size = new System.Drawing.Size(59, 28);
             this.btn_ProvProd.TabIndex = 17;
             this.btn_ProvProd.Text = "Ir";
             this.btn_ProvProd.UseVisualStyleBackColor = true;
             this.btn_ProvProd.Click += new System.EventHandler(this.btn_ProvProd_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(508, 76);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(115, 13);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Atender Orden Compra";
+            // 
+            // btnAtenderOrdenCompra
+            // 
+            this.btnAtenderOrdenCompra.Location = new System.Drawing.Point(525, 95);
+            this.btnAtenderOrdenCompra.Name = "btnAtenderOrdenCompra";
+            this.btnAtenderOrdenCompra.Size = new System.Drawing.Size(75, 23);
+            this.btnAtenderOrdenCompra.TabIndex = 20;
+            this.btnAtenderOrdenCompra.Text = "Ir";
+            this.btnAtenderOrdenCompra.UseVisualStyleBackColor = true;
+            this.btnAtenderOrdenCompra.Click += new System.EventHandler(this.btnAtenderOrdenCompra_Click);
+            // 
             // MenuAdministrador
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 387);
+            this.ClientSize = new System.Drawing.Size(646, 314);
+            this.Controls.Add(this.btnAtenderOrdenCompra);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btn_ProvProd);
             this.Controls.Add(this.btn_EditarSalario);
@@ -256,6 +298,7 @@ namespace Taller2_DB
             this.Controls.Add(this.btn_InsertProd);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_InsertCat);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MenuAdministrador";
             this.Text = "MenuAdministrador";
             this.ResumeLayout(false);
@@ -284,5 +327,7 @@ namespace Taller2_DB
         private System.Windows.Forms.Button btn_EditarSalario;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btn_ProvProd;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnAtenderOrdenCompra;
     }
 }

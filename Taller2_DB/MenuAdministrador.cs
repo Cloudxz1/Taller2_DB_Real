@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1;
+using MySql.Data.MySqlClient;
 
 namespace Taller2_DB
 {
@@ -90,6 +92,13 @@ namespace Taller2_DB
             this.Hide();
             VentaProductoProveedor productoProveedor = new VentaProductoProveedor();
             productoProveedor.Show();
+        }
+
+        private void btnAtenderOrdenCompra_Click(object sender, EventArgs e)
+        {
+            AgregarOrdenCompraCliente agregor = new AgregarOrdenCompraCliente();
+            agregor.Show();
+            this.Hide();
         }
     }
 }
