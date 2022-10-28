@@ -45,7 +45,7 @@ namespace Taller2_DB
             this.btnVolverCatProd.Name = "btnVolverCatProd";
             this.btnVolverCatProd.Size = new System.Drawing.Size(75, 23);
             this.btnVolverCatProd.TabIndex = 0;
-            this.btnVolverCatProd.Text = "Ir";
+            this.btnVolverCatProd.Text = "Volver";
             this.btnVolverCatProd.UseVisualStyleBackColor = true;
             this.btnVolverCatProd.Click += new System.EventHandler(this.btnVolverCatProd_Click);
             // 
