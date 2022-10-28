@@ -24,6 +24,14 @@ namespace Taller2_DB
             string query = "SELECT Clave FROM Contraseña";
             string clave = conex.selectQueryScalar(query);
 
+            if (contrasenia.Text == "")
+            {
+                MessageBox.Show("Debe ingresar clave para entrar al sistema.");
+            }
+            if (contrasenia.Text != clave)
+            {
+                MessageBox.Show("La clave ingresada no coincide.");
+            }
             if (contrasenia.Text == clave)
             {
                 MessageBox.Show("Contraseña correcta", "Success");
