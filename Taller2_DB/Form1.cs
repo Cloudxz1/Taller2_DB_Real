@@ -23,5 +23,12 @@ namespace Taller2_DB
             Administrador admin = new Administrador();
             admin.Show();
         }
+
+        private void btnConsultas_Click(object sender, EventArgs e)
+        {
+            ConsultasDatos cons = new ConsultasDatos();
+            cons.Show();
+            this.Hide();
+        }
     }
 }

@@ -133,6 +133,18 @@
       <DependentUpon>CambiarSalario.cs</DependentUpon>
     </Compile>
     <Compile Include="ConexMySQL.cs" />
+    <Compile Include="ConsultarDatosListados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarDatosListados.Designer.cs">
+      <DependentUpon>ConsultarDatosListados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultasDatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultasDatos.Designer.cs">
+      <DependentUpon>ConsultasDatos.cs</DependentUpon>
+    </Compile>
     <Compile Include="EliminarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +195,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CambiarSalario.resx">
       <DependentUpon>CambiarSalario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarDatosListados.resx">
+      <DependentUpon>ConsultarDatosListados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultasDatos.resx">
+      <DependentUpon>ConsultasDatos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EliminarCliente.resx">
       <DependentUpon>EliminarCliente.cs</DependentUpon>
