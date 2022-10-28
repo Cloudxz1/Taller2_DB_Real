@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1;
+
 namespace Taller2_DB
 {
     public partial class AgregarVendedor : Form
@@ -28,29 +29,43 @@ namespace Taller2_DB
         private void btn_AgregarVend_Click(object sender, EventArgs e)
         {
             int salario = Int32.Parse(salEmp.Text);
+            ConexMySQL conex = new ConexMySQL();
+            conex.open();
+            //Formato de la fecha modificado dentro de las propiedades de DataTimePiker
+            fEmp.Format = DateTimePickerFormat.Custom;
+            fEmp.CustomFormat = "yyyy-MM-dd";
+
+            string query = "INSERT INTO Vendedor VALUES('" + nEmp.Text + "','" + NomEmp.Text + "','" + salario.ToString() + "','" + fEmp.Text + "')";
+            int saber = conex.executeNonQuery(query);
+
             if (salario > 0)
             {
-                ConexMySQL conex = new ConexMySQL();
-                conex.open();
-                string query = "INSERT INTO Vendedor VALUES('" + nEmp.Text + "','" + NomEmp.Text + "','" + salario + "',str_to_date('" + fEmp.Text + "', '%d-%c-%Y'))";
-
-                int saber = conex.executeNonQuery(query);
-                if (saber == 1)
+                //Valida si el vendedor ya fue ingresado previamente
+                if (validarVendedor() == 1)
                 {
-                    MessageBox.Show("Se ha registrado correctamente el empleado", "Success");
-                    MostrarVendedor();
+                    if (saber == 1)
+                    {
+                        MessageBox.Show("Se ha registrado correctamente el empleado", "Success");
+                        MostrarVendedor();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se ha registrado correctamente el empleado", "Error");
+                    }               
                 }
                 else
                 {
-                    MessageBox.Show("No se ha registrado correctamente el empleado", "Error");
+                    MessageBox.Show("El vendedor ya fue ingresado previamente");
+                    
                 }
-                conex.close();
             }
             else
             {
-                MessageBox.Show("Debe ser un salario positivo","Error");
+                MessageBox.Show("Debe ser un salario positivo", "Error");
             }
+            conex.close();
         }
+                 
 
         private void AgregarVendedor_Load(object sender, EventArgs e)
         {
@@ -77,6 +92,14 @@ namespace Taller2_DB
             adapter.Fill(tablaVendedor);
             dataVendedor.DataSource = tablaVendedor;
             conex.close();
+        }
+        public int validarVendedor()
+        {
+            ConexMySQL conex = new ConexMySQL();
+            conex.open();
+            string query = "SELECT NumeroEmpleado FROM Vendedor WHERE NumeroEmpleado = '" + nEmp.Text + "'";
+            int numero = conex.executeNonQuery(query);
+            return numero;
         }
     }
 }

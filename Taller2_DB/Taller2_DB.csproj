@@ -139,6 +139,18 @@
     <Compile Include="ConsultarDatosListados.Designer.cs">
       <DependentUpon>ConsultarDatosListados.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsultarDatosVendedorAnios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarDatosVendedorAnios.Designer.cs">
+      <DependentUpon>ConsultarDatosVendedorAnios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarDatosVendedorAntigMayorMenor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarDatosVendedorAntigMayorMenor.Designer.cs">
+      <DependentUpon>ConsultarDatosVendedorAntigMayorMenor.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsultasDatos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +210,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultarDatosListados.resx">
       <DependentUpon>ConsultarDatosListados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarDatosVendedorAnios.resx">
+      <DependentUpon>ConsultarDatosVendedorAnios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarDatosVendedorAntigMayorMenor.resx">
+      <DependentUpon>ConsultarDatosVendedorAntigMayorMenor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultasDatos.resx">
       <DependentUpon>ConsultasDatos.cs</DependentUpon>

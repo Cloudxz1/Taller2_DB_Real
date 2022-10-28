@@ -42,5 +42,24 @@ namespace Taller2_DB
             conslis.Show();
             this.Hide();
         }
+
+        private void btnDatosVendedor1_Click(object sender, EventArgs e)
+        {
+            ConsultarDatosVendedorAnios consvenanios = new ConsultarDatosVendedorAnios();
+            consvenanios.Show();
+            this.Hide();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVendAntigTipo_Click(object sender, EventArgs e)
+        {
+            ConsultarDatosVendedorAntigMayorMenor consvat = new ConsultarDatosVendedorAntigMayorMenor();
+            consvat.Show();
+            this.Hide();
+        }
     }
 }
