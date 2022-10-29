@@ -57,6 +57,7 @@ namespace Taller2_DB
             //Precio Producto
             string query5 = "Select Precio from Producto where Nombre = '" + idProd + "'";
             string precioProducto = conex.selectQueryScalar(query5);
+            int precioproducto = Int32.Parse(precioProducto);
 
             //Cantidad Stock Producto disponible en la venta
             string query6 = "Select CantidadStock from Producto where Nombre = '" + idProd + "'";
@@ -69,10 +70,12 @@ namespace Taller2_DB
             string query7 = "Select Precio from Producto where Nombre = '" + idProd + "'";
             string PrecioDescProd = conex.selectQueryScalar(query7);
 
+
             //Reduccion de la cantidad stock
             //Cantidad Stock Producto disponible para vender al cliente
-            string query9 = "Select CantidadStock from Producto where CantidadStock = '" + txtCantProdVenta.Text + "'";
+            string query9 = "Select CantidadStock from Producto where CantidadStock = '" + idProd + "'";
             string ventaStockProd = conex.selectQueryScalar(query9);
+
             int valor2 = Int32.Parse(txtCantProdVenta.Text);
 
             //Nueva cantidad Stock Producto
@@ -86,14 +89,68 @@ namespace Taller2_DB
             string query10 = "UPDATE Producto SET CantidadStock = '" + nuevaCantStockProd2 + "' WHERE Id = '" + idProd + "'";
             int NuStockProdDisp = conex.executeNonQuery(query10);
 
+            //Descuento Libro a ingresar
+            string Desc1 = txtDescuentoProd.Text;
+            //Descuento de tipo float, por los decimales
+            float DescuentoIgresado = float.Parse(Desc1);
 
             ///////////////////Reducir el saldo y monto final de la Orden de Compra//////////////////////
             //Saldo del Cliente
-            string query11 = "Select Saldo Rut from Cliente where Rut = '" + rutCliente1 + "'";
-            string saldorutCliente = conex.selectQueryScalar(query11);
+            string query12 = "Select Saldo Rut from Cliente where Rut = '" + rutCliente1 + "'";
+            string saldorutCliente = conex.selectQueryScalar(query12);
+
+            //Saldo actual del cliente
             int saldoActual = Int32.Parse(saldorutCliente);
 
+            //Sino se ha realizado el descuento de la orden de compra
+            if (DescuentoIgresado == 0)
+            {
+                //Calular el saldo en la orden de la compra
+                int montofinalprod = precioproducto * valor2;
+                int nuevoSaldoCompra = saldoActual - (montofinalprod);
+                int montofinal = saldoActual - nuevoSaldoCompra;
+                string montofinal2 = montofinal.ToString();
 
+                //Si el monto final de la orden de compra resulta negativa
+                if (montofinal < 0)
+                {
+                    MessageBox.Show("Saldo del cliente insuficiente, no puede ser negativo");
+                }
+                //Actualizar el saldo del cliente en la orden de la compra
+                string query13 = "Update Ciente Set Saldo == '" + nuevoSaldoCompra + "' WHERE RUT = " + rutCliente1 + "";
+                string saldoActualCliente = conex.selectQueryScalar(query13);
+
+                //Se actualiza el saldo y se realiza la orden de compra
+                string query14 = "INSERT INTO OrdenCompra(Id, FechaCompra, PorcentajeDescuento, MontoTotal, MontoTotalFinal, VendedorNumeroEmpleado, ClienteRut, ProductoId) VALUES ('" + "Id_Orden" + "','" + fechaHoraStr + "','" + DescuentoIgresado + "'," + montofinalprod + "," + montofinal2 + "," + numVend + "," + rutCliente1 + ",'" + idProd + "')";
+                int consultarOrden = conex.executeNonQuery(query14);
+
+                if (consultarOrden == 1)
+                {
+                    MessageBox.Show("Orden de Compra realizada exitosamente");
+                    //Verificar si desea confirmar la orden de compra
+                    var ventana = MessageBox.Show("¿Desea seguir comprando?", "Nueva venta", MessageBoxButtons.YesNo);
+                    //No
+                    if (ventana == DialogResult.No)
+                    {
+                        this.Close();
+                    }
+                    //Si
+                    else
+                    {
+                        MenuAdministrador mj = new MenuAdministrador();
+                        mj.Show();
+                        this.Hide();
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("no se ha podido realizar la venta, intente nuevamente!! ");
+
+                }
+
+            }
+            //fuera del if (DescuentoIgresado == 0)
 
             conex.close();
         }

@@ -40,6 +40,8 @@ namespace Taller2_DB
             this.cmbListaProductoVenta = new System.Windows.Forms.ComboBox();
             this.btnVentaRealizada = new System.Windows.Forms.Button();
             this.txtCantProdVenta = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtDescuentoProd = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnVolOrdCom
@@ -55,7 +57,7 @@ namespace Taller2_DB
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(186, 62);
+            this.label1.Location = new System.Drawing.Point(171, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 13);
             this.label1.TabIndex = 1;
@@ -64,7 +66,7 @@ namespace Taller2_DB
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(107, 156);
+            this.label2.Location = new System.Drawing.Point(92, 114);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 2;
@@ -73,7 +75,7 @@ namespace Taller2_DB
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(107, 120);
+            this.label3.Location = new System.Drawing.Point(92, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 13);
             this.label3.TabIndex = 3;
@@ -82,7 +84,7 @@ namespace Taller2_DB
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(107, 195);
+            this.label4.Location = new System.Drawing.Point(92, 153);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(108, 13);
             this.label4.TabIndex = 4;
@@ -91,7 +93,7 @@ namespace Taller2_DB
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(107, 231);
+            this.label5.Location = new System.Drawing.Point(92, 191);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 5;
@@ -100,7 +102,7 @@ namespace Taller2_DB
             // cmbListaRutCli
             // 
             this.cmbListaRutCli.FormattingEnabled = true;
-            this.cmbListaRutCli.Location = new System.Drawing.Point(249, 153);
+            this.cmbListaRutCli.Location = new System.Drawing.Point(234, 111);
             this.cmbListaRutCli.Name = "cmbListaRutCli";
             this.cmbListaRutCli.Size = new System.Drawing.Size(121, 21);
             this.cmbListaRutCli.TabIndex = 6;
@@ -108,7 +110,7 @@ namespace Taller2_DB
             // cmbListaNumeroEmp
             // 
             this.cmbListaNumeroEmp.FormattingEnabled = true;
-            this.cmbListaNumeroEmp.Location = new System.Drawing.Point(249, 117);
+            this.cmbListaNumeroEmp.Location = new System.Drawing.Point(234, 75);
             this.cmbListaNumeroEmp.Name = "cmbListaNumeroEmp";
             this.cmbListaNumeroEmp.Size = new System.Drawing.Size(121, 21);
             this.cmbListaNumeroEmp.TabIndex = 7;
@@ -116,14 +118,14 @@ namespace Taller2_DB
             // cmbListaProductoVenta
             // 
             this.cmbListaProductoVenta.FormattingEnabled = true;
-            this.cmbListaProductoVenta.Location = new System.Drawing.Point(249, 192);
+            this.cmbListaProductoVenta.Location = new System.Drawing.Point(234, 150);
             this.cmbListaProductoVenta.Name = "cmbListaProductoVenta";
             this.cmbListaProductoVenta.Size = new System.Drawing.Size(121, 21);
             this.cmbListaProductoVenta.TabIndex = 8;
             // 
             // btnVentaRealizada
             // 
-            this.btnVentaRealizada.Location = new System.Drawing.Point(167, 272);
+            this.btnVentaRealizada.Location = new System.Drawing.Point(152, 266);
             this.btnVentaRealizada.Name = "btnVentaRealizada";
             this.btnVentaRealizada.Size = new System.Drawing.Size(127, 23);
             this.btnVentaRealizada.TabIndex = 9;
@@ -133,16 +135,34 @@ namespace Taller2_DB
             // 
             // txtCantProdVenta
             // 
-            this.txtCantProdVenta.Location = new System.Drawing.Point(249, 231);
+            this.txtCantProdVenta.Location = new System.Drawing.Point(234, 188);
             this.txtCantProdVenta.Name = "txtCantProdVenta";
             this.txtCantProdVenta.Size = new System.Drawing.Size(121, 20);
             this.txtCantProdVenta.TabIndex = 10;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(92, 223);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Descuento:";
+            // 
+            // txtDescuentoProd
+            // 
+            this.txtDescuentoProd.Location = new System.Drawing.Point(234, 220);
+            this.txtDescuentoProd.Name = "txtDescuentoProd";
+            this.txtDescuentoProd.Size = new System.Drawing.Size(121, 20);
+            this.txtDescuentoProd.TabIndex = 12;
             // 
             // AgregarOrdenCompraCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(457, 354);
+            this.Controls.Add(this.txtDescuentoProd);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.txtCantProdVenta);
             this.Controls.Add(this.btnVentaRealizada);
             this.Controls.Add(this.cmbListaProductoVenta);
@@ -175,5 +195,7 @@ namespace Taller2_DB
         private System.Windows.Forms.ComboBox cmbListaProductoVenta;
         private System.Windows.Forms.Button btnVentaRealizada;
         private System.Windows.Forms.TextBox txtCantProdVenta;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtDescuentoProd;
     }
 }
