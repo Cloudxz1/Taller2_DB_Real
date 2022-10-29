@@ -75,5 +75,12 @@ namespace Taller2_DB
             conscantpc.Show();
             this.Hide();
         }
+
+        private void btnConsOrdComp_Click(object sender, EventArgs e)
+        {
+            ConsultarDatosOrdenCompra datosOrdenCompra = new ConsultarDatosOrdenCompra();
+            datosOrdenCompra.Show();
+            this.Hide();
+        }
     }
 }

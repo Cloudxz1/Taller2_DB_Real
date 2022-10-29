@@ -32,12 +32,12 @@ namespace Taller2_DB
             ConexMySQL conex = new ConexMySQL();
             conex.close();
             ////////////////////// Buscar datos de la Venta////////////////////////
-            //Datos del Cliente
-            string query = "Select Distinct * from Cliente where Rut = '" + cmbListaRutCli.Text + "'";
+            //Buscar datos del Cliente
+            string query = "Select Distinct Rut from Cliente where Rut = '" + cmbListaRutCli.Text + "'";
             string rutCliente1 = conex.selectQueryScalar(query);
 
             //Buscar datos del Vendedor
-            string query2 = "Select Distinct * from Vendedor where NumeroEmpleado = '" + cmbListaNumeroEmp + "'";
+            string query2 = "Select Distinct NumeroEmpleado from Vendedor where NumeroEmpleado = '" + cmbListaNumeroEmp + "'";
             string numVend = conex.selectQueryScalar(query2);
 
             //Buscar datos del Producto
@@ -48,6 +48,7 @@ namespace Taller2_DB
             DateTime fechaHoraVenta = DateTime.Now;
             string fechaHoraStr = fechaHoraVenta.ToString("yyyy-MM-dd HH:mm:ss");
 
+
             ////////////////////Datos de Producto////////////////////////
             //Nombre del Producto
             string query4 = "Select Nombre from Producto where Nombre = '" + idProd + "'";
@@ -57,19 +58,19 @@ namespace Taller2_DB
             string query5 = "Select Precio from Producto where Nombre = '" + idProd + "'";
             string precioProducto = conex.selectQueryScalar(query5);
 
-            //Cantidad Producto
+            //Cantidad Stock Producto disponible en la venta
             string query6 = "Select CantidadStock from Producto where Nombre = '" + idProd + "'";
             string cantProdActual = conex.selectQueryScalar(query6);
             int valor1 = Int32.Parse(cantProdActual);
 
+
+            ////////////////Datos para generar el descuento, precio total y el precio total final del producto//////////////
             //Descuento Producto
             string query7 = "Select Precio from Producto where Nombre = '" + idProd + "'";
-            string descProdActual = conex.selectQueryScalar(query7);
+            string PrecioDescProd = conex.selectQueryScalar(query7);
 
             //Reduccion de la cantidad stock
-            string query8 = "Select CantidadStock from Producto where Nombre = '" + idProd + "'";
-            string nuevoStockProd = conex.selectQueryScalar(query8);
-
+            //Cantidad Stock Producto disponible para vender al cliente
             string query9 = "Select CantidadStock from Producto where CantidadStock = '" + txtCantProdVenta.Text + "'";
             string ventaStockProd = conex.selectQueryScalar(query9);
             int valor2 = Int32.Parse(txtCantProdVenta.Text);
@@ -77,11 +78,21 @@ namespace Taller2_DB
             //Nueva cantidad Stock Producto
             int nuevaCantStockProd = (valor1 - valor2);
 
+            //Almacenar stock en string
+            string nuevaCantStockProd2 = nuevaCantStockProd.ToString();
+            string valor22 = valor2.ToString();
+
+            //Actualizar cantidad stock producto
+            string query10 = "UPDATE Producto SET CantidadStock = '" + nuevaCantStockProd2 + "' WHERE Id = '" + idProd + "'";
+            int NuStockProdDisp = conex.executeNonQuery(query10);
 
 
-   
-            
-          
+            ///////////////////Reducir el saldo y monto final de la Orden de Compra//////////////////////
+            //Saldo del Cliente
+            string query11 = "Select Saldo Rut from Cliente where Rut = '" + rutCliente1 + "'";
+            string saldorutCliente = conex.selectQueryScalar(query11);
+            int saldoActual = Int32.Parse(saldorutCliente);
+
 
 
             conex.close();

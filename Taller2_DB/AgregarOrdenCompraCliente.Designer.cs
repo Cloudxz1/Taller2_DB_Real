@@ -55,7 +55,7 @@ namespace Taller2_DB
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(193, 48);
+            this.label1.Location = new System.Drawing.Point(186, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 13);
             this.label1.TabIndex = 1;
@@ -64,7 +64,7 @@ namespace Taller2_DB
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(107, 118);
+            this.label2.Location = new System.Drawing.Point(107, 156);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 2;
@@ -73,7 +73,7 @@ namespace Taller2_DB
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(107, 156);
+            this.label3.Location = new System.Drawing.Point(107, 120);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 13);
             this.label3.TabIndex = 3;
@@ -100,7 +100,7 @@ namespace Taller2_DB
             // cmbListaRutCli
             // 
             this.cmbListaRutCli.FormattingEnabled = true;
-            this.cmbListaRutCli.Location = new System.Drawing.Point(249, 115);
+            this.cmbListaRutCli.Location = new System.Drawing.Point(249, 153);
             this.cmbListaRutCli.Name = "cmbListaRutCli";
             this.cmbListaRutCli.Size = new System.Drawing.Size(121, 21);
             this.cmbListaRutCli.TabIndex = 6;
@@ -108,7 +108,7 @@ namespace Taller2_DB
             // cmbListaNumeroEmp
             // 
             this.cmbListaNumeroEmp.FormattingEnabled = true;
-            this.cmbListaNumeroEmp.Location = new System.Drawing.Point(249, 153);
+            this.cmbListaNumeroEmp.Location = new System.Drawing.Point(249, 117);
             this.cmbListaNumeroEmp.Name = "cmbListaNumeroEmp";
             this.cmbListaNumeroEmp.Size = new System.Drawing.Size(121, 21);
             this.cmbListaNumeroEmp.TabIndex = 7;
