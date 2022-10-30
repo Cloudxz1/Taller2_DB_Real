@@ -89,5 +89,12 @@ namespace Taller2_DB
             prodCompradoPorDia.Show();
             this.Hide();
         }
+
+        private void btnProdSinOrdComp_Click(object sender, EventArgs e)
+        {
+            ConsultarDatosProductoSinOrdenCompraPorMes sinOrdenCompraPorMes = new ConsultarDatosProductoSinOrdenCompraPorMes();
+            sinOrdenCompraPorMes.Show();
+            this.Hide();
+        }
     }
 }

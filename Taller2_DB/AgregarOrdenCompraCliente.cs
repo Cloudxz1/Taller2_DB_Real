@@ -46,7 +46,7 @@ namespace Taller2_DB
 
             //Buscar datos de la fecha actual de la fecha
             DateTime fechaHoraVenta = DateTime.Now;
-            string fechaHoraStr = fechaHoraVenta.ToString("yyyy-MM-dd HH:mm:ss");
+            string fechahoraventa = fechaHoraVenta.ToString("yyyy-MM-dd HH:mm:ss");
 
 
             ////////////////////Datos de Producto////////////////////////
@@ -102,57 +102,47 @@ namespace Taller2_DB
             //Saldo actual del cliente
             int saldoActual = Int32.Parse(saldorutCliente);
 
-            //Sino se ha realizado el descuento de la orden de compra
-            if (DescuentoIgresado == 0)
+            //Calular el saldo en la orden de la compra
+            int montofinalprod = precioproducto * valor2;
+            int nuevoSaldoCompra = saldoActual - (montofinalprod);
+            int montofinal = saldoActual - nuevoSaldoCompra;
+            string montofinal2 = montofinal.ToString();
+
+            //Si el monto final de la orden de compra resulta negativa
+            if (montofinal < 0)
             {
-                //Calular el saldo en la orden de la compra
-                int montofinalprod = precioproducto * valor2;
-                int nuevoSaldoCompra = saldoActual - (montofinalprod);
-                int montofinal = saldoActual - nuevoSaldoCompra;
-                string montofinal2 = montofinal.ToString();
+                MessageBox.Show("Saldo del cliente insuficiente, no puede ser negativo");
+            }
+            //Actualizar el saldo del cliente en la orden de la compra
+            string query13 = "Update Ciente Set Saldo == '" + nuevoSaldoCompra + "' WHERE RUT = " + rutCliente1 + "";
+            string saldoActualCliente = conex.selectQueryScalar(query13);
 
-                //Si el monto final de la orden de compra resulta negativa
-                if (montofinal < 0)
+            //Se actualiza el saldo y se realiza la orden de compra
+            string query14 = "INSERT INTO OrdenCompra(Id, FechaCompra, PorcentajeDescuento, MontoTotal, MontoTotalFinal, VendedorNumeroEmpleado, ClienteRut, ProductoId) VALUES ('" + "Id_Orden" + "','" + fechahoraventa + "','" + DescuentoIgresado + "'," + montofinalprod + "," + montofinal2 + "," + numVend + "," + rutCliente1 + ",'" + idProd + "')";
+            int consultarOrden = conex.executeNonQuery(query14);
+
+            if (consultarOrden == 1)
+            {
+                MessageBox.Show("Orden de Compra realizada exitosamente");
+                //Verificar si desea confirmar la orden de compra
+                var ventana = MessageBox.Show("¿Desea realizar la Orden de compra?", "Ventana", MessageBoxButtons.YesNo);
+                //No
+                if (ventana == DialogResult.No)
                 {
-                    MessageBox.Show("Saldo del cliente insuficiente, no puede ser negativo");
+                    this.Close();
                 }
-                //Actualizar el saldo del cliente en la orden de la compra
-                string query13 = "Update Ciente Set Saldo == '" + nuevoSaldoCompra + "' WHERE RUT = " + rutCliente1 + "";
-                string saldoActualCliente = conex.selectQueryScalar(query13);
-
-                //Se actualiza el saldo y se realiza la orden de compra
-                string query14 = "INSERT INTO OrdenCompra(Id, FechaCompra, PorcentajeDescuento, MontoTotal, MontoTotalFinal, VendedorNumeroEmpleado, ClienteRut, ProductoId) VALUES ('" + "Id_Orden" + "','" + fechaHoraStr + "','" + DescuentoIgresado + "'," + montofinalprod + "," + montofinal2 + "," + numVend + "," + rutCliente1 + ",'" + idProd + "')";
-                int consultarOrden = conex.executeNonQuery(query14);
-
-                if (consultarOrden == 1)
-                {
-                    MessageBox.Show("Orden de Compra realizada exitosamente");
-                    //Verificar si desea confirmar la orden de compra
-                    var ventana = MessageBox.Show("¿Desea seguir comprando?", "Nueva venta", MessageBoxButtons.YesNo);
-                    //No
-                    if (ventana == DialogResult.No)
-                    {
-                        this.Close();
-                    }
-                    //Si
-                    else
-                    {
-                        MenuAdministrador mj = new MenuAdministrador();
-                        mj.Show();
-                        this.Hide();
-                    }
-
-                }
+                //Si
                 else
                 {
-                    MessageBox.Show("no se ha podido realizar la venta, intente nuevamente!! ");
-
+                    MenuAdministrador mj = new MenuAdministrador();
+                    mj.Show();
+                    this.Hide();
                 }
 
-            }
-            //fuera del if (DescuentoIgresado == 0)
 
-            conex.close();
+            }
+
+                conex.close();
         }
 
         private void AgregarOrdenCompraCliente_Load(object sender, EventArgs e)
