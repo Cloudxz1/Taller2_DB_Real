@@ -174,5 +174,18 @@ namespace Taller2_DB
             compradoClientePorAnio.Show();
             this.Hide();
         }
+
+        /// <summary>
+        /// Top 5 de los productos mas vendidos
+        /// en la semana previa
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTop5ProdVendSem_Click(object sender, EventArgs e)
+        {
+            ConsultarDatosProductosTop5MasVendidoSemana top5MasVendidoSemana = new ConsultarDatosProductosTop5MasVendidoSemana();
+            top5MasVendidoSemana.Show();
+            this.Hide();
+        }
     }
 }

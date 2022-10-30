@@ -51,6 +51,8 @@ namespace Taller2_DB
             this.btnProdCompPorCateg = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.btnProdCompCliAno = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnTop5ProdVendSem = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVolverConsultas
@@ -189,7 +191,7 @@ namespace Taller2_DB
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(434, 313);
+            this.label8.Location = new System.Drawing.Point(413, 304);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(159, 13);
             this.label8.TabIndex = 15;
@@ -208,7 +210,7 @@ namespace Taller2_DB
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(434, 281);
+            this.label9.Location = new System.Drawing.Point(413, 276);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(213, 13);
             this.label9.TabIndex = 17;
@@ -227,7 +229,7 @@ namespace Taller2_DB
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(434, 247);
+            this.label10.Location = new System.Drawing.Point(413, 247);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(187, 13);
             this.label10.TabIndex = 19;
@@ -246,7 +248,7 @@ namespace Taller2_DB
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(434, 218);
+            this.label11.Location = new System.Drawing.Point(413, 218);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(221, 13);
             this.label11.TabIndex = 21;
@@ -262,11 +264,32 @@ namespace Taller2_DB
             this.btnProdCompCliAno.UseVisualStyleBackColor = true;
             this.btnProdCompCliAno.Click += new System.EventHandler(this.btnProdCompCliAno_Click);
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(413, 188);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(242, 13);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "12) Top 5 Productos mas Vendidos en la semana:";
+            // 
+            // btnTop5ProdVendSem
+            // 
+            this.btnTop5ProdVendSem.Location = new System.Drawing.Point(670, 185);
+            this.btnTop5ProdVendSem.Name = "btnTop5ProdVendSem";
+            this.btnTop5ProdVendSem.Size = new System.Drawing.Size(75, 23);
+            this.btnTop5ProdVendSem.TabIndex = 24;
+            this.btnTop5ProdVendSem.Text = "Ir";
+            this.btnTop5ProdVendSem.UseVisualStyleBackColor = true;
+            this.btnTop5ProdVendSem.Click += new System.EventHandler(this.btnTop5ProdVendSem_Click);
+            // 
             // ConsultasDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 450);
+            this.Controls.Add(this.btnTop5ProdVendSem);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.btnProdCompCliAno);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnProdCompPorCateg);
@@ -321,5 +344,7 @@ namespace Taller2_DB
         private System.Windows.Forms.Button btnProdCompPorCateg;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnProdCompCliAno;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnTop5ProdVendSem;
     }
 }

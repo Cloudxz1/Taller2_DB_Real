@@ -26,7 +26,12 @@ namespace Taller2_DB
             volocc.Show();
             this.Hide();
         }
-
+        /// <summary>
+        /// Se encarga de realizra la orden de la compra
+        /// de un cliente en especifico
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnVentaRealizada_Click(object sender, EventArgs e)
         {
             ConexMySQL conex = new ConexMySQL();
@@ -92,7 +97,7 @@ namespace Taller2_DB
             //Descuento Libro a ingresar
             string Desc1 = txtDescuentoProd.Text;
             //Descuento de tipo float, por los decimales
-            float DescuentoIgresado = float.Parse(Desc1);
+            double DescuentoIgresado = double.Parse(Desc1);
 
             ///////////////////Reducir el saldo y monto final de la Orden de Compra//////////////////////
             //Saldo del Cliente
@@ -106,7 +111,7 @@ namespace Taller2_DB
             int montofinalprod = precioproducto * valor2;
             int nuevoSaldoCompra = saldoActual - (montofinalprod);
             int montofinal = saldoActual - nuevoSaldoCompra;
-            string montofinal2 = montofinal.ToString();
+            string montofinalTotal = montofinal.ToString();
 
             //Si el monto final de la orden de compra resulta negativa
             if (montofinal < 0)
@@ -118,7 +123,7 @@ namespace Taller2_DB
             string saldoActualCliente = conex.selectQueryScalar(query13);
 
             //Se actualiza el saldo y se realiza la orden de compra
-            string query14 = "INSERT INTO OrdenCompra(Id, FechaCompra, PorcentajeDescuento, MontoTotal, MontoTotalFinal, VendedorNumeroEmpleado, ClienteRut, ProductoId) VALUES ('" + "Id_Orden" + "','" + fechahoraventa + "','" + DescuentoIgresado + "'," + montofinalprod + "," + montofinal2 + "," + numVend + "," + rutCliente1 + ",'" + idProd + "')";
+            string query14 = "INSERT INTO OrdenCompra(Id, FechaCompra, PorcentajeDescuento, MontoTotal, MontoTotalFinal, VendedorNumeroEmpleado, ClienteRut, ProductoId) VALUES ('" + "Id_Orden" + "','" + fechahoraventa + "','" + DescuentoIgresado + "'," + montofinalprod + "," + montofinalTotal + "," + numVend + "," + rutCliente1 + ",'" + idProd + "')";
             int consultarOrden = conex.executeNonQuery(query14);
 
             if (consultarOrden == 1)
@@ -134,17 +139,18 @@ namespace Taller2_DB
                 //Si
                 else
                 {
-                    MenuAdministrador mj = new MenuAdministrador();
-                    mj.Show();
-                    this.Hide();
+                    txtCantProdVenta.Clear();
+                    txtDescuentoProd.Clear();
                 }
-
-
             }
-
                 conex.close();
         }
-
+        /// <summary>
+        /// Carga el listado de los vendedores, clientes y el producto
+        /// en especificos, asociados para la orden de compra
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AgregarOrdenCompraCliente_Load(object sender, EventArgs e)
         {
             ConexMySQL conex = new ConexMySQL();
