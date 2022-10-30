@@ -82,5 +82,12 @@ namespace Taller2_DB
             datosOrdenCompra.Show();
             this.Hide();
         }
+
+        private void btnProdCompDia_Click(object sender, EventArgs e)
+        {
+            ConsultarDatosProdCompradoPorDia prodCompradoPorDia = new ConsultarDatosProdCompradoPorDia();
+            prodCompradoPorDia.Show();
+            this.Hide();
+        }
     }
 }

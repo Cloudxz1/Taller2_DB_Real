@@ -43,6 +43,8 @@ namespace Taller2_DB
             this.btnCantProdCateg = new System.Windows.Forms.Button();
             this.btnConsOrdComp = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnProdCompDia = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVolverConsultas
@@ -134,11 +136,11 @@ namespace Taller2_DB
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(157, 54);
+            this.label5.Location = new System.Drawing.Point(233, 34);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 13);
+            this.label5.Size = new System.Drawing.Size(178, 13);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Consultar";
+            this.label5.Text = "Consulta de Datos Sistema ABC SA.";
             // 
             // label6
             // 
@@ -178,11 +180,32 @@ namespace Taller2_DB
             this.label7.TabIndex = 14;
             this.label7.Text = "4) Datos Orden de Compra";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(434, 308);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(159, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "16) Producto Comprado por Dia:";
+            // 
+            // btnProdCompDia
+            // 
+            this.btnProdCompDia.Location = new System.Drawing.Point(599, 303);
+            this.btnProdCompDia.Name = "btnProdCompDia";
+            this.btnProdCompDia.Size = new System.Drawing.Size(75, 23);
+            this.btnProdCompDia.TabIndex = 16;
+            this.btnProdCompDia.Text = "Ir";
+            this.btnProdCompDia.UseVisualStyleBackColor = true;
+            this.btnProdCompDia.Click += new System.EventHandler(this.btnProdCompDia_Click);
+            // 
             // ConsultasDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 450);
+            this.ClientSize = new System.Drawing.Size(724, 450);
+            this.Controls.Add(this.btnProdCompDia);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnConsOrdComp);
             this.Controls.Add(this.btnCantProdCateg);
@@ -220,5 +243,7 @@ namespace Taller2_DB
         private System.Windows.Forms.Button btnCantProdCateg;
         private System.Windows.Forms.Button btnConsOrdComp;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnProdCompDia;
     }
 }
