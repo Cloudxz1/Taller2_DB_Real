@@ -25,7 +25,11 @@ namespace Taller2_DB
             volconcantpc.Show();
             this.Hide();
         }
-
+        /// <summary>
+        /// Cantidad de productos vendidos por su categoria
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBuscarCantProdCateg_Click(object sender, EventArgs e)
         {
             ConexMySQL conex = new ConexMySQL();
@@ -42,7 +46,12 @@ namespace Taller2_DB
         {
 
         }
-
+        /// <summary>
+        /// Carga el listado de las categorias
+        /// que se asocia el producto en especifico
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ConsultarDatosCantProductoCateg_Load(object sender, EventArgs e)
         {
             ConexMySQL conex = new ConexMySQL();

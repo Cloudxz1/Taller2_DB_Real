@@ -187,5 +187,18 @@ namespace Taller2_DB
             top5MasVendidoSemana.Show();
             this.Hide();
         }
+
+        /// <summary>
+        /// Datos de cierto Cliente que posee una cantidad de productos
+        /// comprados en su orden de compra, con su monto total final
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDatosCliOrdComp_Click(object sender, EventArgs e)
+        {
+            ConsultarDatosOrdenCompraClienteUtlimos3Meses compraClienteUtlimos3Meses = new ConsultarDatosOrdenCompraClienteUtlimos3Meses();
+            compraClienteUtlimos3Meses.Show();
+            this.Hide();
+        }
     }
 }

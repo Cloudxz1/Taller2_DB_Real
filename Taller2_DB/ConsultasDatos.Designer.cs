@@ -53,6 +53,8 @@ namespace Taller2_DB
             this.btnProdCompCliAno = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.btnTop5ProdVendSem = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btnDatosCliOrdComp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVolverConsultas
@@ -275,7 +277,7 @@ namespace Taller2_DB
             // 
             // btnTop5ProdVendSem
             // 
-            this.btnTop5ProdVendSem.Location = new System.Drawing.Point(670, 185);
+            this.btnTop5ProdVendSem.Location = new System.Drawing.Point(670, 183);
             this.btnTop5ProdVendSem.Name = "btnTop5ProdVendSem";
             this.btnTop5ProdVendSem.Size = new System.Drawing.Size(75, 23);
             this.btnTop5ProdVendSem.TabIndex = 24;
@@ -283,11 +285,32 @@ namespace Taller2_DB
             this.btnTop5ProdVendSem.UseVisualStyleBackColor = true;
             this.btnTop5ProdVendSem.Click += new System.EventHandler(this.btnTop5ProdVendSem_Click);
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(413, 159);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(203, 13);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "11) Datos de la Orden de Compra Cliente:";
+            // 
+            // btnDatosCliOrdComp
+            // 
+            this.btnDatosCliOrdComp.Location = new System.Drawing.Point(670, 154);
+            this.btnDatosCliOrdComp.Name = "btnDatosCliOrdComp";
+            this.btnDatosCliOrdComp.Size = new System.Drawing.Size(75, 23);
+            this.btnDatosCliOrdComp.TabIndex = 26;
+            this.btnDatosCliOrdComp.Text = "Ir";
+            this.btnDatosCliOrdComp.UseVisualStyleBackColor = true;
+            this.btnDatosCliOrdComp.Click += new System.EventHandler(this.btnDatosCliOrdComp_Click);
+            // 
             // ConsultasDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 450);
+            this.Controls.Add(this.btnDatosCliOrdComp);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.btnTop5ProdVendSem);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btnProdCompCliAno);
@@ -346,5 +369,7 @@ namespace Taller2_DB
         private System.Windows.Forms.Button btnProdCompCliAno;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnTop5ProdVendSem;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnDatosCliOrdComp;
     }
 }
