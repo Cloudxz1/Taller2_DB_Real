@@ -18,7 +18,11 @@ namespace Taller2_DB
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Volver al menu principal del sistema
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnVolverConsultas_Click(object sender, EventArgs e)
         {
             Form1 voladmin = new Form1();
@@ -35,7 +39,12 @@ namespace Taller2_DB
         {
 
         }
-
+        /// <summary>
+        /// Listado con los siguientes datos en el sistema:
+        /// Proveedores, Clientes, Productos, Categorias y Vendedores
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnListadoDatos_Click(object sender, EventArgs e)
         {
             ConsultarDatosListados conslis = new ConsultarDatosListados();
@@ -43,6 +52,12 @@ namespace Taller2_DB
             this.Hide();
         }
 
+        /// <summary>
+        /// Buscar un vendedor y desplegar sus datos
+        /// incluido la edad en anios
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDatosVendedor1_Click(object sender, EventArgs e)
         {
             ConsultarDatosVendedorAnios consvenanios = new ConsultarDatosVendedorAnios();
@@ -55,6 +70,12 @@ namespace Taller2_DB
 
         }
 
+        /// <summary>
+        /// Datos de los vendedores con mayor y menor antiguedad
+        /// en anos(con un maximo de 2 vendedores mayores y menores)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnVendAntigTipo_Click(object sender, EventArgs e)
         {
             ConsultarDatosVendedorAntigMayorMenor consvat = new ConsultarDatosVendedorAntigMayorMenor();
@@ -62,6 +83,12 @@ namespace Taller2_DB
             this.Hide();
         }
 
+        /// <summary>
+        /// Categorias que se encuentra asociadas un producto especifico
+        /// en el cual el cliente a comprado en la orden de compra
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCategProd_Click(object sender, EventArgs e)
         {
             ConsultarDatosCategoriaProducto conscatpro = new ConsultarDatosCategoriaProducto();
@@ -69,6 +96,12 @@ namespace Taller2_DB
             this.Hide();
         }
 
+        /// <summary>
+        /// Cantidad de productos
+        /// que fueron comprados por una categoria en especifico
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCantProdCateg_Click(object sender, EventArgs e)
         {
             ConsultarDatosCantProductoCateg conscantpc = new ConsultarDatosCantProductoCateg();
@@ -76,6 +109,12 @@ namespace Taller2_DB
             this.Hide();
         }
 
+        /// <summary>
+        /// Datos de la orden de compra, incluido:
+        /// cliente, vendedor y producto de al orden de compra
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConsOrdComp_Click(object sender, EventArgs e)
         {
             ConsultarDatosOrdenCompra datosOrdenCompra = new ConsultarDatosOrdenCompra();
@@ -83,6 +122,11 @@ namespace Taller2_DB
             this.Hide();
         }
 
+        /// <summary>
+        /// Productos comprados en un cierto dia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnProdCompDia_Click(object sender, EventArgs e)
         {
             ConsultarDatosProdCompradoPorDia prodCompradoPorDia = new ConsultarDatosProdCompradoPorDia();
@@ -90,11 +134,33 @@ namespace Taller2_DB
             this.Hide();
         }
 
+        /// <summary>
+        /// Consulta los productos que no tiene una orden de compra
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnProdSinOrdComp_Click(object sender, EventArgs e)
         {
             ConsultarDatosProductoSinOrdenCompraPorMes sinOrdenCompraPorMes = new ConsultarDatosProductoSinOrdenCompraPorMes();
             sinOrdenCompraPorMes.Show();
             this.Hide();
+        }
+
+        /// <summary>
+        /// Consulta la categoria del producto comprado por el cliente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnProdCompPorCateg_Click(object sender, EventArgs e)
+        {
+            ConsultarDatosProductoCompradoCategoria productoCompradoCategoria = new ConsultarDatosProductoCompradoCategoria();
+            productoCompradoCategoria.Show();
+            this.Hide();
+        }
+
+        private void ConsultasDatos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
