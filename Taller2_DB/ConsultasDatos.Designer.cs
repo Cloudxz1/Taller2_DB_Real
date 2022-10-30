@@ -49,6 +49,8 @@ namespace Taller2_DB
             this.btnProdSinOrdComp = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.btnProdCompPorCateg = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btnProdCompCliAno = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVolverConsultas
@@ -195,7 +197,7 @@ namespace Taller2_DB
             // 
             // btnProdCompDia
             // 
-            this.btnProdCompDia.Location = new System.Drawing.Point(670, 308);
+            this.btnProdCompDia.Location = new System.Drawing.Point(670, 313);
             this.btnProdCompDia.Name = "btnProdCompDia";
             this.btnProdCompDia.Size = new System.Drawing.Size(75, 23);
             this.btnProdCompDia.TabIndex = 16;
@@ -206,7 +208,7 @@ namespace Taller2_DB
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(434, 284);
+            this.label9.Location = new System.Drawing.Point(434, 281);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(213, 13);
             this.label9.TabIndex = 17;
@@ -214,7 +216,7 @@ namespace Taller2_DB
             // 
             // btnProdSinOrdComp
             // 
-            this.btnProdSinOrdComp.Location = new System.Drawing.Point(670, 281);
+            this.btnProdSinOrdComp.Location = new System.Drawing.Point(670, 276);
             this.btnProdSinOrdComp.Name = "btnProdSinOrdComp";
             this.btnProdSinOrdComp.Size = new System.Drawing.Size(75, 23);
             this.btnProdSinOrdComp.TabIndex = 18;
@@ -225,7 +227,7 @@ namespace Taller2_DB
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(434, 257);
+            this.label10.Location = new System.Drawing.Point(434, 247);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(187, 13);
             this.label10.TabIndex = 19;
@@ -233,7 +235,7 @@ namespace Taller2_DB
             // 
             // btnProdCompPorCateg
             // 
-            this.btnProdCompPorCateg.Location = new System.Drawing.Point(670, 252);
+            this.btnProdCompPorCateg.Location = new System.Drawing.Point(670, 247);
             this.btnProdCompPorCateg.Name = "btnProdCompPorCateg";
             this.btnProdCompPorCateg.Size = new System.Drawing.Size(75, 23);
             this.btnProdCompPorCateg.TabIndex = 20;
@@ -241,11 +243,32 @@ namespace Taller2_DB
             this.btnProdCompPorCateg.UseVisualStyleBackColor = true;
             this.btnProdCompPorCateg.Click += new System.EventHandler(this.btnProdCompPorCateg_Click);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(434, 218);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(221, 13);
+            this.label11.TabIndex = 21;
+            this.label11.Text = "13) Producto comprado por Cliente en el ano:";
+            // 
+            // btnProdCompCliAno
+            // 
+            this.btnProdCompCliAno.Location = new System.Drawing.Point(670, 214);
+            this.btnProdCompCliAno.Name = "btnProdCompCliAno";
+            this.btnProdCompCliAno.Size = new System.Drawing.Size(75, 23);
+            this.btnProdCompCliAno.TabIndex = 22;
+            this.btnProdCompCliAno.Text = "Ir";
+            this.btnProdCompCliAno.UseVisualStyleBackColor = true;
+            this.btnProdCompCliAno.Click += new System.EventHandler(this.btnProdCompCliAno_Click);
+            // 
             // ConsultasDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 450);
+            this.Controls.Add(this.btnProdCompCliAno);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.btnProdCompPorCateg);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnProdSinOrdComp);
@@ -296,5 +319,7 @@ namespace Taller2_DB
         private System.Windows.Forms.Button btnProdSinOrdComp;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnProdCompPorCateg;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnProdCompCliAno;
     }
 }

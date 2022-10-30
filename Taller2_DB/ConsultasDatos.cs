@@ -162,5 +162,17 @@ namespace Taller2_DB
         {
 
         }
+        /// <summary>
+        /// Producto comprado por un cierto cliente
+        /// durante el anio
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnProdCompCliAno_Click(object sender, EventArgs e)
+        {
+            ConsultarDatosProductoCompradoClientePorAnio compradoClientePorAnio = new ConsultarDatosProductoCompradoClientePorAnio();
+            compradoClientePorAnio.Show();
+            this.Hide();
+        }
     }
 }
