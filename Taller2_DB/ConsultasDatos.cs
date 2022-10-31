@@ -200,5 +200,19 @@ namespace Taller2_DB
             compraClienteUtlimos3Meses.Show();
             this.Hide();
         }
+
+        /// <summary>
+        /// Accede a la cantidad de ordenes de compra
+        /// que posee un cierto cliente en
+        /// los ultimos 30 dias
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCantOrdCli30d_Click(object sender, EventArgs e)
+        {
+            ConsultarDatosCantOrdenCompraClienteUltimos30dias ordenCompraClienteUltimos30Dias = new ConsultarDatosCantOrdenCompraClienteUltimos30dias();
+            ordenCompraClienteUltimos30Dias.Show();
+            this.Hide();
+        }
     }
 }

@@ -139,6 +139,12 @@
       <DependentUpon>CambiarSalario.cs</DependentUpon>
     </Compile>
     <Compile Include="ConexMySQL.cs" />
+    <Compile Include="ConsultarDatosCantOrdenCompraClienteUltimos30dias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarDatosCantOrdenCompraClienteUltimos30dias.Designer.cs">
+      <DependentUpon>ConsultarDatosCantOrdenCompraClienteUltimos30dias.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsultarDatosCantProductoCateg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CambiarSalario.resx">
       <DependentUpon>CambiarSalario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarDatosCantOrdenCompraClienteUltimos30dias.resx">
+      <DependentUpon>ConsultarDatosCantOrdenCompraClienteUltimos30dias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultarDatosCantProductoCateg.resx">
       <DependentUpon>ConsultarDatosCantProductoCateg.cs</DependentUpon>
