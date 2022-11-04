@@ -76,7 +76,7 @@ namespace Taller2_DB
                 }
                 else
                 {
-                    MessageBox.Show("Porfarvor, rellenar los campos correctamente");
+                    MessageBox.Show("Porfavor, rellenar los campos correctamente");
                 }
             }
             conex.close();

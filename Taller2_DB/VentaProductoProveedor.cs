@@ -46,7 +46,7 @@ namespace Taller2_DB
             dataProv.DataSource = proveedor;
 
             DataTable ProductoProveedor = new DataTable();
-            query = "SELECT ProveedorRut AS Rut_del_Proveedor,ProductoId AS ID_Producto FROM Proveedor_Producto";
+            query = "SELECT * FROM Proveedor_Producto";
             listaProvProd = new MySqlDataAdapter(query,conex.GetConnection());
 
             listaProvProd.Fill(ProductoProveedor);
@@ -56,40 +56,74 @@ namespace Taller2_DB
 
         private void btn_ConfirmarProvProd_Click(object sender, EventArgs e)
         {
+            int cantVender = Int32.Parse(txtCantidadCompra.Text);
+
+            if (cantVender > 0)
+            {
+                ConexMySQL conex = new ConexMySQL();
+                conex.open();
+                string query = "SELECT CantidadStock FROM Producto WHERE Id ='"+txtIdProducto.Text+"'";
+                int cantStock = Int32.Parse(conex.selectQueryScalar(query));
+
+                    /**
+                    * Consulta a la id del producto para verificar que sea el correcto
+                    */
+                    query = "SELECT Id FROM Producto WHERE Id ='"+txtIdProducto.Text+"'";
+                    string idProd = conex.selectQueryScalar(query);
+                    /**
+                     *  Consulta al rut del Producto
+                     */
+                    query = "SELECT Rut FROM Proveedor WHERE Rut ='"+txtIdProveedor.Text+"'";
+                    string rutProv = conex.selectQueryScalar(query);
+
+                    /**
+                     * 
+                     */
+                    InsertarProvProd(rutProv,idProd,cantVender);
+                    
+                    conex.close();
+            }
+            else
+            {
+                MessageBox.Show("Debe ser un valor positivo","Error"); 
+            }
+
             
+        }
+
+        public void Mostrar()
+        {
+            MySqlDataAdapter listaProvProd;
+            ConexMySQL conex = new ConexMySQL();
+            DataTable ProductoProveedor = new DataTable();
+            string query = "SELECT ProveedorRut AS Rut_del_Proveedor,ProductoId AS ID_Producto FROM Proveedor_Producto";
+            listaProvProd = new MySqlDataAdapter(query, conex.GetConnection());
+
+            listaProvProd.Fill(ProductoProveedor);
+            dataProdProv.DataSource = ProductoProveedor;
+            conex.close();
+        }
+        /**
+         * Al realizar otra compra muere , al realizar una venta repetida se cae 
+         */
+        public void InsertarProvProd(string rutProveedor,string idProducto,int cantActual) {
             ConexMySQL conex = new ConexMySQL();
             conex.open();
+            string query2 = "INSERT INTO Proveedor_Producto VALUES('" + rutProveedor + "','" + idProducto + "','" + cantActual + "')";
+            int saber = conex.executeNonQuery(query2);
 
-            int cantVender = Int32.Parse(txtCantidadCompra.Text);
-           
+            if (saber == 1)
+            {
+                
+                MessageBox.Show("Se ha hecho la venta", "Success");
+                Mostrar();
+            }
+            else
+            {
 
-                if (cantVender>0)
-                { 
-                    string query0 = "Select Id From Producto Where Id = '" + txtIdProducto.Text + "')";
-                    string idPro = conex.selectQueryScalar(query0);
-                    
-                    string query = "Select CantidadStock From Producto Where Id = '" + txtIdProducto.Text + "')";
-                    string cantStock = conex.selectQueryScalar(query);
-                    int StockA = Int32.Parse(cantStock);
+                MessageBox.Show("No", "Error");
 
-                    int AumentoStock = (StockA + cantVender);
-                    string aumentostock = AumentoStock.ToString();
-
-                    string query2 = "UPDATE Producto SET CantidadStock = ('" + aumentostock + "') WHERE Id = ('" + idPro + "')";
-                    int verificar = conex.executeNonQuery(query2);
-
-                    if (verificar == 1)
-                    {
-                        MessageBox.Show("SI");
-                        string query3 = "INSERT INTO Proveedor_Producto(ProveedorRut, ProductoId) VALUES('" + txtIdProveedor.Text + "','" + txtIdProducto.Text + "')";
-                        int confirmar = conex.executeNonQuery(query3);                      
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("La cantidad de productos no puede tener valores negativos");
-                }
-
+            }
             conex.close();
         }
     }

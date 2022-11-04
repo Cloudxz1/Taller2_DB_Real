@@ -34,30 +34,25 @@ namespace Taller2_DB
             //Formato de la fecha modificado dentro de las propiedades de DataTimePiker
             fEmp.Format = DateTimePickerFormat.Custom;
             fEmp.CustomFormat = "yyyy-MM-dd";
+            
+            validarVendedor(nEmp.Text);
 
-            string query = "INSERT INTO Vendedor VALUES('" + nEmp.Text + "','" + NomEmp.Text + "','" + salario.ToString() + "','" + fEmp.Text + "')";
-            int saber = conex.executeNonQuery(query);
-
+           
+    
             if (salario > 0)
             {
-                //Valida si el vendedor ya fue ingresado previamente
-                if (validarVendedor() == 1)
+                string query = "INSERT INTO Vendedor VALUES('" + nEmp.Text + "','" + NomEmp.Text + "','" + salario.ToString() + "','" + fEmp.Text + "')";
+                int saber = conex.executeNonQuery(query);
+
+                if (saber == 1)
                 {
-                    if (saber == 1)
-                    {
-                        MessageBox.Show("Se ha registrado correctamente el empleado", "Success");
-                        MostrarVendedor();
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se ha registrado correctamente el empleado", "Error");
-                    }               
+                    MessageBox.Show("Se ha registrado correctamente el empleado", "Success");
+                    MostrarVendedor();
                 }
                 else
                 {
-                    MessageBox.Show("El vendedor ya fue ingresado previamente");
-                    
-                }
+                    MessageBox.Show("No se ha registrado correctamente el empleado", "Error");
+                }             
             }
             else
             {
@@ -93,13 +88,23 @@ namespace Taller2_DB
             dataVendedor.DataSource = tablaVendedor;
             conex.close();
         }
-        public int validarVendedor()
-        {
+        public void validarVendedor(string nEmpleado)
+        { 
             ConexMySQL conex = new ConexMySQL();
             conex.open();
-            string query = "SELECT NumeroEmpleado FROM Vendedor WHERE NumeroEmpleado = '" + nEmp.Text + "'";
+            string query = "SELECT * FROM Vendedor WHERE NumeroEmpleado = '" + nEmpleado + "'";
             int numero = conex.executeNonQuery(query);
-            return numero;
+
+
+            if (numero == 1)
+            {
+                MessageBox.Show("No esta en la base de datos");
+            }
+            else
+            {
+                MessageBox.Show("Esta registrado previamente");
+            }
+            conex.close();
         }
     }
 }
