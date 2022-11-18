@@ -47,9 +47,10 @@ namespace Taller2_DB
             // 
             // btn_Volver
             // 
-            this.btn_Volver.Location = new System.Drawing.Point(13, 13);
+            this.btn_Volver.Location = new System.Drawing.Point(10, 11);
+            this.btn_Volver.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Volver.Name = "btn_Volver";
-            this.btn_Volver.Size = new System.Drawing.Size(88, 39);
+            this.btn_Volver.Size = new System.Drawing.Size(66, 32);
             this.btn_Volver.TabIndex = 0;
             this.btn_Volver.Text = "Volver";
             this.btn_Volver.UseVisualStyleBackColor = true;
@@ -58,98 +59,111 @@ namespace Taller2_DB
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(101, 78);
+            this.label1.Location = new System.Drawing.Point(76, 63);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 17);
+            this.label1.Size = new System.Drawing.Size(24, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Rut";
             // 
             // RutCliente
             // 
-            this.RutCliente.Location = new System.Drawing.Point(55, 98);
+            this.RutCliente.Location = new System.Drawing.Point(41, 80);
+            this.RutCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RutCliente.Name = "RutCliente";
-            this.RutCliente.Size = new System.Drawing.Size(125, 22);
+            this.RutCliente.Size = new System.Drawing.Size(95, 20);
             this.RutCliente.TabIndex = 2;
             // 
             // NombreCli
             // 
-            this.NombreCli.Location = new System.Drawing.Point(213, 98);
+            this.NombreCli.Location = new System.Drawing.Point(160, 80);
+            this.NombreCli.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.NombreCli.Name = "NombreCli";
-            this.NombreCli.Size = new System.Drawing.Size(125, 22);
+            this.NombreCli.Size = new System.Drawing.Size(95, 20);
             this.NombreCli.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(248, 78);
+            this.label2.Location = new System.Drawing.Point(186, 63);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 17);
+            this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Nombre";
             // 
             // SaldoCli
             // 
-            this.SaldoCli.Location = new System.Drawing.Point(372, 98);
+            this.SaldoCli.Location = new System.Drawing.Point(279, 80);
+            this.SaldoCli.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SaldoCli.Name = "SaldoCli";
-            this.SaldoCli.Size = new System.Drawing.Size(125, 22);
+            this.SaldoCli.Size = new System.Drawing.Size(95, 20);
             this.SaldoCli.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(411, 78);
+            this.label3.Location = new System.Drawing.Point(308, 63);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 17);
+            this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Saldo";
             // 
             // DireccionCli
             // 
-            this.DireccionCli.Location = new System.Drawing.Point(682, 98);
+            this.DireccionCli.Location = new System.Drawing.Point(512, 80);
+            this.DireccionCli.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DireccionCli.Name = "DireccionCli";
-            this.DireccionCli.Size = new System.Drawing.Size(125, 22);
+            this.DireccionCli.Size = new System.Drawing.Size(95, 20);
             this.DireccionCli.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(715, 78);
+            this.label4.Location = new System.Drawing.Point(536, 63);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 17);
+            this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Dirección";
             // 
             // tefelonoCli
             // 
-            this.tefelonoCli.Location = new System.Drawing.Point(525, 98);
+            this.tefelonoCli.Location = new System.Drawing.Point(394, 80);
+            this.tefelonoCli.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tefelonoCli.Name = "tefelonoCli";
-            this.tefelonoCli.Size = new System.Drawing.Size(125, 22);
+            this.tefelonoCli.Size = new System.Drawing.Size(95, 20);
             this.tefelonoCli.TabIndex = 10;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(556, 78);
+            this.label5.Location = new System.Drawing.Point(417, 63);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 17);
+            this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Tefelono";
             // 
             // dataCliente
             // 
             this.dataCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataCliente.Location = new System.Drawing.Point(55, 149);
+            this.dataCliente.Location = new System.Drawing.Point(41, 121);
+            this.dataCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataCliente.Name = "dataCliente";
             this.dataCliente.RowHeadersWidth = 51;
             this.dataCliente.RowTemplate.Height = 24;
-            this.dataCliente.Size = new System.Drawing.Size(752, 150);
+            this.dataCliente.Size = new System.Drawing.Size(564, 122);
             this.dataCliente.TabIndex = 11;
+            this.dataCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataCliente_CellContentClick);
             // 
             // btn_Agregar
             // 
-            this.btn_Agregar.Location = new System.Drawing.Point(354, 325);
+            this.btn_Agregar.Location = new System.Drawing.Point(266, 264);
+            this.btn_Agregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Agregar.Name = "btn_Agregar";
-            this.btn_Agregar.Size = new System.Drawing.Size(143, 43);
+            this.btn_Agregar.Size = new System.Drawing.Size(107, 35);
             this.btn_Agregar.TabIndex = 12;
             this.btn_Agregar.Text = "Agregar";
             this.btn_Agregar.UseVisualStyleBackColor = true;
@@ -157,9 +171,9 @@ namespace Taller2_DB
             // 
             // AgregarCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(873, 389);
+            this.ClientSize = new System.Drawing.Size(655, 316);
             this.Controls.Add(this.btn_Agregar);
             this.Controls.Add(this.dataCliente);
             this.Controls.Add(this.tefelonoCli);
@@ -173,6 +187,7 @@ namespace Taller2_DB
             this.Controls.Add(this.RutCliente);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_Volver);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AgregarCliente";
             this.Text = "AgregarCliente";
             this.Load += new System.EventHandler(this.AgregarCliente_Load);

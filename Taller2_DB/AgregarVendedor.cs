@@ -17,6 +17,8 @@ namespace Taller2_DB
         public AgregarVendedor()
         {
             InitializeComponent();
+            //fEmp;
+
         }
 
         private void btn_Volver_Click(object sender, EventArgs e)

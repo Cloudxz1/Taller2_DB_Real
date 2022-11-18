@@ -18,6 +18,10 @@ namespace Taller2_DB
         public AgregarOrdenCompraCliente()
         {
             InitializeComponent();
+            //Para no tocar el texto del comboBox
+            cmbListaNumeroEmp.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbListaProductoVenta.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbListaRutCli.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void btnVolOrdCom_Click(object sender, EventArgs e)

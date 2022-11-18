@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1;
+using System.Text.RegularExpressions;
+using System.Windows.Input;
+
 
 namespace Taller2_DB
 {
@@ -49,6 +52,7 @@ namespace Taller2_DB
 
                 if (nombreCat.Text != "" && DescripCat.Text != "")
                 {
+
                     string query = "INSERT INTO Categoria(Nombre,Descripcion) VALUES('" + nombreCat.Text + "','" + DescripCat.Text + "')";
                     int saber = conex.executeNonQuery(query);
 
@@ -101,6 +105,25 @@ namespace Taller2_DB
             this.Hide();
             MenuAdministrador admin = new MenuAdministrador();
             admin.Show();
+        }
+
+        /// <summary>
+        /// Validacion para que el texto del datagridview
+        /// no pueda modificarse de forma directa en el sistema
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataCategorias_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewBand band in dataCategorias.Columns)
+            {
+                band.ReadOnly = true;
+            }
+        }
+
+        private void nombreCat_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

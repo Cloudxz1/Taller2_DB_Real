@@ -16,6 +16,7 @@ namespace Taller2_DB
         public AgregarProducto()
         {
             InitializeComponent();
+            categorias.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void AgregarProducto_Load(object sender, EventArgs e)

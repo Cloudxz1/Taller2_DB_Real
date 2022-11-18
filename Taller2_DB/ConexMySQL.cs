@@ -4,7 +4,8 @@ using System.IO;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace WindowsFormsApp1{
+namespace WindowsFormsApp1
+{
 
     class ConexMySQL
     {

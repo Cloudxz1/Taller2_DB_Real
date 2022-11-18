@@ -57,9 +57,10 @@ namespace Taller2_DB
             //Validar que los campos no se encuentren vacios 
             if (RutCliente.Text != "" || NombreCli.Text != "" || DireccionCli.Text != "" || tefelonoCli.Text != "")
             {
+               
                 //Validar que los campos del rut ingresado sean correctos
                 if (validarRut() == true)
-                {
+                {                 
                     //Validar que el saldo del cliente no sea un valor negativo
                     if (saldo>=0)
                     {
@@ -113,6 +114,20 @@ namespace Taller2_DB
                 return true;
             }
             return false;
+        }
+
+        /// <summary>
+        /// Validacion para que el texto del datagridview
+        /// no pueda modificarse de forma directa en el sistema
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewBand band in dataCliente.Columns )
+            {
+                band.ReadOnly = true;
+            }
         }
     }
 }
