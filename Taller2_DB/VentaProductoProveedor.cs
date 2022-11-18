@@ -28,6 +28,8 @@ namespace Taller2_DB
 
         private void VentaProductoProveedor_Load(object sender, EventArgs e)
         {
+            txtRutProveedor.MaxLength = 9;
+
             MySqlDataAdapter listProd, listaProv, listaProvProd;
             ConexMySQL conex = new ConexMySQL();
             conex.open();
@@ -56,7 +58,8 @@ namespace Taller2_DB
 
 
         private void btn_ConfirmarProvProd_Click(object sender, EventArgs e)
-        {
+        {         
+           /* 
             //Solucion Provisional
             ConexMySQL conex = new ConexMySQL();
             conex.open();
@@ -91,50 +94,72 @@ namespace Taller2_DB
 
                     if (diferencia > 0)
                     {
-                        string query4 = "UPDATE Producto SET CantidadStock = ('" + diferencia + "') WHERE Id = ('" + IdProd + "')";
-                        int verificar = conex.executeNonQuery(query4);
-
-                        if (verificar == 1)
+                        DialogResult dr = MessageBox.Show("¿Seguro que desea confirmar? ", "Confirmación", MessageBoxButtons.YesNo);
+                        if (dr == DialogResult.Yes)
                         {
-                            string query5 = "INSERT INTO Proveedor_Producto(ProveedorRut, ProductoId, cantidad) VALUES('" + RutProveedorProd + "','" + IdProd + "','" + cantVender + "')";
-                            int ver2 = conex.executeNonQuery(query5);
+                            string query4 = "UPDATE Producto SET CantidadStock = ('" + diferencia + "') WHERE Id = ('" + IdProd + "')";
+                            int verificar = conex.executeNonQuery(query4);
 
-                            if (ver2 == 1)
+                            if (verificar == 1)
                             {
-                                //Mensaje de prueba, si compro y registro la cantidad
-                                MessageBox.Show("Proveedor si lo hizo");
-                                txtRutProveedor.Clear();
-                                txtIdProducto.Clear();
-                                txtCantidadCompraProvProd.Clear();
+                                string query5 = "INSERT INTO Proveedor_Producto(ProveedorRut, ProductoId, cantidad) VALUES('" + RutProveedorProd + "','" + IdProd + "','" + cantVender + "')";
+                                int ver2 = conex.executeNonQuery(query5);
+
+                                if (ver2 == 1)
+                                {
+                                    //Mensaje de prueba, si compro y registro la cantidad
+                                    MessageBox.Show("Proveedor acaba de suministrar el producto con exito. ");
+                                    txtRutProveedor.Clear();
+                                    txtIdProducto.Clear();
+                                    txtCantidadCompraProvProd.Clear();
+                                }
+                                else
+                                {
+                                    //Mensaje de prueba, si no compro y registro la cantidad
+                                    MessageBox.Show("Proveedor no pudo suministrar el producto. ");
+                                }
                             }
-                            else
-                            {
-                                //Mensaje de prueba, si no compro y registro la cantidad
-                                MessageBox.Show("Proveedor no lo hizo");
-                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Vuelva a intentarlo mas tarde. ");
+                            txtRutProveedor.Clear();
+                            txtIdProducto.Clear();
+                            txtCantidadCompraProvProd.Clear();                          
                         }
 
                         //Si el proveedor compra TODO el stock del producto disponible
                         if (diferencia == 0)
                         {
-                            string query6 = "UPDATE Producto SET CantidadStock = ('" + diferencia + "') WHERE Id = ('" + IdProd + "')";
-                            int verificarsinstock = conex.executeNonQuery(query6);
-
-                            if (verificarsinstock == 1)
+                            DialogResult dr2 = MessageBox.Show("¿Seguro que desea confirmar? ", "Confirmación", MessageBoxButtons.YesNo);
+                            if (dr2 == DialogResult.Yes)
                             {
-                                string query7 = "INSERT INTO Proveedor_Producto(ProveedorRut, ProductoId, cantidad) VALUES('" + RutProveedorProd + "','" + IdProd + "','" + cantVender + "')";
-                                int verificarsinstock2 = conex.executeNonQuery(query7);
+                                string query6 = "UPDATE Producto SET CantidadStock = ('" + diferencia + "') WHERE Id = ('" + IdProd + "')";
+                                int verificarsinstock = conex.executeNonQuery(query6);
 
-                                if (verificarsinstock2 == 1)
+                                if (verificarsinstock == 1)
                                 {
-                                    //Mensaje de prueba, si compro y registro la cantidad
-                                    MessageBox.Show("El Producto acaba de quedar agotado. Ya no posee stock disponible");
-                                    txtRutProveedor.Clear();
-                                    txtIdProducto.Clear();
-                                    txtCantidadCompraProvProd.Clear();
+                                    string query7 = "INSERT INTO Proveedor_Producto(ProveedorRut, ProductoId, cantidad) VALUES('" + RutProveedorProd + "','" + IdProd + "','" + cantVender + "')";
+                                    int verificarsinstock2 = conex.executeNonQuery(query7);
+
+                                    if (verificarsinstock2 == 1)
+                                    {
+                                        //Mensaje de prueba, si compro y registro la cantidad
+                                        MessageBox.Show("El Producto acaba de quedar agotado. Ya no posee stock disponible");
+                                        txtRutProveedor.Clear();
+                                        txtIdProducto.Clear();
+                                        txtCantidadCompraProvProd.Clear();
+                                    }
+                                    //Poner algo contrario
                                 }
-                                //Poner algo contrario
                             }
+                            else
+                            {
+                                MessageBox.Show("Vuelva a intentarlo mas tarde. ");
+                                txtRutProveedor.Clear();
+                                txtIdProducto.Clear();
+                                txtCantidadCompraProvProd.Clear();                              
+                            }                          
                             //Poner algo contrario
                         }
                     }
@@ -149,98 +174,12 @@ namespace Taller2_DB
                 MessageBox.Show("Debes rellenar todos los campos para continuar");
             }
             conex.close();
+            */
         }
 
+        
         /// <summary>
-        /// Un proveedor que ya realizo la venta
-        /// de un producto, seguir relizando el
-        /// mismo proceso
-        /// </summary>
-        /// 
-        /*
-        public void ProvSeguirProd()
-        {
-            ConexMySQL conex = new ConexMySQL();
-            conex.open();
-
-            int cantVenderprodprov = Int32.Parse(txtCantidadCompraProvProd.Text);
-
-            /////////////Datos del proveedor a comparar//////////////
-            //Rut Proveedor
-            string query1 = "Select Rut From Proveedor where Rut = ('" + txtRutProveedor.Text + "')";
-            string RutProvProd2 = conex.selectQueryScalar(query1);
-
-            //Id Producto
-            string query2 = "Select Id From Producto Where Id = ('" + txtIdProducto.Text + "')";
-            string IdProvProd2 = conex.selectQueryScalar(query2);
-
-            //Cant stock Actual Producto
-            string query3 = "Select CantidadStock From Producto Where Id = ('" + RutProvProd2 + "')";
-            string CantStock2 = conex.selectQueryScalar(query3);
-            int cantstock2 = Int32.Parse(CantStock2);
-
-            //////////////Datos del proveedor que ya posee producto///////////
-            //Rut Proveedor que ya posee producto
-            string query4 = "select ProveedorRut from proveedor_producto where ProveedorRut = ('" + txtRutProveedor.Text + "')";
-            string RutProveedorProd3 = conex.selectQueryScalar(query4);
-
-            //Id Producto que ya posee producto
-            string query5 = "select ProductoId from proveedor_producto where ProductoId = ('" + txtIdProducto.Text + "')";
-            string IdProd3 = conex.selectQueryScalar(query5);
-
-            //Stock que ya posee producto
-            string query6 = "select cantidad from proveedor_producto where cantidad = ('" + IdProd3 + "')";
-            string CantStockprodprov = conex.selectQueryScalar(query6);
-            int cantstockprodprov = Int32.Parse(CantStockprodprov);
-
-
-            if ((RutProvProd2 == RutProveedorProd3) && (IdProvProd2 == IdProd3))
-            {
-
-                if (cantVenderprodprov > 0)
-                {
-                    int diferencia2 = cantstock2 - cantVenderprodprov;
-
-                    if (diferencia2 > 0)
-                    {
-                        string query7 = "UPDATE Producto SET CantidadStock = ('" + diferencia2 + "') WHERE Id = ('" + IdProvProd2 + "')";
-                        int verificarprovprod = conex.executeNonQuery(query7);
-
-                        if (verificarprovprod == 1)
-                        {
-                            int aumento = cantstockprodprov + cantVenderprodprov;
-
-                            string query8 = "update proveedor_producto set cantidad = ('" + aumento + "') WHERE ProveedorRut = ('" + RutProveedorProd3 + "') and ProductoId = ('" + IdProd3 + "')";
-                            int verificarprovprod2 = conex.executeNonQuery(query8);
-
-                            if (verificarprovprod2 == 1)
-                            {
-                                MessageBox.Show("Funciono");
-                            }
-                            else
-                            {
-                                MessageBox.Show("No Funciono");
-                            }
-
-                        }
-                    }
-                    if (diferencia2 == 0)
-                    {
-                        MessageBox.Show("Echale ganas mijo");
-                    }
-
-                }
-
-            }
-
-        }
-    }
-        */
-        //
-
-        /// <summary>
-        /// Si el producto NO posee stock disponible
-        /// para vender en el sistema
+        /// Si el producto NO posee stock disponible para vender en el sistema
         /// </summary>
         public void cantstockprodprovCero()
         {
@@ -259,11 +198,157 @@ namespace Taller2_DB
 
             if (conscantstock == 0)
             {
-                MessageBox.Show("No hay stock para realizar la venta. Seleccionar otro producto");
+                MessageBox.Show("No hay stock para suministar el producto. Porfavor, seleccionar otro producto.");
                 txtIdProducto.Clear();
                 txtCantidadCompraProvProd.Clear();
             }
         }
+
+        /// <summary>
+        /// Validar el largo del rut del proveedor ingresado coincide en el sistema
+        /// </summary>
+        /// <returns></returns>
+        public Boolean validarRut()
+        {
+            if (txtRutProveedor.Text.Length >= 8)
+            {
+                return true;
+            }
+            return false;
+        }
+        /// <summary>
+        ///Proveedor que ya realizo la venta de un producto, seguir relizando el mismo proceso
+        /// </summary>
+        /// 
+        /*
+        public void RutprovExiste()
+        {
+            ConexMySQL conex = new ConexMySQL();
+            conex.open();
+
+            int cantvend2 = Int32.Parse(txtCantidadCompraProvProd.Text);
+
+            ///Datos del proveedor
+            //Rut Proveedor Actual
+            string query11 = "Select Rut From Proveedor where Rut = ('" + txtRutProveedor.Text + "')";
+            string RutProveedorA = conex.selectQueryScalar(query11);
+;
+            //////////////Datos del Producto Actual//////////////
+            //Id Producto
+            string query2 = "Select Id From Producto Where Id = ('" + txtIdProducto.Text + "')";
+            string IdProdA = conex.selectQueryScalar(query2);
+            //Cant stock Actual Producto
+            string query3 = "Select CantidadStock From Producto Where Id = ('" + IdProdA + "')";
+            string CantStockA = conex.selectQueryScalar(query3);
+            int cantstockA = Int32.Parse(CantStockA);
+
+            
+            ////////////Datos del Proveedor-Producto//////////
+            //Rut Proveedor Prov-Prod
+            string query4 = "select ProveedorRut from proveedor_producto where ProveedorRut = ('" + RutProveedorA + "')";
+            string RutProvProdE = conex.selectQueryScalar(query4);
+            //Id Producto Prov-Prod
+            string query5 = "select ProductoId from proveedor_producto where ProductoId = ('" + IdProdA + "')";
+            string IdProvProdE = conex.selectQueryScalar(query5);
+            //Stock Producro que ya vendio el proveedor
+            string query66 = "select cantidad from proveedor_producto where ProveedorRut = ('" + RutProvProdE + "') and ProductoId = ('" + IdProvProdE + "')";
+            string CantStockprodprovE = conex.selectQueryScalar(query66);
+            int cantstockprodprovE = Int32.Parse(CantStockprodprovE);
+
+
+            //Aumento de la cantidad stock del proveedor
+            int aumento = (cantstockprodprovE + cantvend2);
+
+            //Diderencia del stock del prod
+            // int diferencia2 = (cantstock2 - cantvend2);
+
+            if (cantstockA == 0)
+            {
+                cantstockprodprovCero();
+            }
+
+            if (txtRutProveedor.Text != "" && txtIdProducto.Text != "")
+            {
+                //Si es el mismo valor
+                if (( RutProvProdE == RutProveedorA ) && (IdProvProdE == IdProdA))
+                {
+                    //si el valor es mayor a cero
+                    if (cantvend2 > 0)
+                    {
+                        //Diderencia del stock del prod
+                        int diferencia2 = (cantstockA - cantvend2);
+
+                        if (diferencia2 > 0)
+                        {
+                            string query6 = "UPDATE Producto SET CantidadStock = ('" + diferencia2 + "') WHERE Id = ('" + IdProvProdE + "')";
+                            int verificardif = conex.executeNonQuery(query6);
+
+                            if (verificardif == 1)
+                            {
+                                string query7 = "Update proveedor_producto SET cantidad =  ('" + aumento + "') WHERE ProveedorRut = ('" + RutProvProdE + "') AND ProveedorRut = ('" + IdProvProdE + "')";
+                                int verificaraum = conex.executeNonQuery(query7);
+
+                                if (verificaraum == 1)
+                                {
+                                    MessageBox.Show("Producto a vuelto a ser vendido 1.");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No Funciono 1");
+                                }
+                            }
+                            else
+                            {
+                                //No se verifico la dif
+                            }
+                        }
+                        if (diferencia2 == 0)
+                        {
+                            string query8 = "UPDATE Producto SET CantidadStock = ('" + diferencia2 + "') WHERE Id = ('" + IdProvProdE + "')";
+                            int verificardif2 = conex.executeNonQuery(query8);
+
+                            if (verificardif2 == 1)
+                            {
+                                string query9 = "Update proveedor_producto SET cantidad =  ('" + aumento + "') WHERE ProveedorRut = ('" + RutProvProdE + "') AND ProveedorRut = ('" + IdProvProdE + "')";
+                                int verificaraum2 = conex.executeNonQuery(query9);
+
+                                if (verificaraum2 == 1)
+                                {
+                                    MessageBox.Show("Producto se ha quedado sin Stock 2 .");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No Funciono 2");
+                                }
+                            }
+                            else
+                            {
+                                //No se verifico la dif
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No es Igual a cero");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No puede ser negativo");
+                    }
+                }
+                else
+                {
+                    //Si No son iguales, diferentes
+                    //Deberia hacer la compra normal
+                    
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debes rellenar todos los campos para continuar");
+            }
+        }
+        */
     }
 }
 
