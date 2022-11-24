@@ -49,5 +49,10 @@ namespace Taller2_DB
             ListProdSinOrdCompDGV.DataSource = t;
 
         }
+
+        private void ListProdSinOrdCompDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace Taller2_DB
         public ConsultarDatosCategoriaProducto()
         {
             InitializeComponent();
+            
         }
 
         private void btnVolverCatProd_Click(object sender, EventArgs e)

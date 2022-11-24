@@ -17,8 +17,7 @@ namespace Taller2_DB
     {
         public AgregarOrdenCompraCliente()
         {
-            InitializeComponent();
-            //Para no tocar el texto del comboBox
+            InitializeComponent();        
             cmbListaNumeroEmp.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbListaProductoVenta.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbListaRutCli.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -43,10 +42,10 @@ namespace Taller2_DB
             ////////////////////// Buscar datos de la Venta////////////////////////
             //Buscar datos del Cliente
             string query = "Select Distinct Rut from Cliente where Rut = '" + cmbListaRutCli.Text + "'";
-            string rutCliente1 = conex.selectQueryScalar(query);
+            string rutCliente = conex.selectQueryScalar(query);       
 
             //Buscar datos del Vendedor
-            string query2 = "Select Distinct NumeroEmpleado from Vendedor where NumeroEmpleado = '" + cmbListaNumeroEmp + "'";
+            string query2 = "Select Distinct NumeroEmpleado from Vendedor where NumeroEmpleado = '" + cmbListaNumeroEmp.Text + "'";
             string numVend = conex.selectQueryScalar(query2);
 
             //Buscar datos del Producto
@@ -57,98 +56,89 @@ namespace Taller2_DB
             DateTime fechaHoraVenta = DateTime.Now;
             string fechahoraventa = fechaHoraVenta.ToString("yyyy-MM-dd HH:mm:ss");
 
+            string cantprodvend = txtCantProdVenta.Text;
+            int cantprodvendInt = Int32.Parse(cantprodvend);
 
-            ////////////////////Datos de Producto////////////////////////
-            //Nombre del Producto
-            string query4 = "Select Nombre from Producto where Nombre = '" + idProd + "'";
-            string producto = conex.selectQueryScalar(query4);
-
-            //Precio Producto
-            string query5 = "Select Precio from Producto where Nombre = '" + idProd + "'";
-            string precioProducto = conex.selectQueryScalar(query5);
-            int precioproducto = Int32.Parse(precioProducto);
-
-            //Cantidad Stock Producto disponible en la venta
-            string query6 = "Select CantidadStock from Producto where Nombre = '" + idProd + "'";
-            string cantProdActual = conex.selectQueryScalar(query6);
-            int valor1 = Int32.Parse(cantProdActual);
-
-
-            ////////////////Datos para generar el descuento, precio total y el precio total final del producto//////////////
-            //Descuento Producto
-            string query7 = "Select Precio from Producto where Nombre = '" + idProd + "'";
-            string PrecioDescProd = conex.selectQueryScalar(query7);
-
-
-            //Reduccion de la cantidad stock
-            //Cantidad Stock Producto disponible para vender al cliente
-            string query9 = "Select CantidadStock from Producto where CantidadStock = '" + idProd + "'";
-            string ventaStockProd = conex.selectQueryScalar(query9);
-
-            int valor2 = Int32.Parse(txtCantProdVenta.Text);
-
-            //Nueva cantidad Stock Producto
-            int nuevaCantStockProd = (valor1 - valor2);
-
-            //Almacenar stock en string
-            string nuevaCantStockProd2 = nuevaCantStockProd.ToString();
-            string valor22 = valor2.ToString();
-
-            //Actualizar cantidad stock producto
-            string query10 = "UPDATE Producto SET CantidadStock = '" + nuevaCantStockProd2 + "' WHERE Id = '" + idProd + "'";
-            int NuStockProdDisp = conex.executeNonQuery(query10);
-
-            //Descuento Libro a ingresar
-            string Desc1 = txtDescuentoProd.Text;
-            //Descuento de tipo float, por los decimales
-            double DescuentoIgresado = double.Parse(Desc1);
-
-            ///////////////////Reducir el saldo y monto final de la Orden de Compra//////////////////////
-            //Saldo del Cliente
-            string query12 = "Select Saldo Rut from Cliente where Rut = '" + rutCliente1 + "'";
-            string saldorutCliente = conex.selectQueryScalar(query12);
-
-            //Saldo actual del cliente
-            int saldoActual = Int32.Parse(saldorutCliente);
-
-            //Calular el saldo en la orden de la compra
-            int montofinalprod = precioproducto * valor2;
-            int nuevoSaldoCompra = saldoActual - (montofinalprod);
-            int montofinal = saldoActual - nuevoSaldoCompra;
-            string montofinalTotal = montofinal.ToString();
-
-            //Si el monto final de la orden de compra resulta negativa
-            if (montofinal < 0)
+            if (cantprodvend != "" && cmbListaNumeroEmp.Text != "" && cmbListaRutCli.Text != "" && cmbListaProductoVenta.Text != "" )
             {
-                MessageBox.Show("Saldo del cliente insuficiente, no puede ser negativo");
-            }
-            //Actualizar el saldo del cliente en la orden de la compra
-            string query13 = "Update Ciente Set Saldo == '" + nuevoSaldoCompra + "' WHERE RUT = " + rutCliente1 + "";
-            string saldoActualCliente = conex.selectQueryScalar(query13);
-
-            //Se actualiza el saldo y se realiza la orden de compra
-            string query14 = "INSERT INTO OrdenCompra(Id, FechaCompra, PorcentajeDescuento, MontoTotal, MontoTotalFinal, VendedorNumeroEmpleado, ClienteRut, ProductoId) VALUES ('" + "Id_Orden" + "','" + fechahoraventa + "','" + DescuentoIgresado + "'," + montofinalprod + "," + montofinalTotal + "," + numVend + "," + rutCliente1 + ",'" + idProd + "')";
-            int consultarOrden = conex.executeNonQuery(query14);
-
-            if (consultarOrden == 1)
-            {
-                MessageBox.Show("Orden de Compra realizada exitosamente");
-                //Verificar si desea confirmar la orden de compra
-                var ventana = MessageBox.Show("¿Desea realizar la Orden de compra?", "Ventana", MessageBoxButtons.YesNo);
-                //No
-                if (ventana == DialogResult.No)
+                if (cantprodvend.All(char.IsDigit))
                 {
-                    this.Close();
+                    if (cantprodvendInt > 0)
+                    {
+                        string querysaldo = "Select Saldo from Cliente where Rut = '" + rutCliente + "'";
+                        string saldorutCliente = conex.selectQueryScalar(querysaldo);
+                        int saldocliente = Int32.Parse(saldorutCliente);
+
+                        if (saldocliente <= 0)
+                        {
+                            MessageBox.Show("Cliente no posee saldo para la compra ");
+                        }
+
+                        string queryPrecioProd = "Select Precio from Producto where Id = '" + idProd + "'";
+                        string precioProd = conex.selectQueryScalar(queryPrecioProd);
+                        int precioProd2 = Int32.Parse(saldorutCliente);
+
+                        if (saldocliente < precioProd2)
+                        {
+                            MessageBox.Show("Cliente no posee saldo para la compra ");
+                        }
+                       
+                        //Diferencia del saldo del cliente y el precio del producto
+                        int diferenciaSaldoPrecio = (saldocliente - precioProd2);
+                        //Descuento(NO ha sido usado, solo inserta)
+                        int descuento = Int32.Parse(txtDescuentoProd.Text);
+                        //Cantidad por Producto
+                        int cantPorProducto = (precioProd2 * cantprodvendInt);
+                        //
+                        //Stock Producto
+                        string querystockProd = "Select CantStock from Producto where Id = '" + idProd + "'";
+                        string stock = conex.selectQueryScalar(querystockProd);
+                        int stockActual = Int32.Parse(stock);
+                        //Diferencia del Stock Producto
+                        int diferenciaStock =  (stockActual - cantprodvendInt);
+
+                        //Actualizar
+                        //Saldo cliente
+                        string queryactSaldoCli = "UPDATE Cliente SET Saldo = ('" + diferenciaSaldoPrecio + "') WHERE Rut = ('" + rutCliente + "')";
+                        //Stock Producto
+                        string queryactStockProd = "UPDATE Producto SET CantidadStock = ('" + diferenciaStock + "') WHERE Id = ('" + idProd + "')";  
+                        
+                        //Insertar
+                        //Realizar Orden de la Compra
+                        string insertarOrden = "INSERT INTO OrdenCompra(Id, FechaCompra, PorcentajeDescuento, VendedorNumeroEmpleado, ClienteRut) VALUES('" + fechahoraventa + "','" + descuento + "','" + numVend + "','" + rutCliente + "')";
+                        //Orden Compra del Producto
+                        //string insertarOrdenProd = "INSERT INTO OrdenCompra_Producto(OrdenCompraId, ProductoId, cantidad) VALUES ('" +  + "','" + idProd + "','" + diferenciaStock + "')";
+                        string insertarOrdenProd = "INSERT INTO OrdenCompra_Producto(OrdenCompraId, ProductoId, cantidad) VALUES ('" + idProd + "','" + diferenciaStock + "')";
+
+                        int verificarOrden = conex.executeNonQuery(insertarOrdenProd);
+                        if (verificarOrden == 1)
+                        {
+                            MessageBox.Show("Si compro");
+                            txtCantProdVenta.Clear();
+                            txtDescuentoProd.Clear();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No Compro");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("La cantidad de producto no puede ser menor a 1");
+                    }
                 }
-                //Si
                 else
                 {
-                    txtCantProdVenta.Clear();
-                    txtDescuentoProd.Clear();
+                    MessageBox.Show("El campo cantidad de producto tiene caracteres invalidos");
                 }
             }
+            else
+            {
+                MessageBox.Show("Rellenar campos para continuar");
+            }       
                 conex.close();
         }
+
         /// <summary>
         /// Carga el listado de los vendedores, clientes y el producto
         /// en especificos, asociados para la orden de compra

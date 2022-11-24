@@ -61,6 +61,7 @@ namespace Taller2_DB
             this.ListProdSinOrdCompDGV.Name = "ListProdSinOrdCompDGV";
             this.ListProdSinOrdCompDGV.Size = new System.Drawing.Size(634, 251);
             this.ListProdSinOrdCompDGV.TabIndex = 2;
+            this.ListProdSinOrdCompDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListProdSinOrdCompDGV_CellContentClick);
             // 
             // ConsultarDatosProductoSinOrdenCompraPorMes
             // 
