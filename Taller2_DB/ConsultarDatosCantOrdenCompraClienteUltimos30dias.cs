@@ -47,7 +47,8 @@ namespace Taller2_DB
 
             if (cmbRutCliCantOrdComp30d.Text != "")
             {
-                string query = "Select distinct c.Rut, COUNT(o2.OrdenCompraId) AS Ordenes_Realizadas, SUM(o2.cantProdVendido) AS Total_Prod_Comprados from Cliente c INNER JOIN ordencompra o1 ON c.Rut=o1.ClienteRut INNER JOIN ordencompra_producto o2 ON o1.Id=o2.OrdenCompraId WHERE c.Rut =  '" + cmbRutCliCantOrdComp30d.Text + "' AND o1.FechaCompra BETWEEN CURDATE() - INTERVAL 30 DAY AND SYSDATE(); ";
+                //Select distinct c.Rut AS Rut_Cliente, o2.OrdenCompraId AS Ordenes_Realizadas, o1.FechaCompra, o2.cantProdVendido AS Total_Prod_Comprados from Cliente c INNER JOIN ordencompra o1 ON c.Rut=o1.ClienteRut INNER JOIN ordencompra_producto o2 ON o1.Id=o2.OrdenCompraId WHERE c.Rut = "123456789" AND o1.FechaCompra BETWEEN CURDATE() - INTERVAL 30 DAY AND SYSDATE();
+                string query = "Select distinct c.Rut, o2.OrdenCompraId AS Ordenes_Realizadas, o1.FechaCompra, o2.cantProdVendido AS Total_Prod_Comprados from Cliente c INNER JOIN ordencompra o1 ON c.Rut=o1.ClienteRut INNER JOIN ordencompra_producto o2 ON o1.Id=o2.OrdenCompraId WHERE c.Rut =  '" + cmbRutCliCantOrdComp30d.Text + "' AND o1.FechaCompra BETWEEN CURDATE() - INTERVAL 30 DAY AND SYSDATE(); ";
                 DataTable dt = conex.selectQuery(query);
 
                 dgvCantOrdenCompCliObtenida.DataSource = dt;
@@ -55,7 +56,7 @@ namespace Taller2_DB
             }
             else
             {
-                MessageBox.Show("Debes seleccionar un rut para continuar");
+                MessageBox.Show("Debes seleccionar el rut de un cliente para continuar");
             }
             conex.close();
         }
