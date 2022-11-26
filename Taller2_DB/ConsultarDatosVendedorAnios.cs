@@ -45,7 +45,8 @@ namespace Taller2_DB
             ConexMySQL conex = new ConexMySQL();
             conex.open();
             //Consulta con lod datos del vendedor, incluido su atiguedad en anios, con la propiedad DATEDIFF
-            string query = "Select NumeroEmpleado AS Numero, Nombre, Salario, FechaContratacion, DATEDIFF(CURDATE(), FechaContratacion)/365 AS antiguedad From Vendedor WHERE NumeroEmpleado = '" + cmbListaVendedor.Text + "'";
+            //string query = "Select NumeroEmpleado AS Numero, Nombre, Salario, FechaContratacion, DATEDIFF(CURDATE(), FechaContratacion)/365 AS antiguedad From Vendedor WHERE NumeroEmpleado = '" + cmbListaVendedor.Text + "'";
+            string query = "SELECT NumeroEmpleado AS Numero,Nombre,Salario,FechaContratacion,round(datediff(curdate(),FechaContratacion)/365) as Año_de_Antiguedad FROM vendedor WHERE NumeroEmpleado = '" + cmbListaVendedor.Text+"' ORDER BY round(datediff(curdate(),FechaContratacion)/365)";
 
             DataTable t2 = conex.selectQuery(query);
 

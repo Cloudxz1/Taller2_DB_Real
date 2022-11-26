@@ -44,7 +44,7 @@ namespace Taller2_DB
         {
             ConexMySQL conex = new ConexMySQL();
             conex.open();
-            string query = "Select NumeroEmpleado AS Numero, Nombre, Salario, FechaContratacion AS Fecha_Contratacion, DATEDIFF(CURDATE(), FechaContratacion)/365 AS antiguedad From Vendedor Order by FechaContratacion Desc Limit 2;;";
+            string query = "Select NumeroEmpleado AS Numero, Nombre, Salario, FechaContratacion AS Fecha_Contratacion, round(datediff(curdate(),FechaContratacion)/365) AS antiguedad From Vendedor Order by FechaContratacion Desc Limit 2;;";
 
             DataTable t1 = conex.selectQuery(query);
 
@@ -55,7 +55,7 @@ namespace Taller2_DB
         {
             ConexMySQL conex = new ConexMySQL();
             conex.open();
-            string query = "Select NumeroEmpleado AS Numero, Nombre, Salario, FechaContratacion AS Fecha_Contratacion, DATEDIFF(CURDATE(), FechaContratacion)/365 AS antiguedad From Vendedor Order by FechaContratacion Asc Limit 2;;";
+            string query = "Select NumeroEmpleado AS Numero, Nombre, Salario, FechaContratacion AS Fecha_Contratacion, round(datediff(curdate(),FechaContratacion)/365) AS antiguedad From Vendedor Order by FechaContratacion Asc Limit 2;;";
 
             DataTable t2 = conex.selectQuery(query);
 
