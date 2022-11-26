@@ -227,5 +227,18 @@ namespace Taller2_DB
             provSuministranProd.Show();
             this.Hide();
         }
+
+        /// <summary>
+        /// Accede a los productos que son suministrados
+        /// por un proveedor en el sistema
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnProdSuminProv_Click(object sender, EventArgs e)
+        {
+            ConsultarDatosProdSuministaProv datosProdSuministaProv = new ConsultarDatosProdSuministaProv();
+            datosProdSuministaProv.Show();
+            this.Hide();
+        }
     }
 }

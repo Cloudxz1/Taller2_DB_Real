@@ -181,6 +181,12 @@
     <Compile Include="ConsultarDatosProdCompradoPorDia.Designer.cs">
       <DependentUpon>ConsultarDatosProdCompradoPorDia.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsultarDatosProdSuministaProv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarDatosProdSuministaProv.Designer.cs">
+      <DependentUpon>ConsultarDatosProdSuministaProv.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsultarDatosProductoCompradoCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -303,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultarDatosProdCompradoPorDia.resx">
       <DependentUpon>ConsultarDatosProdCompradoPorDia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarDatosProdSuministaProv.resx">
+      <DependentUpon>ConsultarDatosProdSuministaProv.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultarDatosProductoCompradoCategoria.resx">
       <DependentUpon>ConsultarDatosProductoCompradoCategoria.cs</DependentUpon>

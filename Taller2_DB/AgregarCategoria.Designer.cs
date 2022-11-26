@@ -46,6 +46,7 @@ namespace Taller2_DB
             this.dataCategorias.Location = new System.Drawing.Point(161, 55);
             this.dataCategorias.Margin = new System.Windows.Forms.Padding(2);
             this.dataCategorias.Name = "dataCategorias";
+            this.dataCategorias.ReadOnly = true;
             this.dataCategorias.RowHeadersWidth = 51;
             this.dataCategorias.RowTemplate.Height = 24;
             this.dataCategorias.Size = new System.Drawing.Size(344, 173);
