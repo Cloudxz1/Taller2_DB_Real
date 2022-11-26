@@ -61,6 +61,7 @@ namespace Taller2_DB
             this.ConsultarListadoDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ConsultarListadoDGV.Location = new System.Drawing.Point(258, 62);
             this.ConsultarListadoDGV.Name = "ConsultarListadoDGV";
+            this.ConsultarListadoDGV.ReadOnly = true;
             this.ConsultarListadoDGV.Size = new System.Drawing.Size(641, 171);
             this.ConsultarListadoDGV.TabIndex = 1;
             // 

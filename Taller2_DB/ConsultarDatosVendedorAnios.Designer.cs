@@ -60,6 +60,7 @@ namespace Taller2_DB
             this.ListVenAniosDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ListVenAniosDGV.Location = new System.Drawing.Point(220, 71);
             this.ListVenAniosDGV.Name = "ListVenAniosDGV";
+            this.ListVenAniosDGV.ReadOnly = true;
             this.ListVenAniosDGV.Size = new System.Drawing.Size(580, 88);
             this.ListVenAniosDGV.TabIndex = 2;
             // 

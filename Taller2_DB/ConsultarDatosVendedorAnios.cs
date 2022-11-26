@@ -17,6 +17,7 @@ namespace Taller2_DB
         public ConsultarDatosVendedorAnios()
         {
             InitializeComponent();
+            cmbListaVendedor.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void btnVolDatosVendAnios_Click(object sender, EventArgs e)
@@ -39,13 +40,17 @@ namespace Taller2_DB
             }
             conex.close();
         }
-        
+        /// <summary>
+        /// Consulta los datos del vendedor,
+        /// incluidos los anios que lleva desepenando su trabajo
+        /// en el sistema
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBusVenAnios_Click(object sender, EventArgs e)
         {
             ConexMySQL conex = new ConexMySQL();
-            conex.open();
-            //Consulta con lod datos del vendedor, incluido su atiguedad en anios, con la propiedad DATEDIFF
-            //string query = "Select NumeroEmpleado AS Numero, Nombre, Salario, FechaContratacion, DATEDIFF(CURDATE(), FechaContratacion)/365 AS antiguedad From Vendedor WHERE NumeroEmpleado = '" + cmbListaVendedor.Text + "'";
+            conex.open();          
             string query = "SELECT NumeroEmpleado AS Numero,Nombre,Salario,FechaContratacion,round(datediff(curdate(),FechaContratacion)/365) as Año_de_Antiguedad FROM vendedor WHERE NumeroEmpleado = '" + cmbListaVendedor.Text+"' ORDER BY round(datediff(curdate(),FechaContratacion)/365)";
 
             DataTable t2 = conex.selectQuery(query);

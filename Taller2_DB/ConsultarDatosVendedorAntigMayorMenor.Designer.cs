@@ -82,6 +82,7 @@ namespace Taller2_DB
             this.VendedorMayAntiDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.VendedorMayAntiDGV.Location = new System.Drawing.Point(123, 97);
             this.VendedorMayAntiDGV.Name = "VendedorMayAntiDGV";
+            this.VendedorMayAntiDGV.ReadOnly = true;
             this.VendedorMayAntiDGV.Size = new System.Drawing.Size(548, 100);
             this.VendedorMayAntiDGV.TabIndex = 4;
             this.VendedorMayAntiDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VendedorMayAntiDGV_CellContentClick);
@@ -91,6 +92,7 @@ namespace Taller2_DB
             this.VendedorMenAntiDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.VendedorMenAntiDGV.Location = new System.Drawing.Point(123, 244);
             this.VendedorMenAntiDGV.Name = "VendedorMenAntiDGV";
+            this.VendedorMenAntiDGV.ReadOnly = true;
             this.VendedorMenAntiDGV.Size = new System.Drawing.Size(548, 100);
             this.VendedorMenAntiDGV.TabIndex = 5;
             this.VendedorMenAntiDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VendedorMenAntiDGV_CellContentClick);
