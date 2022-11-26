@@ -99,6 +99,7 @@ namespace Taller2_DB
             this.dgvCantOrdenCompCliObtenida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCantOrdenCompCliObtenida.Location = new System.Drawing.Point(123, 205);
             this.dgvCantOrdenCompCliObtenida.Name = "dgvCantOrdenCompCliObtenida";
+            this.dgvCantOrdenCompCliObtenida.ReadOnly = true;
             this.dgvCantOrdenCompCliObtenida.Size = new System.Drawing.Size(521, 150);
             this.dgvCantOrdenCompCliObtenida.TabIndex = 6;
             // 

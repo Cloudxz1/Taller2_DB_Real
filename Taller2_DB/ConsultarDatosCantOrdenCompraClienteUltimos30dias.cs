@@ -17,6 +17,7 @@ namespace Taller2_DB
         public ConsultarDatosCantOrdenCompraClienteUltimos30dias()
         {
             InitializeComponent();
+            cmbRutCliCantOrdComp30d.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         /// <summary>
@@ -46,7 +47,7 @@ namespace Taller2_DB
 
             if (cmbRutCliCantOrdComp30d.Text != "")
             {
-                string query = "Select COUNT(o.Id) AS Cant_Orden From ordencompra o INNER JOIN cliente c ON o.ClienteRut=c.Rut WHERE c.Rut =  '" + cmbRutCliCantOrdComp30d.Text + "' AND o.FechaCompra BETWEEN CURDATE() - INTERVAL 30 DAY AND SYSDATE(); ";
+                string query = "Select distinct c.Rut, COUNT(o2.OrdenCompraId) AS Ordenes_Realizadas, SUM(o2.cantProdVendido) AS Total_Prod_Comprados from Cliente c INNER JOIN ordencompra o1 ON c.Rut=o1.ClienteRut INNER JOIN ordencompra_producto o2 ON o1.Id=o2.OrdenCompraId WHERE c.Rut =  '" + cmbRutCliCantOrdComp30d.Text + "' AND o1.FechaCompra BETWEEN CURDATE() - INTERVAL 30 DAY AND SYSDATE(); ";
                 DataTable dt = conex.selectQuery(query);
 
                 dgvCantOrdenCompCliObtenida.DataSource = dt;
