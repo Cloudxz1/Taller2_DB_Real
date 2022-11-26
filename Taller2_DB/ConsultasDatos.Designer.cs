@@ -61,6 +61,8 @@ namespace Taller2_DB
             this.btnIrProvSuminProd = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.btnProdSuminProv = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.btnIrCantTotProdSuminProv = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVolverConsultas
@@ -152,7 +154,7 @@ namespace Taller2_DB
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(292, 35);
+            this.label5.Location = new System.Drawing.Point(335, 35);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(178, 13);
             this.label5.TabIndex = 10;
@@ -207,7 +209,7 @@ namespace Taller2_DB
             // 
             // btnProdCompDia
             // 
-            this.btnProdCompDia.Location = new System.Drawing.Point(670, 318);
+            this.btnProdCompDia.Location = new System.Drawing.Point(728, 316);
             this.btnProdCompDia.Name = "btnProdCompDia";
             this.btnProdCompDia.Size = new System.Drawing.Size(75, 23);
             this.btnProdCompDia.TabIndex = 16;
@@ -226,7 +228,7 @@ namespace Taller2_DB
             // 
             // btnProdSinOrdComp
             // 
-            this.btnProdSinOrdComp.Location = new System.Drawing.Point(670, 286);
+            this.btnProdSinOrdComp.Location = new System.Drawing.Point(728, 284);
             this.btnProdSinOrdComp.Name = "btnProdSinOrdComp";
             this.btnProdSinOrdComp.Size = new System.Drawing.Size(75, 23);
             this.btnProdSinOrdComp.TabIndex = 18;
@@ -245,7 +247,7 @@ namespace Taller2_DB
             // 
             // btnProdCompPorCateg
             // 
-            this.btnProdCompPorCateg.Location = new System.Drawing.Point(670, 253);
+            this.btnProdCompPorCateg.Location = new System.Drawing.Point(728, 251);
             this.btnProdCompPorCateg.Name = "btnProdCompPorCateg";
             this.btnProdCompPorCateg.Size = new System.Drawing.Size(75, 23);
             this.btnProdCompPorCateg.TabIndex = 20;
@@ -264,7 +266,7 @@ namespace Taller2_DB
             // 
             // btnProdCompCliAno
             // 
-            this.btnProdCompCliAno.Location = new System.Drawing.Point(670, 224);
+            this.btnProdCompCliAno.Location = new System.Drawing.Point(728, 222);
             this.btnProdCompCliAno.Name = "btnProdCompCliAno";
             this.btnProdCompCliAno.Size = new System.Drawing.Size(75, 23);
             this.btnProdCompCliAno.TabIndex = 22;
@@ -283,7 +285,7 @@ namespace Taller2_DB
             // 
             // btnTop5ProdVendSem
             // 
-            this.btnTop5ProdVendSem.Location = new System.Drawing.Point(670, 193);
+            this.btnTop5ProdVendSem.Location = new System.Drawing.Point(728, 191);
             this.btnTop5ProdVendSem.Name = "btnTop5ProdVendSem";
             this.btnTop5ProdVendSem.Size = new System.Drawing.Size(75, 23);
             this.btnTop5ProdVendSem.TabIndex = 24;
@@ -302,7 +304,7 @@ namespace Taller2_DB
             // 
             // btnDatosCliOrdComp
             // 
-            this.btnDatosCliOrdComp.Location = new System.Drawing.Point(670, 159);
+            this.btnDatosCliOrdComp.Location = new System.Drawing.Point(728, 157);
             this.btnDatosCliOrdComp.Name = "btnDatosCliOrdComp";
             this.btnDatosCliOrdComp.Size = new System.Drawing.Size(75, 23);
             this.btnDatosCliOrdComp.TabIndex = 26;
@@ -321,7 +323,7 @@ namespace Taller2_DB
             // 
             // btnCantOrdCli30d
             // 
-            this.btnCantOrdCli30d.Location = new System.Drawing.Point(670, 100);
+            this.btnCantOrdCli30d.Location = new System.Drawing.Point(728, 95);
             this.btnCantOrdCli30d.Name = "btnCantOrdCli30d";
             this.btnCantOrdCli30d.Size = new System.Drawing.Size(75, 23);
             this.btnCantOrdCli30d.TabIndex = 28;
@@ -367,11 +369,32 @@ namespace Taller2_DB
             this.btnProdSuminProv.UseVisualStyleBackColor = true;
             this.btnProdSuminProv.Click += new System.EventHandler(this.btnProdSuminProv_Click);
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(398, 133);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(296, 13);
+            this.label17.TabIndex = 33;
+            this.label17.Text = "10) Cantidad Total de Productos suministrados por Proveedor";
+            // 
+            // btnIrCantTotProdSuminProv
+            // 
+            this.btnIrCantTotProdSuminProv.Location = new System.Drawing.Point(728, 128);
+            this.btnIrCantTotProdSuminProv.Name = "btnIrCantTotProdSuminProv";
+            this.btnIrCantTotProdSuminProv.Size = new System.Drawing.Size(75, 23);
+            this.btnIrCantTotProdSuminProv.TabIndex = 34;
+            this.btnIrCantTotProdSuminProv.Text = "Ir";
+            this.btnIrCantTotProdSuminProv.UseVisualStyleBackColor = true;
+            this.btnIrCantTotProdSuminProv.Click += new System.EventHandler(this.btnIrCantTotProdSuminProv_Click);
+            // 
             // ConsultasDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(776, 450);
+            this.ClientSize = new System.Drawing.Size(860, 450);
+            this.Controls.Add(this.btnIrCantTotProdSuminProv);
+            this.Controls.Add(this.label17);
             this.Controls.Add(this.btnProdSuminProv);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.btnIrProvSuminProd);
@@ -446,5 +469,7 @@ namespace Taller2_DB
         private System.Windows.Forms.Button btnIrProvSuminProd;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btnProdSuminProv;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button btnIrCantTotProdSuminProv;
     }
 }

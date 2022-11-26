@@ -230,7 +230,7 @@ namespace Taller2_DB
 
         /// <summary>
         /// Accede a los productos que son suministrados
-        /// por un proveedor en el sistema
+        /// por un proveedor  en especifico en el sistema
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -238,6 +238,19 @@ namespace Taller2_DB
         {
             ConsultarDatosProdSuministaProv datosProdSuministaProv = new ConsultarDatosProdSuministaProv();
             datosProdSuministaProv.Show();
+            this.Hide();
+        }
+
+        /// <summary>
+        /// Accede a la cantidad total de los productos
+        /// que se encuentra suministrado por un proveedor en especifico en el sistema
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnIrCantTotProdSuminProv_Click(object sender, EventArgs e)
+        {
+            ConsultarDatosCantTotalProdSuminProv cantTotalProdSuminProv = new ConsultarDatosCantTotalProdSuminProv();
+            cantTotalProdSuminProv.Show();
             this.Hide();
         }
     }

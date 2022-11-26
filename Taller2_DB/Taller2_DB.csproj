@@ -151,6 +151,12 @@
     <Compile Include="ConsultarDatosCantProductoCateg.Designer.cs">
       <DependentUpon>ConsultarDatosCantProductoCateg.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsultarDatosCantTotalProdSuminProv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarDatosCantTotalProdSuminProv.Designer.cs">
+      <DependentUpon>ConsultarDatosCantTotalProdSuminProv.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsultarDatosCategoriaProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultarDatosCantProductoCateg.resx">
       <DependentUpon>ConsultarDatosCantProductoCateg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarDatosCantTotalProdSuminProv.resx">
+      <DependentUpon>ConsultarDatosCantTotalProdSuminProv.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultarDatosCategoriaProducto.resx">
       <DependentUpon>ConsultarDatosCategoriaProducto.cs</DependentUpon>
