@@ -31,7 +31,7 @@ namespace Taller2_DB
             ConexMySQL conex = new ConexMySQL();
             conex.open();
 
-            string query = "Select * from Cliente;";
+            string query = "Select Rut, Nombre, Saldo, Direccion, Telefono from Cliente;";
             DataTable dt = conex.selectQuery(query);
             ConsultarListadoDGV.DataSource = dt;
             ConsultarListadoDGV.Show();

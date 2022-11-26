@@ -52,7 +52,7 @@ namespace Taller2_DB
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(140, 107);
+            this.label1.Location = new System.Drawing.Point(275, 109);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 1;
@@ -73,20 +73,20 @@ namespace Taller2_DB
             this.CategProdDGV.Location = new System.Drawing.Point(48, 173);
             this.CategProdDGV.Name = "CategProdDGV";
             this.CategProdDGV.ReadOnly = true;
-            this.CategProdDGV.Size = new System.Drawing.Size(468, 150);
+            this.CategProdDGV.Size = new System.Drawing.Size(691, 151);
             this.CategProdDGV.TabIndex = 3;
             // 
             // cmbListaCategoria1
             // 
             this.cmbListaCategoria1.FormattingEnabled = true;
-            this.cmbListaCategoria1.Location = new System.Drawing.Point(201, 104);
+            this.cmbListaCategoria1.Location = new System.Drawing.Point(336, 106);
             this.cmbListaCategoria1.Name = "cmbListaCategoria1";
             this.cmbListaCategoria1.Size = new System.Drawing.Size(121, 21);
             this.cmbListaCategoria1.TabIndex = 4;
             // 
             // btnBuscarListCateg
             // 
-            this.btnBuscarListCateg.Location = new System.Drawing.Point(328, 102);
+            this.btnBuscarListCateg.Location = new System.Drawing.Point(463, 104);
             this.btnBuscarListCateg.Name = "btnBuscarListCateg";
             this.btnBuscarListCateg.Size = new System.Drawing.Size(75, 23);
             this.btnBuscarListCateg.TabIndex = 5;
@@ -97,7 +97,7 @@ namespace Taller2_DB
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(209, 53);
+            this.label3.Location = new System.Drawing.Point(344, 55);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 13);
             this.label3.TabIndex = 6;
@@ -107,7 +107,7 @@ namespace Taller2_DB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 450);
+            this.ClientSize = new System.Drawing.Size(799, 450);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnBuscarListCateg);
             this.Controls.Add(this.cmbListaCategoria1);

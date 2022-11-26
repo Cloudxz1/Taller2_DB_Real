@@ -52,16 +52,16 @@ namespace Taller2_DB
             // dgvProdSuministraProd
             // 
             this.dgvProdSuministraProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProdSuministraProd.Location = new System.Drawing.Point(158, 199);
+            this.dgvProdSuministraProd.Location = new System.Drawing.Point(103, 199);
             this.dgvProdSuministraProd.Name = "dgvProdSuministraProd";
             this.dgvProdSuministraProd.ReadOnly = true;
-            this.dgvProdSuministraProd.Size = new System.Drawing.Size(502, 150);
+            this.dgvProdSuministraProd.Size = new System.Drawing.Size(619, 150);
             this.dgvProdSuministraProd.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(155, 173);
+            this.label1.Location = new System.Drawing.Point(100, 183);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 2;

@@ -33,7 +33,7 @@ namespace Taller2_DB
 
             if (cmbRutProvSuminProd.Text != "")
             {
-                string query = "Select p2.ProductoId, p1.Nombre, p1.Precio, p1.CantidadStock, p2.ProveedorRut, p2.cantidadSuministrada from producto p1 INNER JOIN proveedor_producto p2 ON p1.Id=p2.ProductoId INNER JOIN proveedor p3 ON p2.ProveedorRut=p3.Rut WHERE p3.Rut = ('" + cmbRutProvSuminProd.Text + "')";
+                string query = "Select p2.ProductoId, p1.Nombre, p1.Precio, p1.CantidadStock, p2.ProveedorRut, p2.cantidadSuministrada from producto p1 INNER JOIN proveedor_producto p2 ON p1.Id=p2.ProductoId INNER JOIN proveedor p3 ON p2.ProveedorRut=p3.Rut WHERE p1.Id =  ('" + cmbRutProvSuminProd.Text + "')";
                 DataTable t2 = conex.selectQuery(query);
                 dgvProvSuminisProd.DataSource = t2;
                 dgvProvSuminisProd.Show();

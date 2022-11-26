@@ -86,9 +86,9 @@ namespace Taller2_DB
             // 
             // btnListadoDatos
             // 
-            this.btnListadoDatos.Location = new System.Drawing.Point(267, 99);
+            this.btnListadoDatos.Location = new System.Drawing.Point(267, 95);
             this.btnListadoDatos.Name = "btnListadoDatos";
-            this.btnListadoDatos.Size = new System.Drawing.Size(75, 23);
+            this.btnListadoDatos.Size = new System.Drawing.Size(75, 27);
             this.btnListadoDatos.TabIndex = 2;
             this.btnListadoDatos.Text = "Ir";
             this.btnListadoDatos.UseVisualStyleBackColor = true;
@@ -97,17 +97,17 @@ namespace Taller2_DB
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 133);
+            this.label2.Location = new System.Drawing.Point(43, 138);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 13);
+            this.label2.Size = new System.Drawing.Size(99, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "2) Datos Vendedor";
+            this.label2.Text = "2) Datos Vendedor:";
             // 
             // btnDatosVendedor1
             // 
-            this.btnDatosVendedor1.Location = new System.Drawing.Point(267, 128);
+            this.btnDatosVendedor1.Location = new System.Drawing.Point(267, 126);
             this.btnDatosVendedor1.Name = "btnDatosVendedor1";
-            this.btnDatosVendedor1.Size = new System.Drawing.Size(75, 23);
+            this.btnDatosVendedor1.Size = new System.Drawing.Size(75, 27);
             this.btnDatosVendedor1.TabIndex = 4;
             this.btnDatosVendedor1.Text = "Ir";
             this.btnDatosVendedor1.UseVisualStyleBackColor = true;
@@ -117,7 +117,7 @@ namespace Taller2_DB
             // 
             this.btnVendAntigTipo.Location = new System.Drawing.Point(267, 157);
             this.btnVendAntigTipo.Name = "btnVendAntigTipo";
-            this.btnVendAntigTipo.Size = new System.Drawing.Size(75, 23);
+            this.btnVendAntigTipo.Size = new System.Drawing.Size(75, 27);
             this.btnVendAntigTipo.TabIndex = 6;
             this.btnVendAntigTipo.Text = "Ir";
             this.btnVendAntigTipo.UseVisualStyleBackColor = true;
@@ -126,20 +126,20 @@ namespace Taller2_DB
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(43, 164);
+            this.label3.Location = new System.Drawing.Point(43, 167);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(146, 13);
+            this.label3.Size = new System.Drawing.Size(149, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "3) Vendedor Tipo Antiguedad";
+            this.label3.Text = "3) Vendedor Tipo Antiguedad:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(43, 229);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(139, 13);
+            this.label4.Size = new System.Drawing.Size(142, 13);
             this.label4.TabIndex = 8;
-            this.label4.Text = "5) Categoria de un producto";
+            this.label4.Text = "5) Categoria de un producto:";
             // 
             // btnCategProd
             // 
@@ -154,7 +154,7 @@ namespace Taller2_DB
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(335, 35);
+            this.label5.Location = new System.Drawing.Point(354, 35);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(178, 13);
             this.label5.TabIndex = 10;
@@ -165,9 +165,9 @@ namespace Taller2_DB
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(43, 262);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(191, 13);
+            this.label6.Size = new System.Drawing.Size(194, 13);
             this.label6.TabIndex = 11;
-            this.label6.Text = "6) Cantidad de productos por categoria";
+            this.label6.Text = "6) Cantidad de productos por categoria:";
             // 
             // btnCantProdCateg
             // 
@@ -181,7 +181,7 @@ namespace Taller2_DB
             // 
             // btnConsOrdComp
             // 
-            this.btnConsOrdComp.Location = new System.Drawing.Point(267, 190);
+            this.btnConsOrdComp.Location = new System.Drawing.Point(267, 188);
             this.btnConsOrdComp.Name = "btnConsOrdComp";
             this.btnConsOrdComp.Size = new System.Drawing.Size(75, 28);
             this.btnConsOrdComp.TabIndex = 13;
@@ -194,14 +194,14 @@ namespace Taller2_DB
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(43, 198);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(133, 13);
+            this.label7.Size = new System.Drawing.Size(136, 13);
             this.label7.TabIndex = 14;
-            this.label7.Text = "4) Datos Orden de Compra";
+            this.label7.Text = "4) Datos Orden de Compra:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(398, 318);
+            this.label8.Location = new System.Drawing.Point(427, 328);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(159, 13);
             this.label8.TabIndex = 15;
@@ -209,9 +209,9 @@ namespace Taller2_DB
             // 
             // btnProdCompDia
             // 
-            this.btnProdCompDia.Location = new System.Drawing.Point(728, 316);
+            this.btnProdCompDia.Location = new System.Drawing.Point(746, 321);
             this.btnProdCompDia.Name = "btnProdCompDia";
-            this.btnProdCompDia.Size = new System.Drawing.Size(75, 23);
+            this.btnProdCompDia.Size = new System.Drawing.Size(75, 26);
             this.btnProdCompDia.TabIndex = 16;
             this.btnProdCompDia.Text = "Ir";
             this.btnProdCompDia.UseVisualStyleBackColor = true;
@@ -220,7 +220,7 @@ namespace Taller2_DB
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(398, 286);
+            this.label9.Location = new System.Drawing.Point(427, 296);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(213, 13);
             this.label9.TabIndex = 17;
@@ -228,9 +228,9 @@ namespace Taller2_DB
             // 
             // btnProdSinOrdComp
             // 
-            this.btnProdSinOrdComp.Location = new System.Drawing.Point(728, 284);
+            this.btnProdSinOrdComp.Location = new System.Drawing.Point(746, 289);
             this.btnProdSinOrdComp.Name = "btnProdSinOrdComp";
-            this.btnProdSinOrdComp.Size = new System.Drawing.Size(75, 23);
+            this.btnProdSinOrdComp.Size = new System.Drawing.Size(75, 26);
             this.btnProdSinOrdComp.TabIndex = 18;
             this.btnProdSinOrdComp.Text = "Ir";
             this.btnProdSinOrdComp.UseVisualStyleBackColor = true;
@@ -239,7 +239,7 @@ namespace Taller2_DB
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(398, 257);
+            this.label10.Location = new System.Drawing.Point(427, 262);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(187, 13);
             this.label10.TabIndex = 19;
@@ -247,9 +247,9 @@ namespace Taller2_DB
             // 
             // btnProdCompPorCateg
             // 
-            this.btnProdCompPorCateg.Location = new System.Drawing.Point(728, 251);
+            this.btnProdCompPorCateg.Location = new System.Drawing.Point(746, 255);
             this.btnProdCompPorCateg.Name = "btnProdCompPorCateg";
-            this.btnProdCompPorCateg.Size = new System.Drawing.Size(75, 23);
+            this.btnProdCompPorCateg.Size = new System.Drawing.Size(75, 26);
             this.btnProdCompPorCateg.TabIndex = 20;
             this.btnProdCompPorCateg.Text = "Ir";
             this.btnProdCompPorCateg.UseVisualStyleBackColor = true;
@@ -258,7 +258,7 @@ namespace Taller2_DB
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(398, 224);
+            this.label11.Location = new System.Drawing.Point(427, 232);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(221, 13);
             this.label11.TabIndex = 21;
@@ -266,9 +266,9 @@ namespace Taller2_DB
             // 
             // btnProdCompCliAno
             // 
-            this.btnProdCompCliAno.Location = new System.Drawing.Point(728, 222);
+            this.btnProdCompCliAno.Location = new System.Drawing.Point(746, 225);
             this.btnProdCompCliAno.Name = "btnProdCompCliAno";
-            this.btnProdCompCliAno.Size = new System.Drawing.Size(75, 23);
+            this.btnProdCompCliAno.Size = new System.Drawing.Size(75, 26);
             this.btnProdCompCliAno.TabIndex = 22;
             this.btnProdCompCliAno.Text = "Ir";
             this.btnProdCompCliAno.UseVisualStyleBackColor = true;
@@ -277,7 +277,7 @@ namespace Taller2_DB
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(398, 193);
+            this.label12.Location = new System.Drawing.Point(427, 198);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(242, 13);
             this.label12.TabIndex = 23;
@@ -285,9 +285,9 @@ namespace Taller2_DB
             // 
             // btnTop5ProdVendSem
             // 
-            this.btnTop5ProdVendSem.Location = new System.Drawing.Point(728, 191);
+            this.btnTop5ProdVendSem.Location = new System.Drawing.Point(746, 191);
             this.btnTop5ProdVendSem.Name = "btnTop5ProdVendSem";
-            this.btnTop5ProdVendSem.Size = new System.Drawing.Size(75, 23);
+            this.btnTop5ProdVendSem.Size = new System.Drawing.Size(75, 26);
             this.btnTop5ProdVendSem.TabIndex = 24;
             this.btnTop5ProdVendSem.Text = "Ir";
             this.btnTop5ProdVendSem.UseVisualStyleBackColor = true;
@@ -296,7 +296,7 @@ namespace Taller2_DB
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(398, 164);
+            this.label13.Location = new System.Drawing.Point(427, 166);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(203, 13);
             this.label13.TabIndex = 25;
@@ -304,9 +304,9 @@ namespace Taller2_DB
             // 
             // btnDatosCliOrdComp
             // 
-            this.btnDatosCliOrdComp.Location = new System.Drawing.Point(728, 157);
+            this.btnDatosCliOrdComp.Location = new System.Drawing.Point(746, 160);
             this.btnDatosCliOrdComp.Name = "btnDatosCliOrdComp";
-            this.btnDatosCliOrdComp.Size = new System.Drawing.Size(75, 23);
+            this.btnDatosCliOrdComp.Size = new System.Drawing.Size(75, 26);
             this.btnDatosCliOrdComp.TabIndex = 26;
             this.btnDatosCliOrdComp.Text = "Ir";
             this.btnDatosCliOrdComp.UseVisualStyleBackColor = true;
@@ -315,7 +315,7 @@ namespace Taller2_DB
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(398, 100);
+            this.label14.Location = new System.Drawing.Point(427, 105);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(257, 13);
             this.label14.TabIndex = 27;
@@ -323,9 +323,9 @@ namespace Taller2_DB
             // 
             // btnCantOrdCli30d
             // 
-            this.btnCantOrdCli30d.Location = new System.Drawing.Point(728, 95);
+            this.btnCantOrdCli30d.Location = new System.Drawing.Point(746, 95);
             this.btnCantOrdCli30d.Name = "btnCantOrdCli30d";
-            this.btnCantOrdCli30d.Size = new System.Drawing.Size(75, 23);
+            this.btnCantOrdCli30d.Size = new System.Drawing.Size(75, 27);
             this.btnCantOrdCli30d.TabIndex = 28;
             this.btnCantOrdCli30d.Text = "Ir";
             this.btnCantOrdCli30d.UseVisualStyleBackColor = true;
@@ -338,7 +338,7 @@ namespace Taller2_DB
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(218, 13);
             this.label15.TabIndex = 29;
-            this.label15.Text = "7) Provvedores que suministran un producto:";
+            this.label15.Text = "7) Proveedores que suministran un producto:";
             // 
             // btnIrProvSuminProd
             // 
@@ -372,17 +372,17 @@ namespace Taller2_DB
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(398, 133);
+            this.label17.Location = new System.Drawing.Point(426, 134);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(296, 13);
+            this.label17.Size = new System.Drawing.Size(299, 13);
             this.label17.TabIndex = 33;
-            this.label17.Text = "10) Cantidad Total de Productos suministrados por Proveedor";
+            this.label17.Text = "10) Cantidad Total de Productos suministrados por Proveedor:";
             // 
             // btnIrCantTotProdSuminProv
             // 
-            this.btnIrCantTotProdSuminProv.Location = new System.Drawing.Point(728, 128);
+            this.btnIrCantTotProdSuminProv.Location = new System.Drawing.Point(746, 127);
             this.btnIrCantTotProdSuminProv.Name = "btnIrCantTotProdSuminProv";
-            this.btnIrCantTotProdSuminProv.Size = new System.Drawing.Size(75, 23);
+            this.btnIrCantTotProdSuminProv.Size = new System.Drawing.Size(75, 27);
             this.btnIrCantTotProdSuminProv.TabIndex = 34;
             this.btnIrCantTotProdSuminProv.Text = "Ir";
             this.btnIrCantTotProdSuminProv.UseVisualStyleBackColor = true;
