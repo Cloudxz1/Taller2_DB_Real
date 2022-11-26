@@ -17,6 +17,7 @@ namespace Taller2_DB
         public ConsultarDatosCantProductoCateg()
         {
             InitializeComponent();
+            cmbListaCateg2.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void btnVolverConCantProCat_Click(object sender, EventArgs e)
@@ -34,12 +35,20 @@ namespace Taller2_DB
         {
             ConexMySQL conex = new ConexMySQL();
             conex.open();
-            string query = "Select COUNT(p.id) AS Producto_Encontrado, sum(p.cantidadstock) AS Total_Stock  From Producto p INNER JOIN categoria c ON p.CategoriaId=c.Id WHERE c.Nombre= '" + cmbListaCateg2.Text + "'";
 
-            DataTable t2 = conex.selectQuery(query);
+            if (cmbListaCateg2.Text != "")
+            {
+                string query = "Select COUNT(p.id) AS Producto_Encontrado, sum(p.cantidadstock) AS Total_Stock  From Producto p INNER JOIN categoria c ON p.CategoriaId=c.Id WHERE c.Nombre= '" + cmbListaCateg2.Text + "'";
+                DataTable t2 = conex.selectQuery(query);
 
-            listaCantProdCatDGV.DataSource = t2;
-            listaCantProdCatDGV.Show();
+                listaCantProdCatDGV.DataSource = t2;
+                listaCantProdCatDGV.Show();
+            }
+            else
+            {
+                MessageBox.Show("Debes seleccionar el nombre de una categoria para continuar. ");
+            }
+            
         }
 
         private void listaCantProdCatDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)

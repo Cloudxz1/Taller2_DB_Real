@@ -63,6 +63,7 @@ namespace Taller2_DB
             this.listaCantProdCatDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listaCantProdCatDGV.Location = new System.Drawing.Point(117, 185);
             this.listaCantProdCatDGV.Name = "listaCantProdCatDGV";
+            this.listaCantProdCatDGV.ReadOnly = true;
             this.listaCantProdCatDGV.Size = new System.Drawing.Size(274, 100);
             this.listaCantProdCatDGV.TabIndex = 2;
             this.listaCantProdCatDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listaCantProdCatDGV_CellContentClick);

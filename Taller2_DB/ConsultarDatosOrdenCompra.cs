@@ -17,6 +17,10 @@ namespace Taller2_DB
         public ConsultarDatosOrdenCompra()
         {
             InitializeComponent();
+            cmbListOrdenCompra.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbListVendOrdenCompra.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbListRutCliOrdenCompra.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbListIdProdOrden.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void btnVolvConsOrdCom_Click(object sender, EventArgs e)
@@ -31,14 +35,14 @@ namespace Taller2_DB
             ConexMySQL conex = new ConexMySQL();
             conex.open();
 
-            if (cmbListOrdenCompra.Text == "" && cmbListVendOrdenCompra.Text == "" && cmbListRutCliOrdenCompra.Text == "" && cmbListNomProdOrden.Text == "")
+            if (cmbListOrdenCompra.Text == "" && cmbListVendOrdenCompra.Text == "" && cmbListRutCliOrdenCompra.Text == "" && cmbListIdProdOrden.Text == "")
             {
                 MessageBox.Show("Debes seleccionar los datos para continuar");
             }
             else
             {
           
-                string query = "Select DISTINCT v.NumeroEmpleado, c.Rut AS Rut_Cliente, o.Id AS ID_Orden, o.FechaCompra , p.id AS ID_Prod, o.PorcentajeDescuento AS Descuento, o.MontoTotal, o.MontoTotalFinal AS MontoFinal From ordencompra o , producto p, vendedor v, cliente c WHERE o.Id='" + cmbListOrdenCompra.Text + "' AND v.NumeroEmpleado = '" + cmbListVendOrdenCompra.Text + "' AND c.Rut = '" + cmbListRutCliOrdenCompra.Text + "'AND p.Nombre= '" + cmbListNomProdOrden.Text + "'";
+                string query = "Select DISTINCT v.NumeroEmpleado, c.Rut AS Rut_Cliente, o.Id AS ID_Orden, o.FechaCompra , p.id AS ID_Prod, o.PorcentajeDescuento AS Descuento, o.MontoTotal, o.MontoTotalFinal AS MontoFinal From ordencompra o , producto p, vendedor v, cliente c WHERE o.Id='" + cmbListOrdenCompra.Text + "' AND v.NumeroEmpleado = '" + cmbListVendOrdenCompra.Text + "' AND c.Rut = '" + cmbListRutCliOrdenCompra.Text + "'AND p.Nombre= '" + cmbListIdProdOrden.Text + "'";
                 DataTable dt = conex.selectQuery(query);
 
                 DetallesOrdCompDGV.DataSource = dt;
@@ -83,7 +87,7 @@ namespace Taller2_DB
 
             for (int i = 0; i < t4.Rows.Count; i++)
             {
-                cmbListNomProdOrden.Items.Add(t4.Rows[i]["Nombre"]);
+                cmbListIdProdOrden.Items.Add(t4.Rows[i]["Nombre"]);
             }
 
             conex.close();

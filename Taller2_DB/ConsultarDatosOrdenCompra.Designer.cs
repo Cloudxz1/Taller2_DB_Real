@@ -41,7 +41,7 @@ namespace Taller2_DB
             this.label5 = new System.Windows.Forms.Label();
             this.DetallesOrdCompDGV = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
-            this.cmbListNomProdOrden = new System.Windows.Forms.ComboBox();
+            this.cmbListIdProdOrden = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DetallesOrdCompDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,24 +147,24 @@ namespace Taller2_DB
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(308, 156);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 13);
+            this.label6.Size = new System.Drawing.Size(65, 13);
             this.label6.TabIndex = 12;
-            this.label6.Text = "Nombre del Producto:";
+            this.label6.Text = "Id Producto:";
             // 
-            // cmbListNomProdOrden
+            // cmbListIdProdOrden
             // 
-            this.cmbListNomProdOrden.FormattingEnabled = true;
-            this.cmbListNomProdOrden.Location = new System.Drawing.Point(459, 153);
-            this.cmbListNomProdOrden.Name = "cmbListNomProdOrden";
-            this.cmbListNomProdOrden.Size = new System.Drawing.Size(121, 21);
-            this.cmbListNomProdOrden.TabIndex = 13;
+            this.cmbListIdProdOrden.FormattingEnabled = true;
+            this.cmbListIdProdOrden.Location = new System.Drawing.Point(459, 153);
+            this.cmbListIdProdOrden.Name = "cmbListIdProdOrden";
+            this.cmbListIdProdOrden.Size = new System.Drawing.Size(121, 21);
+            this.cmbListIdProdOrden.TabIndex = 13;
             // 
             // ConsultarDatosOrdenCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(942, 450);
-            this.Controls.Add(this.cmbListNomProdOrden);
+            this.Controls.Add(this.cmbListIdProdOrden);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.DetallesOrdCompDGV);
             this.Controls.Add(this.label5);
@@ -200,6 +200,6 @@ namespace Taller2_DB
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView DetallesOrdCompDGV;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cmbListNomProdOrden;
+        private System.Windows.Forms.ComboBox cmbListIdProdOrden;
     }
 }

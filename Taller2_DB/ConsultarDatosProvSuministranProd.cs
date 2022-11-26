@@ -31,16 +31,16 @@ namespace Taller2_DB
             ConexMySQL conex = new ConexMySQL();
             conex.open();
 
-            if (cmbRutProvSuminProd.Text == "")
-            {
-                MessageBox.Show("Debe seleccionar un proveedor para continuar");
-            }
             if (cmbRutProvSuminProd.Text != "")
             {
                 string query = "Select p2.ProductoId, p1.Nombre, p1.Precio, p1.CantidadStock, p2.ProveedorRut, p2.cantidadSuministrada from producto p1 INNER JOIN proveedor_producto p2 ON p1.Id=p2.ProductoId INNER JOIN proveedor p3 ON p2.ProveedorRut=p3.Rut WHERE p3.Rut = ('" + cmbRutProvSuminProd.Text + "')";
                 DataTable t2 = conex.selectQuery(query);
                 dgvProvSuminisProd.DataSource = t2;
                 dgvProvSuminisProd.Show();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un proveedor para continuar");
             }
         }
 

@@ -50,13 +50,20 @@ namespace Taller2_DB
         private void btnBusVenAnios_Click(object sender, EventArgs e)
         {
             ConexMySQL conex = new ConexMySQL();
-            conex.open();          
-            string query = "SELECT NumeroEmpleado AS Numero,Nombre,Salario,FechaContratacion,round(datediff(curdate(),FechaContratacion)/365) as Año_de_Antiguedad FROM vendedor WHERE NumeroEmpleado = '" + cmbListaVendedor.Text+"' ORDER BY round(datediff(curdate(),FechaContratacion)/365)";
+            conex.open();
 
-            DataTable t2 = conex.selectQuery(query);
+            if (cmbListaVendedor.Text != "")
+            {               
+                string query = "SELECT NumeroEmpleado AS Numero,Nombre,Salario,FechaContratacion,round(datediff(curdate(),FechaContratacion)/365) as Año_de_Antiguedad FROM vendedor WHERE NumeroEmpleado = '" + cmbListaVendedor.Text + "' ORDER BY round(datediff(curdate(),FechaContratacion)/365)";
+                DataTable t2 = conex.selectQuery(query);
 
-            ListVenAniosDGV.DataSource = t2;
-            ListVenAniosDGV.Show();
+                ListVenAniosDGV.DataSource = t2;
+                ListVenAniosDGV.Show();
+            }
+            else
+            {
+                MessageBox.Show("Debes seleccionar el numero del vendedor para continuar. ");
+            }
         }
     }
 }
