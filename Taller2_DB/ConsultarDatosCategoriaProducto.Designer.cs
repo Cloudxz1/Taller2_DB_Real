@@ -72,6 +72,7 @@ namespace Taller2_DB
             this.CategProdDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CategProdDGV.Location = new System.Drawing.Point(48, 173);
             this.CategProdDGV.Name = "CategProdDGV";
+            this.CategProdDGV.ReadOnly = true;
             this.CategProdDGV.Size = new System.Drawing.Size(468, 150);
             this.CategProdDGV.TabIndex = 3;
             // 

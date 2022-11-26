@@ -17,7 +17,8 @@ namespace Taller2_DB
         public ConsultarDatosCategoriaProducto()
         {
             InitializeComponent();
-            
+            cmbListaCategoria1.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }
 
         private void btnVolverCatProd_Click(object sender, EventArgs e)
@@ -31,12 +32,21 @@ namespace Taller2_DB
         {
             ConexMySQL conex = new ConexMySQL();
             conex.open();
-            string query = "Select p.Id, p.Nombre AS Nombre_Prod, c.Nombre AS Nombre_Cat,c.Descripcion, p.Precio, p.CantidadStock FROM categoria c INNER JOIN producto p ON c.Id=p.Id WHERE c.Nombre= '" + cmbListaCategoria1.Text + "'";
 
-            DataTable t2 = conex.selectQuery(query);
+            if (cmbListaCategoria1.Text != "")
+            {
+                string query = "Select p.Id, p.Nombre AS Nombre_Prod, c.Nombre AS Nombre_Cat,c.Descripcion, p.Precio, p.CantidadStock FROM categoria c INNER JOIN producto p ON c.Id=p.Id WHERE c.Nombre= '" + cmbListaCategoria1.Text + "'";
 
-           CategProdDGV.DataSource = t2;
-           CategProdDGV.Show();
+                DataTable t2 = conex.selectQuery(query);
+
+                CategProdDGV.DataSource = t2;
+                CategProdDGV.Show();
+            }
+            else
+            {
+                MessageBox.Show("Debes seleccionar el nombre de una categoria para continuar. ");
+            }
+      
         }
         //Consulta en forma de ComboBox, el nombre de la categoria que se asocia el producto
         private void ConsultarDatosCategoriaProducto_Load(object sender, EventArgs e)
