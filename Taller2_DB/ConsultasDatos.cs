@@ -214,5 +214,18 @@ namespace Taller2_DB
             ordenCompraClienteUltimos30Dias.Show();
             this.Hide();
         }
+
+        /// <summary>
+        /// Acceder a los provvedores que
+        /// suministran los productos en el sistema
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnIrProvSuminProd_Click(object sender, EventArgs e)
+        {
+            ConsultarDatosProvSuministranProd provSuministranProd = new ConsultarDatosProvSuministranProd();
+            provSuministranProd.Show();
+            this.Hide();
+        }
     }
 }
