@@ -17,11 +17,12 @@ namespace Taller2_DB
         public ConsultarDatosOrdenCompraClienteUtlimos3Meses()
         {
             InitializeComponent();
+            cmbListRutOrdCompCli.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         /// <summary>
-        /// Busca el rut del cliente y despilega los datos del
-        /// cliente y la orden de compra asociada,
+        /// Consulta 11
+        /// Busca el rut del cliente y despilega los datos del cliente y la orden de compra asociada,
         /// en especifico el monto total en los ultimos 3 meses
         /// </summary>
         /// <param name="sender"></param>
@@ -32,8 +33,8 @@ namespace Taller2_DB
             conex.open();
 
             if (cmbListRutOrdCompCli.Text != "")
-            {                                                                                                                                                                                                        
-                string query = "Select c.Rut AS Rut_Cliente, c.Nombre , c.Saldo , o.Id AS Id_Orden , Sum(o.MontoTotalFinal) AS Monto_Total_Compras From ordencompra o INNER JOIN cliente c ON o.ClienteRut=c.Rut WHERE c.Rut =  '" + cmbListRutOrdCompCli.Text + "' AND o.FechaCompra >= CURDATE() AND o.FechaCompra <= date_add(CURDATE(), INTERVAL 3 MONTH)";
+            {             
+                string query = "Select c.Rut, c.Nombre, c.Saldo, o1.OrdenCompraId AS Id_Orden, o2.MontoTotalOrden AS Monto_Total_Compras, o2.FechaCompra from ordencompra_producto o1 INNER JOIN ordencompra o2 ON o1.OrdenCompraId=o2.Id INNER JOIN cliente c ON o2.ClienteRut=c.Rut WHERE c.Rut = '" + cmbListRutOrdCompCli.Text + "' AND o2.FechaCompra >= CURDATE() AND o2.FechaCompra <= date_add(CURDATE(), INTERVAL 3 MONTH)";
                 DataTable dt = conex.selectQuery(query);
 
                 dgvListRutCliOrdComp3m.DataSource = dt;
@@ -41,7 +42,7 @@ namespace Taller2_DB
             }
             else
             {
-                MessageBox.Show("Debes seleccionar un rut para continuar");
+                MessageBox.Show("Debes seleccionar el rut de un cliente para continuar. ");
             }       
             conex.close();
         }

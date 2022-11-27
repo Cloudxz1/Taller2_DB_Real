@@ -30,6 +30,12 @@ namespace Taller2_DB
             this.Hide();
         }
 
+        /// <summary>
+        /// Consulta 4
+        /// Datos de una orden de compra, incluyendo el cliente, el vendedor y los productos de la orden. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConsultaOrdenCompra_Click(object sender, EventArgs e)
         {
             ConexMySQL conex = new ConexMySQL();

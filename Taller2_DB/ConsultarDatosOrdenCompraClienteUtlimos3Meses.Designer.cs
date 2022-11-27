@@ -90,6 +90,7 @@ namespace Taller2_DB
             this.dgvListRutCliOrdComp3m.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListRutCliOrdComp3m.Location = new System.Drawing.Point(93, 211);
             this.dgvListRutCliOrdComp3m.Name = "dgvListRutCliOrdComp3m";
+            this.dgvListRutCliOrdComp3m.ReadOnly = true;
             this.dgvListRutCliOrdComp3m.Size = new System.Drawing.Size(620, 150);
             this.dgvListRutCliOrdComp3m.TabIndex = 5;
             // 
