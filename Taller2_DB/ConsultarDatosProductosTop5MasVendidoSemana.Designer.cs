@@ -80,6 +80,7 @@ namespace Taller2_DB
             this.dgvTop5ProdMasVendSemAnt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTop5ProdMasVendSemAnt.Location = new System.Drawing.Point(62, 175);
             this.dgvTop5ProdMasVendSemAnt.Name = "dgvTop5ProdMasVendSemAnt";
+            this.dgvTop5ProdMasVendSemAnt.ReadOnly = true;
             this.dgvTop5ProdMasVendSemAnt.Size = new System.Drawing.Size(675, 194);
             this.dgvTop5ProdMasVendSemAnt.TabIndex = 4;
             this.dgvTop5ProdMasVendSemAnt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTop5ProdMasVendSemAnt_CellContentClick);

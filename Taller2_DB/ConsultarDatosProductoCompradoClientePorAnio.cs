@@ -17,6 +17,7 @@ namespace Taller2_DB
         public ConsultarDatosProductoCompradoClientePorAnio()
         {
             InitializeComponent();
+            cmbListProdCliAnio.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         /// <summary>
@@ -32,7 +33,8 @@ namespace Taller2_DB
         }
 
         /// <summary>
-        /// Buscar el nombre del producto, en l cual el cliente
+        /// Conulta 13
+        /// Buscar el nombre del producto, en el cual el cliente
         /// se encuentra vinculado en la orden de compra
         /// en el anio actual
         /// </summary>
@@ -43,15 +45,12 @@ namespace Taller2_DB
             ConexMySQL conex = new ConexMySQL();
             conex.open();
 
-            //dgvListProdCliAnio.DataSource = t2;
-            //dgvListProdCliAnio.Show();
-
             if (cmbListProdCliAnio.Text != "")
             {
-                int anio_actual = DateTime.Now.Year;
-                string anio = anio_actual.ToString();
+                int anioactual = DateTime.Now.Year;
+                string anio = anioactual.ToString();
 
-                string query = "Select o.Id AS ID_ORD, p.Id AS ID_PROD, COUNT(p.id) AS Cant_Prod From producto p INNER JOIN ordencompra o ON p.Id=o.ProductoId INNER JOIN  cliente c ON o.ClienteRut=c.Rut WHERE YEAR(o.FechaCompra) BETWEEN '" + anio + "' and '" + anio + "' AND c.Rut= '" + cmbListProdCliAnio.Text + "'";
+                string query = "Select o1.OrdenCompraId, c.Rut, p.Id AS Id_Prod, o1.cantProdVendido AS Total_Comprado, o2.FechaCompra from Producto p INNER JOIN ordencompra_producto o1 ON p.Id=o1.ProductoId INNER JOIN ordencompra o2 ON o1.OrdenCompraId=o2.Id INNER JOIN Cliente c ON o2.ClienteRut=c.Rut WHERE YEAR(o2.FechaCompra) BETWEEN '" + anio + "' and '" + anio + "' AND c.Rut= '" + cmbListProdCliAnio.Text + "'";
 
                 DataTable t2 = conex.selectQuery(query);
                 dgvListProdCliAnio.DataSource = t2;
@@ -60,7 +59,7 @@ namespace Taller2_DB
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un rut para continuar. ");
+                MessageBox.Show("Debe seleccionar el rut de un cliente para continuar. ");
             }
             
         }

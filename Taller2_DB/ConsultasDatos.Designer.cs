@@ -298,9 +298,9 @@ namespace Taller2_DB
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(427, 166);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(203, 13);
+            this.label13.Size = new System.Drawing.Size(280, 13);
             this.label13.TabIndex = 25;
-            this.label13.Text = "11) Datos de la Orden de Compra Cliente:";
+            this.label13.Text = "11) Datos de la Orden de Compra Cliente ultimos 3 meses:";
             // 
             // btnDatosCliOrdComp
             // 

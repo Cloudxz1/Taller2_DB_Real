@@ -90,6 +90,7 @@ namespace Taller2_DB
             this.dgvListProdCliAnio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListProdCliAnio.Location = new System.Drawing.Point(78, 207);
             this.dgvListProdCliAnio.Name = "dgvListProdCliAnio";
+            this.dgvListProdCliAnio.ReadOnly = true;
             this.dgvListProdCliAnio.Size = new System.Drawing.Size(655, 150);
             this.dgvListProdCliAnio.TabIndex = 5;
             // 
