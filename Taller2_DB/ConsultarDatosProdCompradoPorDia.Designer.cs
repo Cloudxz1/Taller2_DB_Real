@@ -32,7 +32,7 @@ namespace Taller2_DB
             this.label1 = new System.Windows.Forms.Label();
             this.btnVolverProdCompDia = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmbListProdCompDia = new System.Windows.Forms.ComboBox();
+            this.cmbListClienteRutDia = new System.Windows.Forms.ComboBox();
             this.FechaCompraDGV = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.btnBuscarCompra = new System.Windows.Forms.Button();
@@ -65,17 +65,17 @@ namespace Taller2_DB
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(271, 84);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Id de un Producto:";
+            this.label2.Text = "Rut Cliente:";
             // 
-            // cmbListProdCompDia
+            // cmbListClienteRutDia
             // 
-            this.cmbListProdCompDia.FormattingEnabled = true;
-            this.cmbListProdCompDia.Location = new System.Drawing.Point(418, 84);
-            this.cmbListProdCompDia.Name = "cmbListProdCompDia";
-            this.cmbListProdCompDia.Size = new System.Drawing.Size(142, 21);
-            this.cmbListProdCompDia.TabIndex = 3;
+            this.cmbListClienteRutDia.FormattingEnabled = true;
+            this.cmbListClienteRutDia.Location = new System.Drawing.Point(418, 84);
+            this.cmbListClienteRutDia.Name = "cmbListClienteRutDia";
+            this.cmbListClienteRutDia.Size = new System.Drawing.Size(142, 21);
+            this.cmbListClienteRutDia.TabIndex = 3;
             // 
             // FechaCompraDGV
             // 
@@ -108,6 +108,7 @@ namespace Taller2_DB
             this.ListaProdCompDiaDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ListaProdCompDiaDGV.Location = new System.Drawing.Point(84, 227);
             this.ListaProdCompDiaDGV.Name = "ListaProdCompDiaDGV";
+            this.ListaProdCompDiaDGV.ReadOnly = true;
             this.ListaProdCompDiaDGV.Size = new System.Drawing.Size(663, 150);
             this.ListaProdCompDiaDGV.TabIndex = 7;
             // 
@@ -130,7 +131,7 @@ namespace Taller2_DB
             this.Controls.Add(this.btnBuscarCompra);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.FechaCompraDGV);
-            this.Controls.Add(this.cmbListProdCompDia);
+            this.Controls.Add(this.cmbListClienteRutDia);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnVolverProdCompDia);
             this.Controls.Add(this.label1);
@@ -148,7 +149,7 @@ namespace Taller2_DB
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnVolverProdCompDia;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cmbListProdCompDia;
+        private System.Windows.Forms.ComboBox cmbListClienteRutDia;
         private System.Windows.Forms.DateTimePicker FechaCompraDGV;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnBuscarCompra;
