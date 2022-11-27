@@ -46,7 +46,7 @@ namespace Taller2_DB
             //Anio
             string ano = DateTime.Now.Year.ToString("d");
 
-            string query = "Select p.Id AS Id_Prod, p.Nombre AS Nombre_Prod, p.Precio AS Precio_Prod  from ordencompra o1 INNER JOIN ordencompra_producto o2 ON o1.Id=o2.OrdenCompraId INNER JOIN producto p ON o2.ProductoId=p.Id WHERE MONTH(o1.FechaCompra) NOT between'" + mes + "' AND '" + ano + "'";
+            string query = "Select p.Id AS Id_Prod, p.Nombre AS Nombre_Prod, p.Precio AS Precio_Prod, p.CantidadStock AS Cant_Stock  from ordencompra o1 INNER JOIN ordencompra_producto o2 ON o1.Id=o2.OrdenCompraId INNER JOIN producto p ON o2.ProductoId=p.Id WHERE MONTH(o1.FechaCompra) NOT between'" + mes + "' AND '" + ano + "'";
 
             DataTable t = conex.selectQuery(query);
             ListProdSinOrdCompDGV.DataSource = t;

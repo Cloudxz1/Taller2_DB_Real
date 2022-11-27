@@ -67,9 +67,10 @@ namespace Taller2_DB
             this.dataProd.Location = new System.Drawing.Point(331, 30);
             this.dataProd.Margin = new System.Windows.Forms.Padding(2);
             this.dataProd.Name = "dataProd";
+            this.dataProd.ReadOnly = true;
             this.dataProd.RowHeadersWidth = 51;
             this.dataProd.RowTemplate.Height = 24;
-            this.dataProd.Size = new System.Drawing.Size(363, 180);
+            this.dataProd.Size = new System.Drawing.Size(509, 180);
             this.dataProd.TabIndex = 1;
             // 
             // dataProv
@@ -78,9 +79,10 @@ namespace Taller2_DB
             this.dataProv.Location = new System.Drawing.Point(331, 249);
             this.dataProv.Margin = new System.Windows.Forms.Padding(2);
             this.dataProv.Name = "dataProv";
+            this.dataProv.ReadOnly = true;
             this.dataProv.RowHeadersWidth = 51;
             this.dataProv.RowTemplate.Height = 24;
-            this.dataProv.Size = new System.Drawing.Size(363, 180);
+            this.dataProv.Size = new System.Drawing.Size(509, 180);
             this.dataProv.TabIndex = 2;
             // 
             // dataProdProv
@@ -89,15 +91,16 @@ namespace Taller2_DB
             this.dataProdProv.Location = new System.Drawing.Point(331, 470);
             this.dataProdProv.Margin = new System.Windows.Forms.Padding(2);
             this.dataProdProv.Name = "dataProdProv";
+            this.dataProdProv.ReadOnly = true;
             this.dataProdProv.RowHeadersWidth = 51;
             this.dataProdProv.RowTemplate.Height = 24;
-            this.dataProdProv.Size = new System.Drawing.Size(363, 179);
+            this.dataProdProv.Size = new System.Drawing.Size(509, 179);
             this.dataProdProv.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(488, 14);
+            this.label1.Location = new System.Drawing.Point(572, 15);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 13);
@@ -107,7 +110,7 @@ namespace Taller2_DB
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(483, 234);
+            this.label2.Location = new System.Drawing.Point(572, 234);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
@@ -117,7 +120,7 @@ namespace Taller2_DB
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(474, 455);
+            this.label3.Location = new System.Drawing.Point(544, 455);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 13);
@@ -209,7 +212,7 @@ namespace Taller2_DB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(740, 675);
+            this.ClientSize = new System.Drawing.Size(906, 675);
             this.Controls.Add(this.cmbRutProveedorProvProd);
             this.Controls.Add(this.cmbIDProdProvProd);
             this.Controls.Add(this.label7);

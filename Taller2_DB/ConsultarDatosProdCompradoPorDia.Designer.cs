@@ -79,6 +79,9 @@ namespace Taller2_DB
             // 
             // FechaCompraDGV
             // 
+            this.FechaCompraDGV.AccessibleDescription = "No";
+            this.FechaCompraDGV.AccessibleName = "No";
+            this.FechaCompraDGV.Checked = false;
             this.FechaCompraDGV.Location = new System.Drawing.Point(418, 122);
             this.FechaCompraDGV.Name = "FechaCompraDGV";
             this.FechaCompraDGV.Size = new System.Drawing.Size(142, 20);
@@ -123,6 +126,7 @@ namespace Taller2_DB
             // 
             // ConsultarDatosProdCompradoPorDia
             // 
+            this.AccessibleDescription = "";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
