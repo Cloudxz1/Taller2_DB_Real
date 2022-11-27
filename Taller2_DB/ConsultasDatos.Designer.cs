@@ -241,9 +241,9 @@ namespace Taller2_DB
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(427, 262);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(187, 13);
+            this.label10.Size = new System.Drawing.Size(240, 13);
             this.label10.TabIndex = 19;
-            this.label10.Text = "14) Producto comprado por Categoria:";
+            this.label10.Text = "14) Producto por Categoria comprado por Cliente:";
             // 
             // btnProdCompPorCateg
             // 

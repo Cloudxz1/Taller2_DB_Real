@@ -46,8 +46,7 @@ namespace Taller2_DB
             conex.open();
 
             if (cmbRutCliCantOrdComp30d.Text != "")
-            {
-                //Select distinct c.Rut AS Rut_Cliente, o2.OrdenCompraId AS Ordenes_Realizadas, o1.FechaCompra, o2.cantProdVendido AS Total_Prod_Comprados from Cliente c INNER JOIN ordencompra o1 ON c.Rut=o1.ClienteRut INNER JOIN ordencompra_producto o2 ON o1.Id=o2.OrdenCompraId WHERE c.Rut = "123456789" AND o1.FechaCompra BETWEEN CURDATE() - INTERVAL 30 DAY AND SYSDATE();
+            {                
                 string query = "Select c.Rut, o2.OrdenCompraId AS Ordenes_Realizadas, o1.FechaCompra, o2.cantProdVendido AS Total_Prod_Comprados from Cliente c INNER JOIN ordencompra o1 ON c.Rut=o1.ClienteRut INNER JOIN ordencompra_producto o2 ON o1.Id=o2.OrdenCompraId WHERE c.Rut =  '" + cmbRutCliCantOrdComp30d.Text + "' AND o1.FechaCompra BETWEEN CURDATE() - INTERVAL 30 DAY AND SYSDATE(); ";
                 DataTable dt = conex.selectQuery(query);
 

@@ -30,6 +30,7 @@ namespace Taller2_DB
             this.Hide();
         }
         /// <summary>
+        /// Consulta 15
         /// Muestra los productos que no poseen
         /// una orden de compra en el ultimo mes
         /// </summary>
@@ -40,10 +41,12 @@ namespace Taller2_DB
             ConexMySQL conex = new ConexMySQL();
             conex.open();
 
-            string mes = DateTime.Now.Month.ToString("d2");
-            string ano = DateTime.Now.Year.ToString("d2");
+            //Mes
+            string mes = DateTime.Now.Month.ToString("d");
+            //Anio
+            string ano = DateTime.Now.Year.ToString("d");
 
-            string query = "Select distinct o.Id AS ID_Orden, p.Id AS ID_Prod From Producto p INNER JOIN ordencompra o ON p.Id=o.Id WHERE MONTH(o.FechaCompra) NOT BETWEEN'" + mes + "' AND '" + ano + "'";
+            string query = "Select p.Id AS Id_Prod, p.Nombre AS Nombre_Prod, p.Precio AS Precio_Prod  from ordencompra o1 INNER JOIN ordencompra_producto o2 ON o1.Id=o2.OrdenCompraId INNER JOIN producto p ON o2.ProductoId=p.Id WHERE MONTH(o1.FechaCompra) NOT between'" + mes + "' AND '" + ano + "'";
 
             DataTable t = conex.selectQuery(query);
             ListProdSinOrdCompDGV.DataSource = t;

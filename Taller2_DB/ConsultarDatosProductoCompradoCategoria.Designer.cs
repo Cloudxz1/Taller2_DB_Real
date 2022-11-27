@@ -54,16 +54,16 @@ namespace Taller2_DB
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(249, 42);
+            this.label1.Location = new System.Drawing.Point(254, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(253, 13);
+            this.label1.Size = new System.Drawing.Size(271, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Productos de una categoria en la Orden de Compra:";
+            this.label1.Text = "Productos de una categoria que a comprado un Cliente:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(249, 96);
+            this.label2.Location = new System.Drawing.Point(254, 96);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 13);
             this.label2.TabIndex = 2;
@@ -72,7 +72,7 @@ namespace Taller2_DB
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(249, 135);
+            this.label3.Location = new System.Drawing.Point(254, 135);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(118, 13);
             this.label3.TabIndex = 3;
@@ -96,7 +96,7 @@ namespace Taller2_DB
             // 
             // btnProdCategBuscado
             // 
-            this.btnProdCategBuscado.Location = new System.Drawing.Point(399, 171);
+            this.btnProdCategBuscado.Location = new System.Drawing.Point(404, 168);
             this.btnProdCategBuscado.Name = "btnProdCategBuscado";
             this.btnProdCategBuscado.Size = new System.Drawing.Size(75, 23);
             this.btnProdCategBuscado.TabIndex = 6;
