@@ -37,6 +37,7 @@ namespace Taller2_DB
             this.cmbListCatProdCateg = new System.Windows.Forms.ComboBox();
             this.btnProdCategBuscado = new System.Windows.Forms.Button();
             this.ListProdCatDGV = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ListProdCatDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,7 +100,7 @@ namespace Taller2_DB
             this.btnProdCategBuscado.Name = "btnProdCategBuscado";
             this.btnProdCategBuscado.Size = new System.Drawing.Size(75, 23);
             this.btnProdCategBuscado.TabIndex = 6;
-            this.btnProdCategBuscado.Text = "Buscar";
+            this.btnProdCategBuscado.Text = "Consultar";
             this.btnProdCategBuscado.UseVisualStyleBackColor = true;
             this.btnProdCategBuscado.Click += new System.EventHandler(this.btnProdCategBuscado_Click);
             // 
@@ -108,14 +109,25 @@ namespace Taller2_DB
             this.ListProdCatDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ListProdCatDGV.Location = new System.Drawing.Point(89, 216);
             this.ListProdCatDGV.Name = "ListProdCatDGV";
+            this.ListProdCatDGV.ReadOnly = true;
             this.ListProdCatDGV.Size = new System.Drawing.Size(664, 150);
             this.ListProdCatDGV.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(86, 191);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(107, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Detalles de Consulta:";
             // 
             // ConsultarDatosProductoCompradoCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.ListProdCatDGV);
             this.Controls.Add(this.btnProdCategBuscado);
             this.Controls.Add(this.cmbListCatProdCateg);
@@ -143,5 +155,6 @@ namespace Taller2_DB
         private System.Windows.Forms.ComboBox cmbListCatProdCateg;
         private System.Windows.Forms.Button btnProdCategBuscado;
         private System.Windows.Forms.DataGridView ListProdCatDGV;
+        private System.Windows.Forms.Label label4;
     }
 }

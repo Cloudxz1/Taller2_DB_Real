@@ -17,6 +17,8 @@ namespace Taller2_DB
         public ConsultarDatosProductoCompradoCategoria()
         {
             InitializeComponent();
+            cmbListRutCliProdCat.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbListCatProdCateg.DropDownStyle = ComboBoxStyle.DropDownList;
         }
         /// <summary>
         /// Boton para volver al menu de las Consultas de Datos del sistema
@@ -30,6 +32,7 @@ namespace Taller2_DB
             this.Hide();
         }
         /// <summary>
+        /// Consulta 14
         /// Muestra las categorias de los productos
         /// comprados por un cliente especifico
         /// </summary>
@@ -43,7 +46,7 @@ namespace Taller2_DB
             
             if (cmbListRutCliProdCat.Text != "" && cmbListCatProdCateg.Text != "")
             {
-                string query = "Select distinct o.Id AS ID_Orden, p.Nombre AS Nombre_Prod, k.Nombre AS Nom_Categoria, c.Nombre AS Nom_Cliente From ordencompra o INNER JOIN  cliente c ON o.ClienteRut=c.Rut INNER JOIN producto p ON c.Rut=p.Id INNER JOIN categoria k ON p.CategoriaId=k.Id where c.Rut= '" + cmbListRutCliProdCat.Text + "'AND p.Nombre= '" + cmbListCatProdCateg.Text  + "'";
+                string query = "Select o2.OrdenCompraId AS OrdenCompra, c.Rut, p.Id AS Id_Prod, p.Nombre AS Nombre_Prod, p.CategoriaId AS Cat_Prod, c2.Nombre AS Nombre_Categ from Cliente c INNER JOIN ordencompra o1 ON c.Rut=o1.ClienteRut INNER JOIN ordencompra_producto o2 ON o1.Id=o2.OrdenCompraId INNER JOIN producto p ON o2.ProductoId=p.Id INNER JOIN categoria c2 ON p.CategoriaId=c2.Id WHERE c.Rut = '" + cmbListRutCliProdCat.Text + "'AND c2.Nombre = '" + cmbListCatProdCateg.Text  + "'";
 
                 DataTable t3 = conex.selectQuery(query);
                 ListProdCatDGV.DataSource = t3;
@@ -51,7 +54,7 @@ namespace Taller2_DB
             }
             else
             {
-                MessageBox.Show("Debe relenar los campos para continuar");
+                MessageBox.Show("Debe rellenar los campos para continuar. ");
             }
         }
 

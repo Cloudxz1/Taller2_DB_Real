@@ -262,7 +262,7 @@ namespace Taller2_DB
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(221, 13);
             this.label11.TabIndex = 21;
-            this.label11.Text = "13) Producto comprado por Cliente en el ano:";
+            this.label11.Text = "13) Producto comprado por Cliente en el año:";
             // 
             // btnProdCompCliAno
             // 
@@ -317,9 +317,9 @@ namespace Taller2_DB
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(427, 105);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(257, 13);
+            this.label14.Size = new System.Drawing.Size(277, 13);
             this.label14.TabIndex = 27;
-            this.label14.Text = "9) Cantidad Orden de Compra del Cliente, en 30 dias:";
+            this.label14.Text = "9) Cantidad Orden de Compra del Cliente, ultimos 30 dias:";
             // 
             // btnCantOrdCli30d
             // 
