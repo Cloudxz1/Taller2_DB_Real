@@ -82,6 +82,7 @@ namespace Taller2_DB
             this.dgvTop5ProdMasVendSemAnt.Name = "dgvTop5ProdMasVendSemAnt";
             this.dgvTop5ProdMasVendSemAnt.Size = new System.Drawing.Size(675, 194);
             this.dgvTop5ProdMasVendSemAnt.TabIndex = 4;
+            this.dgvTop5ProdMasVendSemAnt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTop5ProdMasVendSemAnt_CellContentClick);
             // 
             // ConsultarDatosProductosTop5MasVendidoSemana
             // 

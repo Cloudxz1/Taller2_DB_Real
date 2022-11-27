@@ -32,6 +32,7 @@ namespace Taller2_DB
         }
 
         /// <summary>
+        /// Consulta 12
         /// Muestra en pantalla el Top 5 de los Porductos mas Vendidos
         /// en la semana anterior
         /// </summary>
@@ -42,7 +43,7 @@ namespace Taller2_DB
             ConexMySQL conex = new ConexMySQL();
             conex.open();
 
-            string query = "Select p.id AS Id_Prod, p.Nombre, SUM(p.id) AS Cantidad_Vendida From ordencompra o INNER JOIN producto p ON o.ProductoId=p.Id WHERE o.Id=p.Id AND DATE(NOW() - interval 1 week) GROUP BY p.Nombre HAVING SUM(p.Id) LIMIT 5 ;";
+            string query = "Select p1.Id AS Id_Prod, p1.Nombre AS Nomb_Prod, p1.Precio AS Precio_Prod, o2.FechaCompra, SUM(o1.cantProdVendido)AS Cant_Mas_Vendida from Producto p1 INNER JOIN ordencompra_producto o1 ON p1.Id=o1.ProductoId INNER JOIN ordencompra o2 ON o1.OrdenCompraId=o2.Id WHERE p1.Id=o1.ProductoId AND o1.OrdenCompraId=o2.Id AND DATE(NOW() - interval 1 week) GROUP BY p1.Nombre HAVING SUM(p1.Id) LIMIT 5;";
             DataTable t = conex.selectQuery(query);
 
             dgvTop5ProdMasVendSemAnt.DataSource = t;
@@ -52,6 +53,11 @@ namespace Taller2_DB
         }
 
         private void ConsultarDatosProductosTop5MasVendidoSemana_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvTop5ProdMasVendSemAnt_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
