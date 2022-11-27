@@ -58,7 +58,7 @@ namespace Taller2_DB
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(390, 24);
+            this.label1.Location = new System.Drawing.Point(463, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 13);
             this.label1.TabIndex = 2;
@@ -67,7 +67,7 @@ namespace Taller2_DB
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(308, 97);
+            this.label2.Location = new System.Drawing.Point(381, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(114, 13);
             this.label2.TabIndex = 3;
@@ -76,7 +76,7 @@ namespace Taller2_DB
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(308, 127);
+            this.label3.Location = new System.Drawing.Point(381, 130);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 13);
             this.label3.TabIndex = 4;
@@ -85,7 +85,7 @@ namespace Taller2_DB
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(308, 67);
+            this.label4.Location = new System.Drawing.Point(381, 70);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(133, 13);
             this.label4.TabIndex = 5;
@@ -93,7 +93,7 @@ namespace Taller2_DB
             // 
             // btnConsultaOrdenCompra
             // 
-            this.btnConsultaOrdenCompra.Location = new System.Drawing.Point(383, 189);
+            this.btnConsultaOrdenCompra.Location = new System.Drawing.Point(456, 192);
             this.btnConsultaOrdenCompra.Name = "btnConsultaOrdenCompra";
             this.btnConsultaOrdenCompra.Size = new System.Drawing.Size(128, 23);
             this.btnConsultaOrdenCompra.TabIndex = 6;
@@ -104,7 +104,7 @@ namespace Taller2_DB
             // cmbListOrdenCompra
             // 
             this.cmbListOrdenCompra.FormattingEnabled = true;
-            this.cmbListOrdenCompra.Location = new System.Drawing.Point(459, 64);
+            this.cmbListOrdenCompra.Location = new System.Drawing.Point(532, 67);
             this.cmbListOrdenCompra.Name = "cmbListOrdenCompra";
             this.cmbListOrdenCompra.Size = new System.Drawing.Size(121, 21);
             this.cmbListOrdenCompra.TabIndex = 7;
@@ -112,7 +112,7 @@ namespace Taller2_DB
             // cmbListVendOrdenCompra
             // 
             this.cmbListVendOrdenCompra.FormattingEnabled = true;
-            this.cmbListVendOrdenCompra.Location = new System.Drawing.Point(459, 94);
+            this.cmbListVendOrdenCompra.Location = new System.Drawing.Point(532, 97);
             this.cmbListVendOrdenCompra.Name = "cmbListVendOrdenCompra";
             this.cmbListVendOrdenCompra.Size = new System.Drawing.Size(121, 21);
             this.cmbListVendOrdenCompra.TabIndex = 8;
@@ -120,7 +120,7 @@ namespace Taller2_DB
             // cmbListRutCliOrdenCompra
             // 
             this.cmbListRutCliOrdenCompra.FormattingEnabled = true;
-            this.cmbListRutCliOrdenCompra.Location = new System.Drawing.Point(459, 124);
+            this.cmbListRutCliOrdenCompra.Location = new System.Drawing.Point(532, 127);
             this.cmbListRutCliOrdenCompra.Name = "cmbListRutCliOrdenCompra";
             this.cmbListRutCliOrdenCompra.Size = new System.Drawing.Size(121, 21);
             this.cmbListRutCliOrdenCompra.TabIndex = 9;
@@ -139,13 +139,13 @@ namespace Taller2_DB
             this.DetallesOrdCompDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DetallesOrdCompDGV.Location = new System.Drawing.Point(53, 243);
             this.DetallesOrdCompDGV.Name = "DetallesOrdCompDGV";
-            this.DetallesOrdCompDGV.Size = new System.Drawing.Size(851, 143);
+            this.DetallesOrdCompDGV.Size = new System.Drawing.Size(925, 143);
             this.DetallesOrdCompDGV.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(308, 156);
+            this.label6.Location = new System.Drawing.Point(381, 159);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 13);
             this.label6.TabIndex = 12;
@@ -154,7 +154,7 @@ namespace Taller2_DB
             // cmbListIdProdOrden
             // 
             this.cmbListIdProdOrden.FormattingEnabled = true;
-            this.cmbListIdProdOrden.Location = new System.Drawing.Point(459, 153);
+            this.cmbListIdProdOrden.Location = new System.Drawing.Point(532, 156);
             this.cmbListIdProdOrden.Name = "cmbListIdProdOrden";
             this.cmbListIdProdOrden.Size = new System.Drawing.Size(121, 21);
             this.cmbListIdProdOrden.TabIndex = 13;
@@ -163,7 +163,7 @@ namespace Taller2_DB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 450);
+            this.ClientSize = new System.Drawing.Size(1041, 450);
             this.Controls.Add(this.cmbListIdProdOrden);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.DetallesOrdCompDGV);

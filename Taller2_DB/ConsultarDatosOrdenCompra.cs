@@ -35,20 +35,17 @@ namespace Taller2_DB
             ConexMySQL conex = new ConexMySQL();
             conex.open();
 
-            if (cmbListOrdenCompra.Text == "" && cmbListVendOrdenCompra.Text == "" && cmbListRutCliOrdenCompra.Text == "" && cmbListIdProdOrden.Text == "")
+            if (cmbListOrdenCompra.Text != "" && cmbListVendOrdenCompra.Text != "" && cmbListRutCliOrdenCompra.Text != "" && cmbListIdProdOrden.Text != "")
             {
-                MessageBox.Show("Debes seleccionar los datos para continuar");
-            }
-            else
-            {
-          
-                string query = "Select DISTINCT v.NumeroEmpleado, c.Rut AS Rut_Cliente, o.Id AS ID_Orden, o.FechaCompra , p.id AS ID_Prod, o.PorcentajeDescuento AS Descuento, o.MontoTotal, o.MontoTotalFinal AS MontoFinal From ordencompra o , producto p, vendedor v, cliente c WHERE o.Id='" + cmbListOrdenCompra.Text + "' AND v.NumeroEmpleado = '" + cmbListVendOrdenCompra.Text + "' AND c.Rut = '" + cmbListRutCliOrdenCompra.Text + "'AND p.Nombre= '" + cmbListIdProdOrden.Text + "'";
+                string query = "Select distinct o1.OrdenCompraId AS Id_Orden, c.Rut AS Rut_Cliente, v.NumeroEmpleado AS Num_Vendedor, o1.ProductoId AS Id_Prod, p.Precio AS Precio_Prod , o1.cantProdVendido, o2.MontoTotalOrden AS Monto_Total, o2.PorcentajeDescuento AS Descunecto, o2.MontoFinalOrden AS Monto_Final from producto p, ordencompra_producto o1, ordencompra o2, vendedor v, cliente c WHERE p.Id=o1.ProductoId AND o1.OrdenCompraId=o2.Id AND o2.ClienteRut=c.Rut AND o2.VendedorNumeroEmpleado=v.NumeroEmpleado AND o2.Id='" + cmbListOrdenCompra.Text + "' AND v.NumeroEmpleado = '" + cmbListVendOrdenCompra.Text + "' AND c.Rut = '" + cmbListRutCliOrdenCompra.Text + "'AND p.Id= '" + cmbListIdProdOrden.Text + "'";
                 DataTable dt = conex.selectQuery(query);
 
                 DetallesOrdCompDGV.DataSource = dt;
                 DetallesOrdCompDGV.Show();
-                conex.close();
-
+            }
+            else
+            {                               
+                MessageBox.Show("Debes seleccionar los datos para continuar");
             }
             conex.close();
         }
@@ -87,7 +84,7 @@ namespace Taller2_DB
 
             for (int i = 0; i < t4.Rows.Count; i++)
             {
-                cmbListIdProdOrden.Items.Add(t4.Rows[i]["Nombre"]);
+                cmbListIdProdOrden.Items.Add(t4.Rows[i]["Id"]);
             }
 
             conex.close();
