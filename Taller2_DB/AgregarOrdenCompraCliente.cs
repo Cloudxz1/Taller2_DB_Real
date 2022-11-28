@@ -17,7 +17,7 @@ namespace Taller2_DB
     {
         public AgregarOrdenCompraCliente()
         {
-            InitializeComponent();        
+            InitializeComponent();
             cmbListaNumeroEmp.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbListaProductoVenta.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbListaRutCli.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -38,18 +38,17 @@ namespace Taller2_DB
         private void btnVentaRealizada_Click(object sender, EventArgs e)
         {
             ConexMySQL conex = new ConexMySQL();
-            conex.close();
+            conex.open();
             ////////////////////// Buscar datos de la Venta////////////////////////
             //Buscar datos del Cliente
-            string query = "Select Distinct Rut from Cliente where Rut = '" + cmbListaRutCli.Text + "'";
-            string rutCliente = conex.selectQueryScalar(query);       
-
+            string query = "Select Rut from Cliente where Rut = '" + cmbListaRutCli.Text + "'";
+            string rutCliente = conex.selectQueryScalar(query);
             //Buscar datos del Vendedor
-            string query2 = "Select Distinct NumeroEmpleado from Vendedor where NumeroEmpleado = '" + cmbListaNumeroEmp.Text + "'";
+            string query2 = "Select NumeroEmpleado from Vendedor where NumeroEmpleado = '" + cmbListaNumeroEmp.Text + "'";
             string numVend = conex.selectQueryScalar(query2);
 
             //Buscar datos del Producto
-            string query3 = "Select Distinct Id from Producto where Nombre = '" + cmbListaProductoVenta.Text + "'";
+            string query3 = "Select Id from Producto where Nombre = '" + cmbListaProductoVenta.Text + "'";
             string idProd = conex.selectQueryScalar(query3);
 
             //Buscar datos de la fecha actual de la fecha
@@ -59,7 +58,7 @@ namespace Taller2_DB
             string cantprodvend = txtCantProdVenta.Text;
             int cantprodvendInt = Int32.Parse(cantprodvend);
 
-            if (cantprodvend != "" && cmbListaNumeroEmp.Text != "" && cmbListaRutCli.Text != "" && cmbListaProductoVenta.Text != "" )
+            if (cantprodvend != "" && cmbListaNumeroEmp.Text != "" && cmbListaRutCli.Text != "" && cmbListaProductoVenta.Text != "")
             {
                 if (cantprodvend.All(char.IsDigit))
                 {
@@ -82,7 +81,7 @@ namespace Taller2_DB
                         {
                             MessageBox.Show("Cliente no posee saldo para la compra ");
                         }
-                       
+
                         //Diferencia del saldo del cliente y el precio del producto
                         int diferenciaSaldoPrecio = (saldocliente - precioProd2);
                         //Descuento(NO ha sido usado, solo inserta)
@@ -91,36 +90,36 @@ namespace Taller2_DB
                         int cantPorProducto = (precioProd2 * cantprodvendInt);
                         //
                         //Stock Producto
-                        string querystockProd = "Select CantStock from Producto where Id = '" + idProd + "'";
+                        string querystockProd = "Select CantidadStock from Producto where Id = '" + idProd + "'";
                         string stock = conex.selectQueryScalar(querystockProd);
                         int stockActual = Int32.Parse(stock);
                         //Diferencia del Stock Producto
-                        int diferenciaStock =  (stockActual - cantprodvendInt);
+                        int diferenciaStock = (stockActual - cantprodvendInt);
 
                         //Actualizar
                         //Saldo cliente
-                        string queryactSaldoCli = "UPDATE Cliente SET Saldo = ('" + diferenciaSaldoPrecio + "') WHERE Rut = ('" + rutCliente + "')";
-                        //Stock Producto
-                        string queryactStockProd = "UPDATE Producto SET CantidadStock = ('" + diferenciaStock + "') WHERE Id = ('" + idProd + "')";  
-                        
+
+
                         //Insertar
                         //Realizar Orden de la Compra
-                        string insertarOrden = "INSERT INTO OrdenCompra(Id, FechaCompra, PorcentajeDescuento, VendedorNumeroEmpleado, ClienteRut) VALUES('" + fechahoraventa + "','" + descuento + "','" + numVend + "','" + rutCliente + "')";
-                        //Orden Compra del Producto
-                        //string insertarOrdenProd = "INSERT INTO OrdenCompra_Producto(OrdenCompraId, ProductoId, cantidad) VALUES ('" +  + "','" + idProd + "','" + diferenciaStock + "')";
-                        string insertarOrdenProd = "INSERT INTO OrdenCompra_Producto(OrdenCompraId, ProductoId, cantidad) VALUES ('" + idProd + "','" + diferenciaStock + "')";
-
-                        int verificarOrden = conex.executeNonQuery(insertarOrdenProd);
-                        if (verificarOrden == 1)
+                        string insertarOrden = "INSERT INTO OrdenCompra(FechaCompra, PorcentajeDescuento, MontoTotalOrden, MontoFinalOrden,VendedorNumeroEmpleado, ClienteRut) VALUES('" + fechahoraventa + "','" + descuento + "','" + cantPorProducto + "','" + cantPorProducto + "','" + numVend + "','" + rutCliente + "')";
+                        int verificar = conex.executeNonQuery(insertarOrden);
+                        if (verificar == 1)
                         {
-                            MessageBox.Show("Si compro");
-                            txtCantProdVenta.Clear();
-                            txtDescuentoProd.Clear();
+                            MessageBox.Show("Se registro la orden de compra");
+                            string queryactSaldoCli = "UPDATE Cliente SET Saldo = ('" + diferenciaSaldoPrecio + "') WHERE Rut = ('" + rutCliente + "')";
+                            conex.executeNonQuery(queryactSaldoCli);
+                            string queryactStockProd = "UPDATE Producto SET CantidadStock = ('" + diferenciaStock + "') WHERE Id = ('" + idProd + "')";
+                            conex.executeNonQuery(queryactStockProd);
                         }
                         else
                         {
-                            MessageBox.Show("No Compro");
+                            MessageBox.Show("No se registro la orden de compra");
                         }
+                        //Orden Compra del Producto
+                        //string insertarOrdenProd = "INSERT INTO OrdenCompra_Producto(OrdenCompraId, ProductoId, cantidad) VALUES ('" +  + "','" + idProd + "','" + diferenciaStock + "')";
+                        int OrdActual = ObtenerID();
+                        InsertarOrdenCompra(OrdActual, idProd, cantPorProducto);
                     }
                     else
                     {
@@ -135,8 +134,8 @@ namespace Taller2_DB
             else
             {
                 MessageBox.Show("Rellenar campos para continuar");
-            }       
-                conex.close();
+            }
+            conex.close();
         }
 
         /// <summary>
@@ -150,7 +149,7 @@ namespace Taller2_DB
             ConexMySQL conex = new ConexMySQL();
             conex.open();
 
-            string query = "SELECT DISTINCT * FROM Cliente";
+            string query = "SELECT * FROM Cliente";
             DataTable t = conex.selectQuery(query);
 
             for (int i = 0; i < t.Rows.Count; i++)
@@ -158,7 +157,7 @@ namespace Taller2_DB
                 cmbListaRutCli.Items.Add(t.Rows[i]["Rut"]);
             }
 
-            string query2 = "SELECT DISTINCT  * FROM Vendedor";
+            string query2 = "SELECT * FROM Vendedor";
             DataTable t2 = conex.selectQuery(query2);
 
             for (int i = 0; i < t2.Rows.Count; i++)
@@ -166,7 +165,7 @@ namespace Taller2_DB
                 cmbListaNumeroEmp.Items.Add(t2.Rows[i]["NumeroEmpleado"]);
             }
 
-            string query3 = "Select DISTINCT * FROM Producto";
+            string query3 = "Select * FROM Producto";
             DataTable t3 = conex.selectQuery(query3);
 
             for (int i = 0; i < t3.Rows.Count; i++)
@@ -174,6 +173,23 @@ namespace Taller2_DB
                 cmbListaProductoVenta.Items.Add(t3.Rows[i]["Nombre"]);
             }
             conex.close();
+        }
+        private int ObtenerID()
+        {
+            ConexMySQL conex = new ConexMySQL();
+            conex.open();
+            string query = "SELECT MAX(Id) FROM OrdenCompra";
+            int idVentaAct = Int32.Parse(conex.selectQueryScalar(query));
+            conex.close();
+
+            return idVentaAct;
+        }
+        public void InsertarOrdenCompra(int Ordactual, string idProd, int cantProducto)
+        {
+            ConexMySQL conex = new ConexMySQL();
+            conex.open();
+            string insertarOrdenProd = "INSERT INTO OrdenCompra_Producto(OrdenCompraId, ProductoId, cantProdVendido) VALUES ('" + Ordactual + "','" + idProd + "','" + cantProducto + "')";
+            conex.executeNonQuery(insertarOrdenProd);
         }
     }
 }

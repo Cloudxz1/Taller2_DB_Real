@@ -69,6 +69,7 @@ namespace Taller2_DB
             }
 
 
+
         }
 
         /// <summary>
@@ -83,10 +84,10 @@ namespace Taller2_DB
             conex.open();
 
             //Buscar datos del Proveedor
-            string queryprov = "select Rut from Proveedor where Rut = ('" + cmbRutProveedorProvProd.Text + "')";
+            string queryprov = "select Rut from Proveedor where Rut = '" + cmbRutProveedorProvProd.Text + "'";
             string RutProvProd = conex.selectQueryScalar(queryprov);           
             //Buscar datos del Cliente
-            string queryidprod = "select Id from Producto where Id = ('" + cmbIDProdProvProd.Text + "')";
+            string queryidprod = "select Id from Producto where Id = '" + cmbIDProdProvProd.Text + "'";
             string IDProdProv = conex.selectQueryScalar(queryidprod);
             //Cantidad de Producto
             string cantprodproveedor = txtCantidadCompraProvProd.Text;
@@ -94,6 +95,7 @@ namespace Taller2_DB
             //Precio Unitario del Producto
             string preciounitario = txtPrecioUnitarioProdProv.Text;
             int preciounitarioInt = Int32.Parse(preciounitario);
+
 
             if (cmbRutProveedorProvProd.Text != "" && cmbIDProdProvProd.Text != "" && txtPrecioUnitarioProdProv.Text != "" && txtCantidadCompraProvProd.Text != "")
             {
@@ -108,10 +110,91 @@ namespace Taller2_DB
                             string stockprod = conex.selectQueryScalar(querystockprod);
                             int stockprodInt = Int32.Parse(stockprod);
 
+                            if ((cantprodproveedorInt == 0) && (preciounitarioInt == 0))
+                            {
+                                MessageBox.Show("Debe poseer una cantidad minima para realizar suministro. ");
+                            }
+
                             if (stockprodInt == 0)
                             {
                                 cantProdCero();
                             }
+                            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                            //Datos del Proveedor que ya realizo suministro previo
+                            int verProveedor = validarProveedor();
+                            int verID = validarIdProd();
+                            if ((verProveedor == 1) && (verID == 1))
+                            {
+                                                               
+                                //Buscar datos del Rut Proveedor-Producto
+                                string queryprov2 = "Select ProveedorRut from proveedor_producto WHERE ProveedorRut = ('" + RutProvProd + "')";
+                                string RutProvProd2 = conex.selectQueryScalar(queryprov2);
+
+                                //Buscar Id Proveedor-Producto
+                                string queryidprod2 = "Select ProductoId from proveedor_producto WHERE ProductoId = ('" + IDProdProv + "')";
+                                string IDProdProv2 = conex.selectQueryScalar(queryidprod2);
+
+                                //Cantidad Stock Proveedor-Producto
+                                string querystockprovprod = "Select cantidadSuministrada from proveedor_producto WHERE ProveedorRut = ('" + RutProvProd2 + "') AND ProductoId = ('" + IDProdProv2 + "')";
+                                string stockprovprod = conex.selectQueryScalar(querystockprovprod);
+                                int stockprovprodInt = Int32.Parse(stockprovprod);
+
+                                
+                                    //Cantidad Stock Producto
+                                    string querystockprod2 = "select CantidadStock from Producto where Id = ('" + IDProdProv + "')";
+                                    string stockprod2 = conex.selectQueryScalar(querystockprod2);
+                                    int stockprodInt2 = Int32.Parse(stockprod2);
+
+                                    if (stockprodInt2 > cantprodproveedorInt)
+                                    {
+                                        cantProdCero();
+                                    }
+
+                                    if (cantprodproveedorInt > stockprodInt2)
+                                    {
+                                    MessageBox.Show("No puedes superar el stock disponible del producto. ");
+                                    }
+
+                                //diferencia 2, stock producto - cantidad a vender del proveedor
+                                int dif2 = (stockprodInt2 - cantprodproveedorInt);
+                                    if (dif2 > 0)
+                                    {
+                                        //Actualizar Stock Producto
+                                        string queryactStockProd3 = "UPDATE Producto SET CantidadStock = ('" + dif2 + "') WHERE Id = ('" + IDProdProv + "')";
+                                        int verificardif3 = conex.executeNonQuery(queryactStockProd3);
+                                     
+                                        if (verificardif3 == 1)
+                                        {
+                                            //Insertar Proveedor-Producto
+                                            string insertarProvProd3 = "INSERT INTO Proveedor_Producto(ProveedorRut, ProductoId, precioUnitario, cantidadSuministrada) VALUES ('" + RutProvProd + "','" + IDProdProv + "','" + preciounitarioInt + "','" + cantprodproveedorInt + "')";
+                                            //Confirma
+                                            MessageBox.Show("SI Funciona prov-prod 1");
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("NO Funciona prov-prod 1");
+                                        }
+                                    }
+                                    if (dif2 == 0)
+                                    {
+                                        //Actualizar Stock Producto
+                                        string queryactStockProd4 = "UPDATE Producto SET CantidadStock = ('" + dif2 + "') WHERE Id = ('" + IDProdProv + "')";
+                                        int verificardif4 = conex.executeNonQuery(queryactStockProd4);
+
+                                        if (verificardif4 == 1)
+                                        {
+                                            //Insertar Proveedor-Producto
+                                            string insertarProvProd4 = "INSERT INTO Proveedor_Producto(ProveedorRut, ProductoId, precioUnitario, cantidadSuministrada) VALUES ('" + RutProvProd + "','" + IDProdProv + "','" + preciounitarioInt + "','" + cantprodproveedorInt + "')";
+                                            MessageBox.Show("SI Funciona prov-prod 2, se acaba de agotar stock");
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("NO Funciona prov-prod 2, aun no se agota stock");
+                                        }
+                                    }
+
+                            }
+                            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                             //Diferencia de stock
                             int diferenciastock2 = (stockprodInt - cantprodproveedorInt);
@@ -123,8 +206,8 @@ namespace Taller2_DB
                                 int verificardif2 = conex.executeNonQuery(queryactStockProd2);
 
                                 //Insertar Proveedor-Producto
-                                string insertarProvProd = "INSERT INTO Proveedor_Producto(ProveedorRut, ProductoId, precioUnitario, cantidadSuministrada) VALUES ('" + RutProvProd + "','" + IDProdProv + "','" + preciounitarioInt + "','" + cantprodproveedorInt + "')";
-                                int verificarProvProdInsertado = conex.executeNonQuery(insertarProvProd);
+                                string insertarProvProd1 = "INSERT INTO Proveedor_Producto(ProveedorRut, ProductoId, precioUnitario, cantidadSuministrada) VALUES ('" + RutProvProd + "','" + IDProdProv + "','" + preciounitarioInt + "','" + cantprodproveedorInt + "')";
+                                int verificarProvProdInsertado = conex.executeNonQuery(insertarProvProd1);
 
                                 if (verificarProvProdInsertado == 1)
                                 {
@@ -143,8 +226,8 @@ namespace Taller2_DB
                                 int verificardif2 = conex.executeNonQuery(queryactStockProd2);
 
                                 //Insertar Proveedor-Producto
-                                string insertarProvProd = "INSERT INTO Proveedor_Producto(ProveedorRut, ProductoId, precioUnitario, cantidadSuministrada) VALUES ('" + RutProvProd + "','" + IDProdProv + "','" + preciounitarioInt + "','" + cantprodproveedorInt + "')";
-                                int verificarProvProdInsertado = conex.executeNonQuery(insertarProvProd);
+                                string insertarProvProd2 = "INSERT INTO Proveedor_Producto(ProveedorRut, ProductoId, precioUnitario, cantidadSuministrada) VALUES ('" + RutProvProd + "','" + IDProdProv + "','" + preciounitarioInt + "','" + cantprodproveedorInt + "')";
+                                int verificarProvProdInsertado = conex.executeNonQuery(insertarProvProd2);
 
                                 if (verificarProvProdInsertado == 1)
                                 {
@@ -154,8 +237,7 @@ namespace Taller2_DB
                                 {
                                     MessageBox.Show("No se verifico el registro, reintentar 2");
                                 }
-                            }
-                            
+                            }                                                      
                         }
                         else
                         {
@@ -172,9 +254,14 @@ namespace Taller2_DB
                     MessageBox.Show("El campo cantidad de producto tiene caracteres invalidos");
                 }
             }
-            else
+            //Si no hay datos
+            if (cmbRutProveedorProvProd.Text == null || cmbIDProdProvProd.Text == null || txtPrecioUnitarioProdProv.Text == null || txtCantidadCompraProvProd.Text == null);
             {
-                MessageBox.Show("Rellenar campos para continuar");
+                MessageBox.Show("Debe rellenar los campos para continiar. ");
+            }
+            if ((cantprodproveedorInt < 0) || (preciounitarioInt < 0))
+            {
+                MessageBox.Show("Los valores numericos deben ser positivos");
             }
 
             conex.close();
@@ -192,6 +279,25 @@ namespace Taller2_DB
                 MessageBox.Show("No hay stock para realizar suministro de producto. ");
             }
         }
+
+        public int validarProveedor()
+        {
+            ConexMySQL conex = new ConexMySQL();
+            conex.open();
+            string queryrut = "Select Rut from proveedor WHERE Rut = '" + cmbRutProveedorProvProd.Text + "'";
+            int verificacion = conex.executeNonQuery(queryrut);
+            return verificacion;
+        }
+
+        public int validarIdProd()
+        {
+            ConexMySQL conex = new ConexMySQL();
+            conex.open();
+            string queryid = "Select Id from Producto WHERE id = '" + cmbIDProdProvProd.Text + "'";
+            int verificacion2 = conex.executeNonQuery(queryid);
+            return verificacion2;
+        }
+
     }
 }
 
